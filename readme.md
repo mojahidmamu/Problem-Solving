@@ -14,8 +14,7 @@ This repository contains my solutions for **Codeforces problems** and **weekly c
 - Practice regularly to improve speed and accuracy
 
 ## Technologies
-- C++
-- Python (optional, if you solve some in Python)
+- C++ 
 - STL (for C++)
 - Git & GitHub for version control
 
