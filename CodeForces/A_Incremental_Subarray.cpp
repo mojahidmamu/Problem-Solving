@@ -11,11 +11,16 @@ int main()
     {
         int n, m;
         cin >> n >> m;
+        int arr[m];
+        int maxArr = 0;
         for (int i = 0; i < m; i++)
         {
-            int a;
-            cin >> a;
+            cin >> arr[i];
+            maxArr = max(maxArr, arr[i]);
         }
+
+        int subArrray = n - maxArr + 1;
+        cout << subArrray << endl;
     }
 
     return 0;
