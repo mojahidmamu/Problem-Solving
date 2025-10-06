@@ -6,10 +6,14 @@ int main()
     cin.tie(nullptr);
     // --- your code here ---
     string s;
-    cin >> s;
+    getline(cin, s);
     stringstream ss(s);
     string word;
-    ss >> word;
-    cout << word << " ";
+    while (ss >> word)
+    {
+        reverse(word.begin(), word.end());
+        cout << word << " ";
+    }
+
     return 0;
 }
