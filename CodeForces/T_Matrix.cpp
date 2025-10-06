@@ -25,6 +25,10 @@ int main()
             {
                 primary_diagonal += arr[i][j];
             }
+            else if (i + j == n - 1)
+            {
+                secondary_diagonal += arr[i][j];
+            }
         }
     }
 
