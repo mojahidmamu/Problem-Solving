@@ -9,10 +9,16 @@ int main()
     getline(cin, s);
     stringstream ss(s);
     string word;
+
+    bool first = true;
     while (ss >> word)
     {
         reverse(word.begin(), word.end());
-        cout << word << " ";
+        // cout << word << " ";
+        if (!first)
+            cout << " ";
+        cout << word;
+        first = false;
     }
 
     return 0;
