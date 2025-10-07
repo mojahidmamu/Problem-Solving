@@ -23,9 +23,19 @@ int main()
         cin >> arr[i].name >> arr[i].cls >> arr[i].section >> arr[i].id;
     }
 
+    int i = 0, j = n - 1;
+    while (i < j)
+    {
+        int temp = arr[i].section;
+        arr[i].section = arr[j].section;
+        arr[j].section = temp;
+        i++;
+        j--;
+    }
+
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i].name >> arr[i].cls >> arr[i].section >> arr[i].id;
+        cout << arr[i].name << " " << arr[i].cls << " " << arr[i].section << " " << arr[i].id << endl;
     }
 
     return 0;
