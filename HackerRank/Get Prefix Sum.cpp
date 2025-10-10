@@ -6,12 +6,12 @@ int main() {
     // --- your code here ---
     int n;
     cin >> n;
-    int arr[n];
+   long long int arr[n];
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    int prefixSum[n];
+    long long int prefixSum[n];
     prefixSum[0] = arr[0];
     for (int i = 1; i < n; i++)
     {
