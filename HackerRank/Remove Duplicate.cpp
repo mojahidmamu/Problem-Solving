@@ -12,7 +12,7 @@ public:
     }
 };
 
-void insert_at_tail(Node *&head, Node *&tail, int &val)
+void insert_at_tail(Node *&head, Node *&tail, int val)
 {
     Node *newNode = new Node(val);
     if (head == NULL)
@@ -27,6 +27,35 @@ void insert_at_tail(Node *&head, Node *&tail, int &val)
         tail = newNode;
     }
 };
+
+void print_list(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
+
+void remove_duplicates(Node *&head)
+{
+    Node *curr = head;
+    while (curr != NULL && curr->next != NULL)
+    {
+        if (curr->val == curr->next->val)
+        {
+            Node *temp = curr->next;
+            curr->next = curr->next->next;
+            delete temp;
+        }
+        else
+        {
+            curr = curr->next;
+        }
+    }
+}
 
 int main()
 {
@@ -49,5 +78,8 @@ int main()
             insert_at_tail(head, tail, val);
         }
     }
+
+    remove_duplicates(head);
+    print_list(head);
     return 0;
 }
