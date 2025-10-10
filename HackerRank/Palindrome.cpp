@@ -33,9 +33,8 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
 
 bool isPalirdrome(Node *head, Node *tail)
 {
-
+    
 }
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -50,14 +49,13 @@ int main()
         insert_at_tail(head, tail, val);
     }
 
-    bool flag = isPalindrome(head, tail);
-    if (flag)
+    if(isPalirdrome(head, tail))
     {
-        cout << "YES" << endl;
+        cout<<"YES"<<endl;
     }
     else
     {
-        cout << "NO" << endl;
+        cout<<"NO"<<endl;
     }
     return 0;
 }
