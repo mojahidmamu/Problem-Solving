@@ -46,26 +46,36 @@ void insert_at_tail(Node *&head, Node *&tail, int &x, int &val)
 
 void delete_at_index(Node *&head, Node *&tail, int &v)
 {
-    if (head == NULL)
+    if (head == NULL || v < 0)
     {
         return;
     }
-    if (head->val == v)
+    if (v == 0)
     {
         Node *temp = head;
         head = head->next;
         delete temp;
         return;
     }
+
     Node *curr = head;
-    while (curr->next != NULL && curr->next->val != v)
+    for (int i = 0; i < v - 1; i++)
     {
-        curr = curr->next;
+        if (curr == NULL || curr->next == NULL)
+        {
+            return;
+        }
+        else
+        {
+            curr = curr->next;
+        }
     }
+
     if (curr->next == NULL)
     {
         return;
     }
+
     Node *temp = curr->next;
     curr->next = curr->next->next;
     delete temp;
@@ -97,7 +107,7 @@ int main()
         {
             delete_at_index(head, tail, v);
         }
-        }
+    }
 
     return 0;
 }
