@@ -39,6 +39,24 @@ void print_list(Node *head)
     cout << endl;
 }
 
+void sort_node(Node *&head)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+    for (Node *i = head; i->next != NULL; i = i->next)
+    {
+        for (Node *j = i->next; j != NULL; j = j->next)
+        {
+            if (i->val > j->val)
+            {
+                swap(i->val, j->val);
+            }
+        }
+    }
+}
+
 void remove_duplicates(Node *&head)
 {
     Node *curr = head;
@@ -50,7 +68,7 @@ void remove_duplicates(Node *&head)
             curr->next = curr->next->next;
             delete temp;
         }
-        else
+        else if (curr->val != curr->next->val)
         {
             curr = curr->next;
         }
@@ -65,20 +83,13 @@ int main()
     Node *head = NULL;
     Node *tail = NULL;
 
-    while (true)
+    int val;
+    while (cin >> val && val != -1)
     {
-        int val;
-        cin >> val;
-        if (val == -1)
-        {
-            break;
-        }
-        else
-        {
-            insert_at_tail(head, tail, val);
-        }
+        insert_at_tail(head, tail, val);
     }
 
+    sort_node(head);
     remove_duplicates(head);
     print_list(head);
     return 0;
