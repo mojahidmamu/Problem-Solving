@@ -33,8 +33,18 @@ void insert_at_tail(Node *&head, Node *&tail, int val)
 
 bool isPalirdrome(Node *head, Node *tail)
 {
-    
+    while (head != NULL && tail != NULL && head != tail && head->prev != tail)
+    {
+        if(head->val != tail->val)
+        {
+            return false;
+        }
+        head = head->next;
+        tail = tail->prev;
+    }
+    return true;
 }
+
 int main()
 {
     ios::sync_with_stdio(false);
