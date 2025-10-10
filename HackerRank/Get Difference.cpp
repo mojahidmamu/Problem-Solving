@@ -44,6 +44,7 @@ int max_value(Node *head)
             tmp = tmp->next;
         }
     }
+    return max_val;
 }
 
 int min_value(Node *head)
@@ -62,6 +63,7 @@ int min_value(Node *head)
             tmp = tmp->next;
         }
     }
+    return min_val;
 }
 
 int main()
