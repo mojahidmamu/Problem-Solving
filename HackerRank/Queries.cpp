@@ -78,7 +78,22 @@ void delete_at_index(Node *&head, Node *&tail, int &v)
 
     Node *temp = curr->next;
     curr->next = curr->next->next;
+    if (curr->next == NULL)
+    {
+        tail = curr;
+    }
     delete temp;
+}
+
+void print_list(Node *&head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
 }
 
 int main()
@@ -109,5 +124,6 @@ int main()
         }
     }
 
+    print_list(head);
     return 0;
 }
