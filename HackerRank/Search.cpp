@@ -34,21 +34,46 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    Node *head = NULL;
-    Node *tail = NULL;
-
-    while (true)
+    int T;
+    cin >> T;
+    while (T--)
     {
-        int val;
-        cin >> val;
-        if (val == -1)
+        Node *head = NULL;
+        Node *tail = NULL;
+
+        while (true)
         {
-            break;
+            int val;
+            cin >> val;
+            if (val == -1)
+            {
+                break;
+            }
+            else
+            {
+                insert_at_tail(head, tail, val);
+            }
         }
-        else
+
+        int x;
+        cin >> x;
+        Node *tmp = head;
+        int index = 0;
+        while (tmp != NULL)
         {
-            insert_at_tail(head, tail, val);
+            if (tmp->val == x)
+            {
+                cout  << index << endl;
+                break;
+            }
+            tmp = tmp->next;
+            index++;
+        }
+        if (tmp == NULL)
+        {
+            cout << -1 << endl;
         }
     }
+
     return 0;
 }
