@@ -23,10 +23,6 @@ int main()
                 break;
             }
         }
-        // if (isDuplicate)
-        // {
-        //     break;
-        // }
     }
     if (isDuplicate)
     {
