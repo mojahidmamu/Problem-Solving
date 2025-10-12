@@ -38,17 +38,28 @@ void print_backward(Node *tail)
     cout << "\n";
 }
 
+// 
+void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
+{
+       
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
+
+    Node *head = NULL;
+    Node *tail = NULL;
+    int size = 0;
+
     int q;
     cin >> q;
     while (q--)
     {
         int X, V;
         cin >> X >> V;
-
+        insert_at_tail(head, tail, size, X, V);
     }
     
     return 0;
