@@ -64,9 +64,9 @@ void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
             newNode->next = head;
             head->prev = newNode;
             head = newNode;
-            size++;
-            print_forward(head);
-            print_backward(tail);
+            // size++;
+            // print_forward(head);
+            // print_backward(tail);
         }
     }
     else if (pos == size)
@@ -74,14 +74,22 @@ void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
         tail->next = newNode;
         newNode->prev = tail;
         tail = newNode;
-        size++;
-        print_forward(head);
-        print_backward(tail);
     }
     else // insert at any position: in the middle
     {
-        
+        Node *tmp = head;
+        for (int i = 0; i < pos - 1; i++)
+        {
+            tmp = tmp->next;
+        }
+        newNode->next = tmp->next;
+        newNode->prev = tmp;
+        tmp->next->prev = newNode;
+        tmp->next = newNode;
     }
+    size++;
+    print_forward(head);
+    print_backward(tail);
 }
 
 int main()
