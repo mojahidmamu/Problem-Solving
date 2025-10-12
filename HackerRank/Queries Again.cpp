@@ -17,7 +17,7 @@ public:
 // print forward:
 void print_forward(Node *head)
 {
-    cout << "R -> ";
+    cout << "L -> ";
     Node *tmp = head;
     while (tmp != NULL)
     {
@@ -30,7 +30,7 @@ void print_forward(Node *head)
 //  print backward:
 void print_backward(Node *tail)
 {
-    cout << "L -> ";
+    cout << "R -> ";
     Node *tmp = tail;
     while (tmp != NULL)
     {
@@ -41,7 +41,7 @@ void print_backward(Node *tail)
 }
 
 //
-void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
+void insert_at_tail(Node *&head, Node *&tail, int &size, int pos, int val)
 {
     if (pos > size)
     {
@@ -55,18 +55,12 @@ void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
         {
             head = newNode;
             tail = newNode;
-            size++;
-            print_forward(head);
-            print_backward(tail);
         }
         else
         {
             newNode->next = head;
             head->prev = newNode;
             head = newNode;
-            // size++;
-            // print_forward(head);
-            // print_backward(tail);
         }
     }
     else if (pos == size)
