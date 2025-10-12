@@ -75,10 +75,13 @@ void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
         newNode->prev = tail;
         tail = newNode;
         size++;
-        print_forward(head);    
+        print_forward(head);
         print_backward(tail);
     }
-    
+    else // insert at any position: in the middle
+    {
+        
+    }
 }
 
 int main()
