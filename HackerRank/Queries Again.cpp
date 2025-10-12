@@ -14,10 +14,10 @@ public:
     }
 };
 
-// print forward: 
+// print forward:
 void print_forward(Node *head)
 {
-     cout << "R -> ";
+    cout << "R -> ";
     Node *tmp = head;
     while (tmp != NULL)
     {
@@ -40,18 +40,39 @@ void print_backward(Node *tail)
     cout << "\n";
 }
 
-// 
+//
 void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
 {
-    if(pos > size)
+    if (pos > size)
     {
-        cout <<"Invalid\n";
+        cout << "Invalid\n";
         return;
     }
-     
+    Node *newNode = new Node(val);
+    if (pos == 0)
+    {
+        if (head == NULL)
+        {
+            head = newNode;
+            tail = newNode;
+            size++;
+            print_forward(head);
+            print_backward(tail);
+        }
+        else
+        {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+            size++;
+            print_forward(head);
+            print_backward(tail);
+        }
+    }
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
@@ -68,6 +89,6 @@ int main() {
         cin >> X >> V;
         insert_at_tail(head, tail, size, X, V);
     }
-    
+
     return 0;
 }
