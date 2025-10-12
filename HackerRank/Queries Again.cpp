@@ -69,6 +69,16 @@ void insert_at_tail(Node *head, Node *&tail, int &size, int pos, int val)
             print_backward(tail);
         }
     }
+    else if (pos == size)
+    {
+        tail->next = newNode;
+        newNode->prev = tail;
+        tail = newNode;
+        size++;
+        print_forward(head);    
+        print_backward(tail);
+    }
+    
 }
 
 int main()
