@@ -23,9 +23,20 @@ int main()
         }
         else if (x == 2)
         {
+            int idx = 0;
+            for (auto it = l.begin(); it != l.end(); it++)
+            {
+                if (idx == v)
+                {
+                    l.erase(it);
+                    break;
+                }
+                idx++;
+            }
         }
 
-        // print forward: 
+        // print forward:
+        cout << "L -> "; 
         for(int val : l)
         {
             cout << val << " ";
@@ -33,6 +44,7 @@ int main()
         cout << endl;
 
         // print backward:
+        cout << "R -> "; 
         for(auto it = l.rbegin(); it != l.rend(); it++)
         {
             cout << *it << " ";
