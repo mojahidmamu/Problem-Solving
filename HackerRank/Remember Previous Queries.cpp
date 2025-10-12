@@ -17,6 +17,7 @@ public:
 // print forward: 
 void print_forward(Node *head)
 {
+     cout << "R -> ";
     Node *tmp = head;
     while (tmp != NULL)
     {
@@ -29,6 +30,7 @@ void print_forward(Node *head)
 //  print backward:
 void print_backward(Node *tail)
 {
+    cout << "L -> ";
     Node *tmp = tail;
     while (tmp != NULL)
     {
