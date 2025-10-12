@@ -14,6 +14,30 @@ public:
     }
 };
 
+// print forward: 
+void print_forward(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << "\n";
+}
+
+//  print backward:
+void print_backward(Node *tail)
+{
+    Node *tmp = tail;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->prev;
+    }
+    cout << "\n";
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -24,7 +48,7 @@ int main() {
     {
         int X, V;
         cin >> X >> V;
-        
+
     }
     
     return 0;
