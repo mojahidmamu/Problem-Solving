@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
@@ -25,7 +26,15 @@ int main() {
             string web_name;
             cin >> web_name;
             auto isFound = find(web_list.begin(), web_list.end(), web_name);
-            
+            if (isFound != web_list.end())
+            {
+                current = isFound;
+                cout << *current << endl;
+            }
+            else
+            {
+                cout << "Not Available" << endl;
+            }
         }
         else if (command == "next")
         {
@@ -35,9 +44,7 @@ int main() {
         {
             /* code */
         }
-        
     }
-    
-    
+
     return 0;
 }
