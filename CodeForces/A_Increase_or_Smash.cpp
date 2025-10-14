@@ -16,6 +16,20 @@ int main()
         {
             cin >> arr[i];
         }
+        int inctease  = 0;
+        int smash = 0;
+        for (int i = 0; i < a - 1; i++)
+        {
+            if (arr[i] < arr[i + 1])
+            {
+                inctease++;
+            }
+            else if (arr[i] > arr[i + 1])
+            {
+                smash++;
+            }
+        }
+        cout << min(inctease, smash) << "\n";
     }
     return 0;
 }
