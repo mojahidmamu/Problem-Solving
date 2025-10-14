@@ -9,7 +9,7 @@ int main()
     cin >> T;
     while (T--)
     {
-        int x, y;
+        long long int x, y;
         cin >> x >> y;
 
         // current position:
@@ -38,28 +38,17 @@ int main()
                 {
                     cy += step;
                     ans++;
-                } 
+                }
                 else
                 {
                     isPossible = false;
                     break;
                 }
             }
-            else 
-            {
-                isPossible = false;
-                break;
-            }
         }
 
-        if (isPossible)
-        {
-            cout << ans << "\n";
-        }
-        else
-        {
-            cout << -1 << "\n";
-        }
+        cout <<  (isPossible ? ans : -1) << "\n";
+        
     }
     return 0;
 }
