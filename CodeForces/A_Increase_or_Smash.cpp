@@ -16,20 +16,20 @@ int main()
         {
             cin >> arr[i];
         }
-        int inctease  = 0;
+        int inctease = 0;
         int smash = 0;
-        for (int i = 0; i < a - 1; i++)
+        for (int i = 1; i < a ; i++)
         {
-            if (arr[i] < arr[i + 1])
+            if (arr[i] > arr[i - 1])
             {
                 inctease++;
             }
-            else if (arr[i] > arr[i + 1])
+            else if (arr[i] < arr[i - 1])
             {
                 smash++;
             }
         }
-        cout << min(inctease, smash) << "\n";
+        cout << inctease + smash + 1 << "\n";
     }
     return 0;
 }
