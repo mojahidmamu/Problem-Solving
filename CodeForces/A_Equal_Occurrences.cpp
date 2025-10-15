@@ -35,7 +35,7 @@ int main()
             max_freq = max(max_freq, p.second);
         }
 
-        for (int f = 1; f < -max_freq; f++)
+        for (int f = 1; f <= max_freq; f++)
         {
             int cnt = 0;
             for (auto &p : freq)
