@@ -24,7 +24,8 @@ int main()
                 need_operations++;
             }
         }
-        cout << (need_operations + 1) / 2 << "\n";
+        // cout << (need_operations + 1) / 2 << "\n";
+        cout << ceil(need_operations / 2) << "\n";
     }
     return 0;
 }
