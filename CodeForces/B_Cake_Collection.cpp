@@ -9,7 +9,9 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, m;
+        int n;
+        long long m;
+        
         cin >> n >> m;
         vector<int> a(n);
         for (int i = 0; i < n; i++)
