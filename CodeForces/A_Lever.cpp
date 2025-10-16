@@ -21,15 +21,35 @@ int main()
         {
             cin >> arr2[i];
         }
-        int maxDiff = 0;
-        for (int i = 0; i < n; i++)
+        int cnt = 0;
+        while (true)
         {
-            if (arr1[i] > arr2[i])
+            bool increase = false, decrease = false;
+            for (int i = 0; i < n; i++)
             {
-                maxDiff = max(maxDiff, arr1[i] - arr2[i]);
+                if (arr1[i] > arr2[i])
+                {
+                    decrease = true;
+                    arr1[i]--;
+                    break;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                if (arr1[i] < arr2[i])
+                {
+                    increase = true;
+                    arr1[i]++;
+                    break;
+                }
+            }
+            cnt++;
+            if (!decrease)
+            {
+                break;
             }
         }
-        cout << maxDiff + 1 << "\n";
+        cout << cnt << "\n";
     }
     return 0;
 }
