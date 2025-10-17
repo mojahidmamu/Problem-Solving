@@ -31,11 +31,9 @@ int main()
         }
         else
         {
-            long long high_bit = 1LL << (63 - __builtin_clzll(x));
-            long long first = high_bit ^ x;
-            long long second = x ^ first;
             cout << 2 << "\n"
-                 << first << " " << second << "\n";
+                 << a << " " << x << "\n";
+            
         }
     }
 
