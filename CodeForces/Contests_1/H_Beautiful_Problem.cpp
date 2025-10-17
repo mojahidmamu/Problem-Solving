@@ -14,6 +14,12 @@ int main()
     {
         cin >> a[i];
     }
+    while (m--)
+    {
+        int l, r;
+        cin >> l >> r;
+    }
+    
     
     
     return 0;
