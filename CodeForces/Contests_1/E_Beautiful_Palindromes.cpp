@@ -18,21 +18,23 @@ int main()
         }
 
         vector<int> ans;
-        for (int i = 0; ans.size() < k; i++)
+        int x = 1;
+        while (ans.size() < k)
         {
-            if (i != a.back())
+            if (x != a.back())
             {
-                ans.push_back(i);
+                ans.push_back(x);
+                x++;
             }
-            if (i == n)
+            if (x > n)
             {
-                i = 0;
+                x = 1;  
             }
         }
 
         for (int i = 0; i < k; i++)
         {
-            cout << ans[i] << (i == k - 1 ? "\n" : " "); 
+            cout << ans[i] << (i == k - 1 ? "\n" : " ");
         }
     }
 
