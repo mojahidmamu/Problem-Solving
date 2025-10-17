@@ -16,11 +16,16 @@ int main()
         {
             cin >> a[i];
         }
-
-        bool possible = true;
-        
-
-
+        sort(a.begin(), a.end(), greater<int>());
+        bool possible;
+        if (a[j] >= a[k - 1])
+        {
+            possible = true;
+        }
+        else
+        {
+            possible = false;
+        }
 
         if (possible)
             cout << "YES" << endl;
