@@ -39,12 +39,13 @@ int main()
             string p = "";
             string x = "";
             vector<int> idx;
+
             for (int i = 0; i < n; i++)
             {
                 if (mask & (1 << i))
                 {
                     p += s[i];
-                    idx.push_back(i);
+                    idx.push_back(i + 1);
                 }
                 else
                 {
@@ -52,7 +53,7 @@ int main()
                 }
             }
 
-            if (isPalindrome(p) && isNonDecreasing(x))
+            if (isPalindrome(x) && isNonDecreasing(p))
             {
                 cout << (int)idx.size() << "\n";
                 if (!idx.empty())
@@ -66,6 +67,7 @@ int main()
                 break;
             }
         }
+
         if (!is_beautiful)
         {
             cout << -1 << "\n";
