@@ -11,10 +11,25 @@ int main()
     {
         int n, x;
         cin >> n >> x;
-        vector<int> a(n);
+        int L = n + 1, R = 0;
+
         for (int i = 0; i < n; ++i)
         {
-            cin >> a[i];
+            int a;
+            cin >> a;
+            if (a == 1)
+            {
+                L = min(L, i);
+                R = max(R, i);
+            }
+        }
+        if (R - L + 1 <= x)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
         }
     }
     return 0;
