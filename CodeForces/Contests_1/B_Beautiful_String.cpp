@@ -1,14 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isPalindrome(string s)
+bool isPalindrome(string &s)
 {
     string t = s;
     reverse(t.begin(), t.end());
     return s == t;
 }
 
-bool isNonDecreasing(string s)
+bool isNonDecreasing(string &s)
 {
     for (int i = 1; i < (int)s.size(); i++)
     {
@@ -22,7 +22,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // --- your code here ---
+
     int t;
     cin >> t;
     while (t--)
@@ -33,6 +33,8 @@ int main()
         cin >> s;
 
         bool is_beautiful = false;
+        vector<int> best;
+        int bestLen = -1;
 
         for (int mask = 0; mask < (1 << n); mask++)
         {
@@ -55,22 +57,18 @@ int main()
 
             if (isPalindrome(x) && isNonDecreasing(p))
             {
-                cout << (int)idx.size() << "\n";
-                if (!idx.empty())
+                if ((int)idx.size() > bestLen)
                 {
-                    for (int i = 0; i < (int)idx.size(); i++)
-                    {
-                        cout << idx[i] + 1 << (i + 1 == (int)idx.size() ? "\n" : " ");
-                    }
+                    best = idx;
+                    bestLen = idx.size();
                 }
-                is_beautiful = true;
-                break;
             }
         }
 
-        if (!is_beautiful)
+        cout << bestLen << "\n";
+        for (int i = 0; i < (int)best.size(); i++)
         {
-            cout << -1 << "\n";
+            cout << best[i] << (i + 1 == (int)best.size() ? '\n' : ' ');
         }
     }
     return 0;
