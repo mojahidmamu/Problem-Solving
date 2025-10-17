@@ -16,9 +16,9 @@ int main()
         {
             cin >> a[i];
         }
-        sort(a.begin(), a.end(), greater<int>());
+        sort(a.rbegin(), a.rend());
         bool possible;
-        if (a[j] >= a[k - 1])
+        if (a[j - 1] >= a[k - 1])
         {
             possible = true;
         }
