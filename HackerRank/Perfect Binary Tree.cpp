@@ -48,12 +48,24 @@ Node *input_binary_tree()
     return root;
 }
 
+bool perfect_binary_tree(Node *root)
+{
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
     Node *root = input_binary_tree();
+    if (perfect_binary_tree(root))
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
