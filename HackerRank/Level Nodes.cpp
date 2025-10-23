@@ -83,6 +83,12 @@ void order_level(Node *root, int target_level)
             q.push({current->right, level + 1});
         }
     }
+    //
+    if (!found)
+    {
+        cout << "Invalid" << endl;
+    }
+    cout << endl;
 }
 
 int main()
