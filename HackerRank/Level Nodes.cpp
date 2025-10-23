@@ -48,51 +48,12 @@ Node *input_binary_tree()
     return root;
 }
 
-// max-height:
-int max_height(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    if (root->left == NULL && root->right == NULL)
-    {
-        return 0;
-    }
-    int l = max_height(root->left);
-    int r = max_height(root->right);
-    int maximum = max(l, r);
-    return maximum + 1;
-}
-
-int count_nodes(Node *root)
-{
-    if (root == NULL)
-    {
-        return 0;
-    }
-    int left = count_nodes(root->left);
-    int right = count_nodes(root->right);
-    return left + right + 1;
-}
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
     Node *root = input_binary_tree();
-    int maxHeight = max_height(root);
-    int total_node = count_nodes(root);
-    int cal = pow(2, maxHeight + 1) - 1;
-    if (total_node == cal)
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
 
     return 0;
 }
