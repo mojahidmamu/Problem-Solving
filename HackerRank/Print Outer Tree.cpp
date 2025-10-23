@@ -65,7 +65,38 @@ int max_height(Node *root)
     return maximum + 1;
 }
 
+void traverse_left(Node *root)
+{
+    while (root != NULL)
+    {
+        cout << root->val << " ";
+        if (root->right)
+        {
+            root = root->right;
+        }
+        else
+        {
+            root = root->left;
+        }
+    }
+}
 
+void traverse_right(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    if (root->left)
+    {
+        traverse_left(root->left);
+    }
+    else if (root->right)
+    {
+        traverse_left(root->right);
+    }
+    cout << root->val << " ";
+}
 
 int main()
 {
@@ -73,7 +104,12 @@ int main()
     cin.tie(nullptr);
     // --- your code here ---
     Node *root = input_binary_tree();
-    
+    if (root)
+    {
+        traverse_left(root->left);
+        cout << root->val << " ";
+        traverse_right(root->right);
+    }
 
     return 0;
 }
