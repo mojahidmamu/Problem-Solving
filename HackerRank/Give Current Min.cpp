@@ -25,7 +25,7 @@ int main()
     {
         Student s;
         cin >> s.name >> s.roll >> s.marks;
-        pq.push({s.name, s.roll , s.marks});
+        pq.push({s.name, s.roll, s.marks});
     }
 
     int Q;
@@ -36,21 +36,37 @@ int main()
         cin >> cmd;
         if (cmd == 0)
         {
-            
+            Student s;
+            cin >> s.name >> s.roll >> s.marks;
+            pq.push(s);
+            if (pq.empty())
+            {
+                cout << "Empty" << endl;
+            }
+            else
+            {
+                cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks;
+            }
         }
         else if (cmd == 1)
         {
-            /* code */
+            if (pq.empty())
+            {
+                cout << "Empty" << endl;
+            }
+            else
+            {
+                cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks;
+            }
         }
         else if (cmd == 2)
         {
-            /* code */
+            if (pq.empty())
+            {
+                cout << "Empty" << endl;
+            }
         }
-        
-        
-        
     }
-    
 
     return 0;
 }
