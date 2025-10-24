@@ -24,8 +24,6 @@ int main()
         s.insert(val);
     }
 
-    sort(s.begin(), s.end());
-
     int Q;
     cin >> Q;
     while (Q--)
