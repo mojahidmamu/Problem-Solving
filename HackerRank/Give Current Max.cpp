@@ -9,23 +9,19 @@ public:
     int marks;
 };
 
-bool Compare(Student a, Student b)
-{
-}
-
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    priority_queue<Student, vector<Student>, Compare> pq;
+    set<int> s;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        Student s;
-        cin >> s.name >> s.roll >> s.marks;
-        pq.push({s.name, s.roll , s.marks});
+        int val;
+        cin >> val;
+        s.insert(val);
     }
 
     int Q;
@@ -34,23 +30,23 @@ int main()
     {
         int cmd;
         cin >> cmd;
+
         if (cmd == 0)
         {
-            
+            int x;
+            cin >> x;
+            s.insert(x);
+            cout << *s.begin() << endl;
         }
         else if (cmd == 1)
         {
-            /* code */
+            cout << *s.begin() << endl;
         }
         else if (cmd == 2)
         {
             /* code */
         }
-        
-        
-        
     }
-    
 
     return 0;
 }
