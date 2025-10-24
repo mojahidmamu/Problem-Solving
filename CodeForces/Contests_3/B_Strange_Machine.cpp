@@ -23,21 +23,35 @@ int main()
         for (int i = 0; i < Q; i++)
         {
             long long x = arr[i];
-            int position = 0;
             long long second = 0;
+            int position = 0;
 
             while (x > 0)
             {
                 if (s[position] == 'A')
                 {
-                    x -= 1;
+                    int cnt = 0;
+                    int current = position;
+
+                    while (s[current] == 'A' && cnt < x)
+                    {
+                        cnt++;
+                        current = (current + 1) % N;
+                        if (current == position)
+                        {
+                            break;
+                        }
+                    }
+                    x -= cnt;
+                    second += cnt;
+                    position = current;
                 }
                 else
                 {
                     x /= 2;
+                    second++;
+                    position = (position + 1) % N;
                 }
-                second++;
-                position = (position + 1) % N;
             }
             cout << second << "\n";
         }
