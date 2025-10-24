@@ -9,16 +9,16 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
+        long long  n;
         cin >> n;
-        long long hao = 0;
+        long long Hao = 0;
         while (n >= 3)
         {
             long long x = n / 3;
-            hao += x;
+            Hao += x;
             n = n - 2 * x;
         }
-        cout << hao << "\n";
+        cout << Hao << "\n";
     }
 
     return 0;
