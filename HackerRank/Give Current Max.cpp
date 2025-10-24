@@ -24,6 +24,8 @@ int main()
         s.insert(val);
     }
 
+    sort(s.begin(), s.end());
+
     int Q;
     cin >> Q;
     while (Q--)
@@ -40,11 +42,34 @@ int main()
         }
         else if (cmd == 1)
         {
-            cout << *s.begin() << endl;
+            if (s.empty())
+            {
+                cout << "Empty" << endl;
+            }
+            else
+            {
+                cout << *s.begin() << endl;
+            }
         }
         else if (cmd == 2)
         {
-            /* code */
+            if (s.empty())
+            {
+                cout << "Empty" << endl;
+            }
+            else
+            {
+                int mn = *s.begin();
+                s.erase(mn);
+                if (s.empty())
+                {
+                    cout << "Empty" << endl;
+                }
+                else
+                {
+                    cout << *s.begin() << endl;
+                }
+            }
         }
     }
 
