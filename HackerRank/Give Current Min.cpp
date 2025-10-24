@@ -9,9 +9,20 @@ public:
     int marks;
 };
 
-bool Compare(Student a, Student b)
+struct Compare
 {
-}
+    bool operator()(Student a, Student b)
+    {
+        if (a.marks != b.marks)
+        {
+            return a.marks < b.marks;
+        }
+        else
+        {
+            return a.roll > b.roll;
+        }
+    }
+};
 
 int main()
 {
@@ -64,6 +75,18 @@ int main()
             if (pq.empty())
             {
                 cout << "Empty" << endl;
+            }
+            else
+            {
+                pq.pop();
+                if (pq.empty())
+                {
+                    cout << "Empty" << endl;
+                }
+                else
+                {
+                    cout << pq.top().name << " " << pq.top().roll << " " << pq.top().marks;
+                }
             }
         }
     }
