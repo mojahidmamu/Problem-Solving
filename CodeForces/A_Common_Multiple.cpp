@@ -11,11 +11,14 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> v(n);
+        set<int> s;
         for (int i = 0; i < n; i++)
         {
-            cin >> v[i];
+            int x;
+            cin >> x;
+            s.insert(x);
         }
+        cout << s.size() << endl;
     }
 
     return 0;
