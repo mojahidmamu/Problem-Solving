@@ -11,25 +11,31 @@ int main()
     {
         long long x, y, a;
         cin >> x >> y >> a;
-
-        int deepth = a + 0.5;
-        bool isLittleB = true;
-        while (deepth <= x + y)
+        int T = 2 * a + 1;
+        long long pairSum = 2 * (x + y);
+        long long remaining = T % pairSum;
+        bool b_wins;
+        if (remaining == 0)
         {
-            
+            b_wins = true;
         }
-        
+        else if (remaining <= 2 * x)
+        {
+            b_wins = true;
+        }
+        else
+        {
+            b_wins = false;
+        }
 
-
-        if (isLittleB)
+        if (b_wins)
         {
             cout << "NO" << endl;
         }
-        else 
+        else
         {
             cout << "YES" << endl;
         }
-        
     }
 
     return 0;
