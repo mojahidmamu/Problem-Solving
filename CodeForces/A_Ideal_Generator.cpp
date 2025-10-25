@@ -11,7 +11,7 @@ int main()
     {
         int k;
         cin >> k;
-        bool isIdealGenerator = true;
+        bool isIdealGenerator = true; // check just isPrime or not; 
         if (k == 1)
         {
             isIdealGenerator = true;
