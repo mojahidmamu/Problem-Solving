@@ -11,7 +11,22 @@ int main()
     {
         int k;
         cin >> k;
-        bool isIdealGenerator;
+        bool isIdealGenerator = true;
+        if (k == 1)
+        {
+            isIdealGenerator = true;
+        }
+        if (k == 2)
+        {
+            isIdealGenerator = false;
+        }
+        for (int i = 3; i * i <= k; i += 2)
+        {
+            if (k % i == 0)
+            {
+                isIdealGenerator = false;
+            }
+        }
 
         if (isIdealGenerator)
         {
