@@ -21,6 +21,7 @@ int main()
     for (int i = 0; i < N; i++)
     {
         sort(adj_list[i].rbegin(), adj_list[i].rend());
+        sort(adj_list[i].begin(), adj_list[i].end(), greater<int>());
     }
 
     int Q;
