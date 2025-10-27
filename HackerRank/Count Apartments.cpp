@@ -26,7 +26,7 @@ void dfs(int Si, int Sj)
     {
         int ni = Si + dir.first;
         int nj = Sj + dir.second;
-        if (!vis[ni][nj] && valid(ni, nj) && arr[ni][nj] == '.')
+        if (valid(ni, nj) && !vis[ni][nj] && arr[ni][nj] == '.')
         {
             dfs(ni, nj);
         }
