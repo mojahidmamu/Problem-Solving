@@ -15,6 +15,12 @@ int main()
         int a, b;
         cin >> a >> b;
         adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        sort(adj_list[i].rbegin(), adj_list[i].rend());
     }
 
     int Q;
@@ -23,6 +29,19 @@ int main()
     {
         int X;
         cin >> X;
+
+        if (adj_list[X].empty())
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            for (int val : adj_list[X])
+            {
+                cout << val << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
