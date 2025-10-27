@@ -23,6 +23,30 @@ int main()
     {
         int A, B;
         cin >> A >> B;
+
+        if (A == B)
+        {
+            cout << "YES" << endl;
+            continue;
+        }
+
+        bool isConnected = false;
+        for(int val : adj_list[A])
+        {
+            isConnected = true;
+            break;
+        }
+
+        if (isConnected)
+        {
+            cout << "YES" << endl;
+        }
+        else 
+        {
+            cout << "NO" << endl;
+        }
+        
+        
     }
 
     return 0;
