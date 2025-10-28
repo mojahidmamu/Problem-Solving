@@ -11,8 +11,11 @@ int main()
     {
         int a, b, c, d;
         cin >> a >> b >> c >> d;
-
         bool isSquare = false;
+        if (a == b && b == c && c == d)
+        {
+            isSquare = true;
+        }
 
         if (isSquare)
         {
