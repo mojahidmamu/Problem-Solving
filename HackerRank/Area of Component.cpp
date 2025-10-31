@@ -2,6 +2,9 @@
 using namespace std;
 
 int N, M;
+vector<string> grid;
+bool vis[1005][1005];
+vector<pair<int, int>> d = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 bool valid(int i, int j)
 {
     if (i < 0 || i >= N || j < 0 || j >= M)
@@ -14,11 +17,58 @@ bool valid(int i, int j)
     }
 }
 
+int bfs(int x, int y)
+{
+    queue<int> q;
+    q.push(source_code);
+    vis[source_code] = true;
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            if (vis[child] == false)
+            {
+                q.push(child);
+                vis[child] = true;
+            }
+        }
+    }
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
     cin >> N >> M;
+    grid.resize(N);
+    for (int i = 0; i < N; i++)
+    {
+        cin >> grid[i];
+    }
+
+    int ans = INT_MAX;
+    memset(vis, false, sizeof(vis));
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            if (grid[i][j] == '.' && !vis[i][j])
+            {
+                int area = bfs(i, j);
+                ans = min(ans, area);
+            }
+        }
+    }
+
+    cout << ((ans == INT_MAX) ? -1 : ans);
+
     return 0;
 }
