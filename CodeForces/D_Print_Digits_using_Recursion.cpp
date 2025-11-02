@@ -4,8 +4,15 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    int n;
-    cin >> n;
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        long long n;
+        cin >> n;
+        
+    }
     
+
     return 0;
 }
