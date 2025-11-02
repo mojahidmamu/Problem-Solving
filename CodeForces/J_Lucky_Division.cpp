@@ -1,5 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+bool isLucky(int x)
+{
+    while (x > 0)
+    {
+        int d = x % 10;
+        if (d != 4 && d != 7)
+            return false;
+        x /= 10;
+    }
+    return true;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -7,16 +20,13 @@ int main()
     // --- your code here ---
     int n;
     cin >> n;
-    bool almostLucky = true;
-    for (int i = 0; i < n; i++)
+    bool almostLucky = false;
+    for (int i = 1; i <= n; i++)
     {
-        while (i > 0)
+        if (isLucky(i) && n % i == 0)
         {
-            int d = i % 10;
-            if (d != 4 && d != 7)
-            {
-                almostLucky = false;
-            }
+            almostLucky = true;
+            break;
         }
     }
 
