@@ -9,9 +9,21 @@ int main()
     cin >> t;
     while (t--)
     {
-        int a, b;
-        cin >> a >> b;
-        cout << (a % b) << "\n";
+        int n;
+        cin >> n;
+        int cnt = 0;
+        int a = 1;
+        int b;
+        while (a < n)
+        {
+            if (b = n - a)
+            {
+                cnt++;
+            }
+            a++;
+        }
+
+        cout << cnt << "\n";
     }
     return 0;
 }
