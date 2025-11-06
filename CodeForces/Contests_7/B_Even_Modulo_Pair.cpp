@@ -28,12 +28,17 @@ int main()
             }
         }
 
-
         if (!has_even)
         {
-            cout << "-1" << endl;
+            if (arr[0] == 1)
+            {
+                cout << arr[0] << " " << arr[1] << endl;
+            }
+            else
+            {
+                cout << "-1" << endl;
+            }
         }
-        
     }
     return 0;
 }
