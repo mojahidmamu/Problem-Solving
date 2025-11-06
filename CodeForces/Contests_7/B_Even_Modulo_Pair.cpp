@@ -18,11 +18,12 @@ int main()
         }
 
         bool has_even = false;
-        for (int i = 0; i < n - 1; i++)
+        long long x = arr[0];
+        for (int i = 1; i < n; i++)
         {
-            if ((arr[i + 1] % arr[i]) % 2 == 0)
+            if ((arr[i] % x) % 2 == 0)
             {
-                cout << arr[i] << " " << arr[i + 1] << endl;
+                cout << x << " " << arr[i] << endl;
                 has_even = true;
                 break;
             }
@@ -30,14 +31,7 @@ int main()
 
         if (!has_even)
         {
-            if (arr[0] == 1)
-            {
-                cout << arr[0] << " " << arr[1] << endl;
-            }
-            else
-            {
-                cout << "-1" << endl;
-            }
+            cout << "-1" << endl;
         }
     }
     return 0;
