@@ -18,16 +18,21 @@ int main()
         }
         long long x;
         cin >> x;
+
         bool possible = false;
-        for (int i = 0; i < n - 1; i++)
+
+        if (n == 1)
         {
-            long long mx = max(arr[i], arr[i + 1]);
-            long long mn = min(arr[i], arr[i + 1]);
-            if (mn <= x && x <= mx
-            )
+            possible = (arr[0] == x);
+        }
+        else
+        {
+            long long mx = *max_element(arr.begin(), arr.end());
+            long long mn = *min_element(arr.begin(), arr.end());
+            if (mn <= x && x <= mx)
             {
                 possible = true;
-                break;
+              
             }
         }
 
