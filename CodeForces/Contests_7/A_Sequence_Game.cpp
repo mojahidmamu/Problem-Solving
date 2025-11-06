@@ -23,7 +23,8 @@ int main()
         {
             long long mx = max(arr[i], arr[i + 1]);
             long long mn = min(arr[i], arr[i + 1]);
-            if (mx - mn >= 2 * x)
+            if (mn <= x && x <= mx
+            )
             {
                 possible = true;
                 break;
