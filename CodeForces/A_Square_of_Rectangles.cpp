@@ -12,35 +12,12 @@ int main()
         int l1, b1, l2, b2, l3, b3;
         cin >> l1 >> b1 >> l2 >> b2 >> l3 >> b3;
         bool canFormSquare = false;
-        int totalArea = l1 * b1 + l2 * b2 + l3 * b3;
-        if (totalArea % 4 == 0)
+        //  int allSum = l1 + b1 + l2 + b2 + l3 + b3;
+        int sum1 = l1 + l2 + l3;
+        int sum2 = b1 + b2 + b3;
+        if (sum1 == sum2)
         {
-            int side = sqrt(totalArea / 4);
-            if (side * side * 4 == totalArea)
-            {
-                // Check all combinations to form the square
-                vector<pair<int, int>> rects = {{l1, b1}, {l2, b2}, {l3, b3}};
-                sort(rects.begin(), rects.end(), [](pair<int, int> a, pair<int, int> b)
-                     { return a.first * a.second > b.first * b.second; });
-
-                // Try to fit rectangles into the square
-                for (int mask = 0; mask < (1 << 3); ++mask)
-                {
-                    int usedArea = 0;
-                    for (int i = 0; i < 3; ++i)
-                    {
-                        if (mask & (1 << i))
-                        {
-                            usedArea += rects[i].first * rects[i].second;
-                        }
-                    }
-                    if (usedArea == side * side)
-                    {
-                        canFormSquare = true;
-                        break;
-                    }
-                }
-            }
+            canFormSquare = true;
         }
 
         cout << (canFormSquare ? "YES" : "NO") << "\n";
