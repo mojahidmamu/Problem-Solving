@@ -9,6 +9,12 @@ int main()
     cin >> t;
     while (t--)
     {
+        int n, k;
+        cin >> n >> k;
+        string s;
+        cin >> s;
+        string t;
+
     }
     return 0;
 }
