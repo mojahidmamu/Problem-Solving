@@ -1,63 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // --- your code here ---
+
     int t;
     cin >> t;
     while (t--)
     {
         int n;
         cin >> n;
-        vector<int> arr(n);
+        vector<int> a(n);
         for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
-        bool flag = true;
-        vector<int> odd, even;
-        for (int i = 0; i < n; i++)
-        {
-            if (i % 2 == 0)
-            {
-                odd.push_back(arr[i]);
-            }
-            else
-            {
-                even.push_back(arr[i]);
-            }
-        }
+            cin >> a[i];
 
-        sort(odd.begin(), odd.end());
-        sort(even.begin(), even.end());
+        sort(a.begin(), a.end());
+        vector<int> b(n);
 
-        vector<int> merged;
-        for (int i = 0; i < n; i++)
-        {
-            if (i % 2 == 0)
-                merged.push_back(even[i / 2]);
-            else
-                merged.push_back(odd[i / 2]);
-        }
+        int idx = 0;
+        for (int i = 0; i < n; i += 2)
+            b[i] = a[idx++]; // fill odd indices (0-based)
+        for (int i = 1; i < n; i += 2)
+            b[i] = a[idx++]; // fill even indices
 
-        for (int i = 0; i + 1 < n; i++)
+        bool ok = true;
+        for (int i = 1; i < n; i++)
         {
-            if (merged[i] > merged[i + 1])
+            if (b[i] < b[i - 1])
             {
-                flag = false;
+                ok = false;
+                break;
             }
         }
-
-        if (flag)
-        {
-            cout << "YES\n";
-        }
-        else
-        {
-            cout << "NO\n";
-        }
+        cout << (ok ? "YES" : "NO") << "\n";
     }
+
     return 0;
 }
