@@ -21,6 +21,8 @@ int main()
         {
             cin >> arr2[i];
         }
+        bool flag = true;
+        
     }
     return 0;
 }
