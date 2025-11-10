@@ -11,20 +11,45 @@ int main()
     {
         int n;
         cin >> n;
-        int arr[n];
+        vector<int> arr(n);
         for (int i = 0; i < n; i++)
         {
             cin >> arr[i];
         }
         bool flag = true;
-        for (int i = 0; i < n - 1; i++)
+        vector<int> odd, even;
+        for (int i = 0; i < n; i++)
         {
-            if (arr[i] > arr[i + 1])
+            if (i % 2 == 0)
             {
-                flag = false;
-                break;
+                odd.push_back(arr[i]);
+            }
+            else
+            {
+                even.push_back(arr[i]);
             }
         }
+
+        sort(odd.begin(), odd.end());
+        sort(even.begin(), even.end());
+
+        vector<int> merged;
+        for (int i = 0; i < n; i++)
+        {
+            if (i % 2 == 0)
+                merged.push_back(even[i / 2]);
+            else
+                merged.push_back(odd[i / 2]);
+        }
+
+        for (int i = 0; i + 1 < n; i++)
+        {
+            if (merged[i] > merged[i + 1])
+            {
+                flag = false;
+            }
+        }
+
         if (flag)
         {
             cout << "YES\n";
