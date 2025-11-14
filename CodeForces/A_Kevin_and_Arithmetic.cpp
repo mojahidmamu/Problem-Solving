@@ -16,7 +16,22 @@ int main()
         {
             cin >> arr[i];
         }
-        
+        int sum = 0;
+        int point = 0;
+        int operation = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sum += arr[i];
+        }
+        if (sum % 2 == 0)
+        {
+            point++;
+        }
+        while (sum % 2 != 0)
+        {
+            sum / 2;
+            operation++;
+        }
     }
 
     return 0;
