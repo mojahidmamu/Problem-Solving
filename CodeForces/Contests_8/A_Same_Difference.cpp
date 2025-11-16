@@ -15,20 +15,15 @@ int main()
         cin >> s;
 
         char last = s[n - 1];
-        int l = 0;
-        for (int i = n - 1; i >= 0; i--)
+        int answer = 0;
+        for (int i = 0; i < n; i++)
         {
-            if (s[i] == last)
+            if (s[i] != last)
             {
-                l++;
-            }
-            else
-            {
-                break;
+                answer++;
             }
         }
 
-        int answer = n - l;
         cout << answer << endl;
     }
 
