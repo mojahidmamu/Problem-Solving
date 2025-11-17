@@ -8,6 +8,10 @@ int main()
     long long n;
     cin >> n;
     long long arr[n];
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> arr[i];
+    }
 
     long long mn = arr[0];
     for (int i = 1; i <= n; i++)
