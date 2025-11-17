@@ -8,7 +8,7 @@ int main()
     long long n;
     cin >> n;
     long long arr[n];
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
@@ -30,13 +30,14 @@ int main()
             count++;
         }
     }
+
     if (count % 2 == 0)
     {
-        cout << "YES" << endl;
+        cout << "EVEN" << endl;
     }
     else
     {
-        cout << "NO" << endl;
+        cout << "ODD" << endl;
     }
 
     return 0;
