@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    // --- your code here ---
+    long long n;
+    cin >> n;
+    long long arr[n];
+
+    long long mn = arr[0];
+    for (int i = 1; i <= n; i++)
+    {
+        if (arr[i] < mn)
+        {
+            mn = arr[i];
+        }
+    }
+
+    long long count = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        if (arr[i] == mn)
+        {
+            count++;
+        }
+    }
+    if (count % 2 == 0)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
