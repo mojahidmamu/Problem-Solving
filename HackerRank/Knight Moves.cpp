@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, M; 
+int N, M;
 bool vis[1005][1005];
 int level[1005][1005];
 vector<pair<int, int>> d = {{2, -1}, {1, -2}, {2, 1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}};
@@ -23,7 +23,7 @@ int bfs(int x, int y)
     queue<pair<int, int>> q;
     q.push({x, y});
     vis[x][y] = true;
-    int count = 1;
+    level[x][y] = 0;
 
     while (!q.empty())
     {
@@ -44,11 +44,10 @@ int bfs(int x, int y)
             {
                 q.push({Nx, Ny});
                 vis[Nx][Ny] = true;
-                count++;
+                level[Nx][Ny] = level[a][b] + 1;
             }
         }
     }
-    return count;
 }
 
 int main()
