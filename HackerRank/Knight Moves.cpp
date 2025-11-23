@@ -55,29 +55,34 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    cin >> N >> M;
-    grid.resize(N);
-    for (int i = 0; i < N; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> grid[i];
-    }
-
-    int ans = INT_MAX;
-    memset(vis, false, sizeof(vis));
-
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < M; j++)
+        cin >> N >> M;
+        grid.resize(N);
+        for (int i = 0; i < N; i++)
         {
-            if (grid[i][j] == '.' && !vis[i][j])
+            cin >> grid[i];
+        }
+
+        int ans = INT_MAX;
+        memset(vis, false, sizeof(vis));
+
+        for (int i = 0; i < N; i++)
+        {
+            for (int j = 0; j < M; j++)
             {
-                int area = bfs(i, j);
-                ans = min(ans, area);
+                if (grid[i][j] == '.' && !vis[i][j])
+                {
+                    int area = bfs(i, j);
+                    ans = min(ans, area);
+                }
             }
         }
-    }
 
-    cout << ((ans == INT_MAX) ? -1 : ans);
+        cout << ((ans == INT_MAX) ? -1 : ans);
+    }
 
     return 0;
 }
