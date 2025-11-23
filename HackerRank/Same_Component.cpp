@@ -8,13 +8,38 @@ vector<pair<int, int>> d = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
 bool valid(int i, int j)
 {
-    if (i < 0 || i >= n || j < 0 || j >= m)
+    if (i < 0 || i >= N || j < 0 || j >= M)
     {
         return false;
     }
     else
     {
         return true;
+    }
+}
+
+// BFS:
+void bfs(int Si, int Sj, int Di, int Dj)
+{
+    queue<int> q;
+    q.push(source_code);
+    vis[source_code] = true;
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            if (vis[child] == false)
+            {
+                q.push(child);
+                vis[child] = true;
+            }
+        }
     }
 }
 
@@ -33,14 +58,20 @@ int main()
     cin >> Si >> Sj;
     cin >> Di >> Dj;
 
-    if (grid[Si][Sj] == '-'  || grid[Di][Dj] == '-')
+    if (grid[Si][Sj] == '-' || grid[Di][Dj] == '-')
     {
         cout << "NO" << endl;
     }
 
     memset(vis, false, sizeof(vis));
-    
-    
+    if (bfs(Si, Sj, Di, Dj))
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
