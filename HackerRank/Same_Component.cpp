@@ -19,28 +19,40 @@ bool valid(int i, int j)
 }
 
 // BFS:
-void bfs(int Si, int Sj, int Di, int Dj)
+bool bfs(int Si, int Sj, int Di, int Dj)
 {
-    queue<int> q;
-    q.push(source_code);
-    vis[source_code] = true;
+    queue<pair<int, int>> q;
+    q.push({Si, Sj});
+    vis[Si][Sj] = true;
 
     while (!q.empty())
     {
-        int parent = q.front();
+        auto parent = q.front();
         q.pop();
 
-        cout << parent << " ";
-
-        for (int child : adj_list[parent])
+        int X = parent.first;
+        int Y = parent.second;
+        if (X == Di  && Y == Dj)
         {
-            if (vis[child] == false)
+            return true;
+        }
+        
+
+        for (auto child : d)
+        {
+            int A = child.first;
+            int B = child.second;
+            int Nx = A + X;
+            int Ny = B + Y;
+
+            if (vis[Nx][Ny] == false)
             {
-                q.push(child);
-                vis[child] = true;
+                q.push({Nx, Ny});
+                vis[Nx][Ny] = true;
             }
         }
     }
+    return false;
 }
 
 int main()
