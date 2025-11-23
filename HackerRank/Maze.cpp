@@ -1,9 +1,8 @@
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int n, m;
 vector<string> grid;
- 
 
 int dr[4] = {0, 0, -1, 1};
 int dc[4] = {1, -1, 0, 0};
@@ -18,7 +17,6 @@ int main()
 
     pair<int, int> start = {-1, -1}, dest = {-1, -1};
 
-    
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
@@ -30,7 +28,6 @@ int main()
         }
     }
 
-     
     vector<vector<bool>> vis(n, vector<bool>(m, false));
     vector<vector<pair<int, int>>> parent(n, vector<pair<int, int>>(m, {-1, -1}));
 
@@ -40,7 +37,6 @@ int main()
 
     bool found = false;
 
-    
     while (!q.empty())
     {
         pair<int, int> par = q.front();
@@ -53,7 +49,6 @@ int main()
             int nr = r + dr[k];
             int nc = c + dc[k];
 
-             
             if (nr < 0 || nr >= n || nc < 0 || nc >= m)
                 continue;
             if (vis[nr][nc] || grid[nr][nc] == '#')
@@ -73,7 +68,6 @@ int main()
             break;
     }
 
-     
     if (found)
     {
         pair<int, int> cur = dest;
@@ -88,9 +82,10 @@ int main()
         }
     }
 
-   
     for (int i = 0; i < n; i++)
+    {
         cout << grid[i] << "\n";
+    }
 
     return 0;
 }
