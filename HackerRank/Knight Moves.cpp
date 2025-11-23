@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, M;
-vector<string> grid;
+int N, M; 
 bool vis[1005][1005];
-vector<pair<int, int>> d = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+int level[1005][1005];
+vector<pair<int, int>> d = {{2, -1}, {1, -2}, {2, 1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}};
+
 bool valid(int i, int j)
 {
     if (i < 0 || i >= N || j < 0 || j >= M)
@@ -60,28 +61,21 @@ int main()
     while (t--)
     {
         cin >> N >> M;
-        grid.resize(N);
-        for (int i = 0; i < N; i++)
-        {
-            cin >> grid[i];
-        }
+        int Si, Sj, Di, Dj;
+        cin >> Si >> Sj >> Di >> Dj;
 
-        int ans = INT_MAX;
         memset(vis, false, sizeof(vis));
+        memset(level, -1, sizeof(level));
+        bfs(Si, Sj);
 
-        for (int i = 0; i < N; i++)
+        if (level[Di][Dj] == -1)
         {
-            for (int j = 0; j < M; j++)
-            {
-                if (grid[i][j] == '.' && !vis[i][j])
-                {
-                    int area = bfs(i, j);
-                    ans = min(ans, area);
-                }
-            }
+            cout << -1 << endl;
         }
-
-        cout << ((ans == INT_MAX) ? -1 : ans);
+        else
+        {
+            cout << level[Di][Dj] << endl;
+        }
     }
 
     return 0;
