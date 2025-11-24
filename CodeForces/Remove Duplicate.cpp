@@ -27,6 +27,30 @@ void insert_at_tail(Node *&head, Node *&tail, int &val)
     }
 }
 
+// print:
+void print(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
+
+// remove_duplicate:
+void remove_duplicate(Node *head)
+{
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -48,6 +72,8 @@ int main()
         }
     }
 
-     
+    remove_duplicate(head);
+    print(head);
+
     return 0;
 }
