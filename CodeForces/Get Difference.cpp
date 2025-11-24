@@ -14,6 +14,17 @@ public:
 
 void insert_at_tail(Node *&head, Node *&tail, int &val)
 {
+    Node *newNode = new Node(val);
+    if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+    }
+    else
+    {
+        tail->next = newNode;
+        tail = newNode;
+    }
 }
 
 int max_value(Node *head)
