@@ -34,16 +34,14 @@ bool same(Node *head1, Node *head2)
     Node *tmp2 = head2;
     while (tmp1 != NULL && tmp2 != NULL)
     {
-        if (tmp1->val == tmp2->val)
+        if (tmp1->val != tmp2->val)
         {
-            return true;
+            return false;
         }
-        else
-        {
-            tmp1 = tmp1->next;
-            tmp2 = tmp2->next;
-        }
+        tmp1 = tmp1->next;
+        tmp2 = tmp2->next;
     }
+    // 
     if (tmp1 == NULL && tmp2 == NULL)
     {
         return true;
