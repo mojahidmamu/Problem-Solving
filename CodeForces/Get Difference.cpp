@@ -18,10 +18,40 @@ void insert_at_tail(Node *&head, Node *&tail, int &val)
 
 int max_value(Node *head)
 {
+    int max_val = head->val;
+    Node *temp = head->next;
+    while (temp != NULL)
+    {
+        if (temp->val > max_val)
+        {
+            max_val = temp->val;
+            temp = temp->next;
+        }
+        else
+        {
+            temp = temp->next;
+        }
+    }
+    return max_val;
 }
 
 int min_value(Node *head)
 {
+    int min_val = head->val;
+    Node *temp = head->next;
+    while (temp != NULL)
+    {
+        if (temp->val < min_val)
+        {
+            min_val = temp->val;
+            temp = temp->next;
+        }
+        else
+        {
+            temp = temp->next;
+        }
+    }
+    return min_val;
 }
 
 int main()
