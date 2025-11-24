@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class Node
 {
 public:
@@ -8,7 +9,7 @@ public:
     Node(int val)
     {
         this->val = val;
-        this->next = NULL;
+        this->next = next;
     }
 };
 

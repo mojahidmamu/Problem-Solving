@@ -45,10 +45,24 @@ void remove_duplicate(Node *head)
     Node *tmp = head;
     while (tmp != NULL)
     {
-        cout << tmp->val << " ";
+        Node *prev = tmp;
+        Node *runner = tmp->next;
+
+        while (runner != NULL)
+        {
+            if (runner->val == tmp->val)
+            {
+                prev->next = runner->next;
+                runner = prev->next;
+            }
+            else
+            {
+                prev = runner;
+                runner = runner->next;
+            }
+        }
         tmp = tmp->next;
     }
-    cout << endl;
 }
 
 int main()
