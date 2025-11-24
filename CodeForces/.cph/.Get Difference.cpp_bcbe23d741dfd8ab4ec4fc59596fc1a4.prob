@@ -1,0 +1,1 @@
+{"name":"Local: Get Difference","url":"d:\\PHITRON\\Probem_Solving\\CodeForces\\Get Difference.cpp","tests":[{"id":1763951125453,"input":"2 4 1 5 3 6 -1","output":"5"},{"id":1763951136919,"input":"2 -1","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\PHITRON\\Probem_Solving\\CodeForces\\Get Difference.cpp","group":"local","local":true}
