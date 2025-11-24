@@ -27,6 +27,33 @@ void insert_at_tail(Node *&head, Node *&tail, int &val)
         tail = newNode;
     }
 }
+
+bool same(Node *head1, Node *head2)
+{
+    Node *tmp1 = head1;
+    Node *tmp2 = head2;
+    while (tmp1 != NULL && tmp2 != NULL)
+    {
+        if (tmp1->val == tmp2->val)
+        {
+            return true;
+        }
+        else
+        {
+            tmp1 = tmp1->next;
+            tmp2 = tmp2->next;
+        }
+    }
+    if (tmp1 == NULL && tmp2 == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -63,5 +90,15 @@ int main()
             insert_at_tail(head2, tail2, val);
         }
     }
+
+    if (same(head1, head2) == true)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
