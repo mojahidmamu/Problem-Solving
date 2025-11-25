@@ -47,9 +47,9 @@ void remove_duplicate(Node *head)
     {
         Node *prev = tmp;
         Node *runner = tmp->next;
-        while (runner->next != NULL)
+        while (runner != NULL)
         {
-            if (prev->val == runner->val)
+            if (runner->val == tmp->val)
             {
                 prev->next = runner->next;
                 runner = prev->next;
