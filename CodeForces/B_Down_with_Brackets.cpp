@@ -11,13 +11,31 @@ int main()
     {
         string s;
         cin >> s;
-        bool isBalanced;
 
-        if (isBalanced == true)
+        int balance = 0;
+        int split_cnt = 0;
+        for (char ch : s)
+        {
+            if (ch == '(')
+            {
+                balance++;
+            }
+            else if (ch == ')')
+            {
+                balance--;
+            }
+
+            if (balance == 0)
+            {
+                split_cnt++;
+            }
+        }
+
+        if (split_cnt >= 2)
         {
             cout << "YES" << endl;
         }
-        else
+        else if (split_cnt == 1)
         {
             cout << "NO" << endl;
         }
