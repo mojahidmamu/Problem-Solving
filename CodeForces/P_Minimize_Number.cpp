@@ -21,7 +21,7 @@ int main()
         long long x = arr[i];
         while (x % 2 == 0)
         {
-            x /= 2;
+            x /= 2; 
             cnt++;
         }
         ans = min(ans, cnt);
