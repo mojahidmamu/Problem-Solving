@@ -28,6 +28,44 @@ void insret_at_tail(Node *head, Node *tail, int val)
     }
 }
 
+int mx(Node *head)
+{
+    Node *tmp = head;
+    int maximum = head->val;
+    while (tmp != NULL)
+    {
+        if (tmp->val > maximum)
+        {
+            maximum = tmp->val;
+            tmp = tmp->next;
+        }
+        else
+        {
+            tmp = tmp->next;
+        }
+    }
+    return maximum;
+}
+
+int mn(Node *head)
+{
+    Node *tmp = head;
+    int minimum = head->val;
+    while (tmp != NULL)
+    {
+        if (tmp->val < minimum)
+        {
+            minimum = tmp->val;
+            tmp = tmp->next;
+        }
+        else
+        {
+            tmp = tmp->next;
+        }
+    }
+    return minimum;
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -49,6 +87,11 @@ int main()
             insret_at_tail(head, tail, val);
         }
     }
+
+    int max_value = mx(head);
+    int min_value = mn(head);
+
+    cout << max_value - min_value << endl;
 
     return 0;
 }
