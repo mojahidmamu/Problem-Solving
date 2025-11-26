@@ -24,10 +24,11 @@ int main()
             for (int j = i; j < n; j++)
             {
                 mx = max(arr[j], mx);
-                if (mx == n)
+                if (j > i && arr[j] < arr[j - 1])
                 {
-                    cnt++;
+                    break;
                 }
+                cnt++;
             }
         }
         cout << cnt << endl;
