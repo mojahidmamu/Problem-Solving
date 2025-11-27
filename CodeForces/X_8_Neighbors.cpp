@@ -7,14 +7,12 @@ int main()
     // --- your code here ---
     int n, m;
     cin >> n >> m;
-    string arr[n][m];
+    vector<string> arr(n);
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> arr[i][j];
-        }
+        cin >> arr[i];
     }
+
 
     int X, Y;
     cin >> X >> Y;
@@ -33,7 +31,7 @@ int main()
 
         if (nr >= 0 && nr < n && nc >= 0 && nc < m)
         {
-            if (arr[nr][nc] != "x")
+            if (arr[nr][nc] != 'x')
             {
                 ok = false;
                 break;
@@ -42,8 +40,8 @@ int main()
     }
 
     if (ok)
-        cout << "YES\n";
+        cout << "yes\n";
     else
-        cout << "NO\n";
+        cout << "no\n";
     return 0;
 }
