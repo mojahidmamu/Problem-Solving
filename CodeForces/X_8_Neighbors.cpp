@@ -16,5 +16,9 @@ int main()
         }
     }
 
+    int X, Y;
+    cin >> X >> Y;
+    
+
     return 0;
 }
