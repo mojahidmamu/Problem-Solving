@@ -12,11 +12,31 @@ int main()
     {
         cin >> arr1[i];
     }
-    //  
+    //
     long long arr2[m];
     for (int i = 0; i < m; i++)
     {
         cin >> arr2[i];
+    }
+
+    int i = 0;
+    int j = 0;
+    while (i < n && j < m)
+    {
+        if (arr1[i] == arr2[j])
+        {
+            j++;
+        }
+        i++;
+    }
+
+    if (j == m)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
     }
 
     return 0;
