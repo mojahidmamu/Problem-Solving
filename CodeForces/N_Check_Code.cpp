@@ -10,17 +10,33 @@ int main()
     string s;
     cin >> s;
     int pos = A + 1;
+
+    if (s.size() != A + B + 1)
+    {
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    if (s[A] != '-')
+    {
+        cout << "NO" << endl;
+        return 0;
+    }
+
     for (int i = 0; i < s.size(); i++)
     {
-        if (pos == '-')
+        if (i == A)
         {
-            cout << "YES" << endl;
+            continue;
         }
-        else
+        if (!isdigit(s[i]))
         {
             cout << "NO" << endl;
+            break;
         }
     }
+
+    cout << "YES" << endl;
 
     return 0;
 }
