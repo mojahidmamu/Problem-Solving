@@ -1,42 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // --- your code here ---
+
     int A, B;
     cin >> A >> B;
-    string s;
-    cin >> s;
-    int pos = A + 1;
+    string S;
+    cin >> S;
 
-    if (s.size() != A + B + 1)
+    if ((int)S.size() != A + B + 1)
     {
-        cout << "NO" << endl;
+        cout << "No\n";
         return 0;
     }
 
-    if (s[A] != '-')
+   
+    if (S[A] != '-')
     {
-        cout << "NO" << endl;
+        cout << "No\n";
         return 0;
     }
 
-    for (int i = 0; i < s.size(); i++)
+   
+    for (int i = 0; i < (int)S.size(); i++)
     {
         if (i == A)
+            continue; 
+        if (!isdigit(S[i]))
         {
-            continue;
-        }
-        if (!isdigit(s[i]))
-        {
-            cout << "NO" << endl;
+            cout << "No\n";
             return 0;
         }
     }
 
-    cout << "YES" << endl;
-
+    cout << "Yes\n";
     return 0;
 }
