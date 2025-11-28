@@ -11,11 +11,9 @@ int main()
     {
         int L, R;
         cin >> L >> R;
-        long long sum = 0;
-        for (int i = L; i <= R; i++)
-        {
-            sum += i;
-        }
+        long long sumR = R * (R + 1) / 2;
+        long long sumL = (L - 1) * L / 2;
+        long long sum = sumR - sumL;
         cout << sum << endl;
     }
 
