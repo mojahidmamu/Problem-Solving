@@ -32,7 +32,7 @@ int main()
         if (!isdigit(s[i]))
         {
             cout << "NO" << endl;
-            break;
+            return 0;
         }
     }
 
