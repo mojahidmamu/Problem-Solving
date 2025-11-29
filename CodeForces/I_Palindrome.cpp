@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    string n;
-    cin >> n;
-
-    cout << "0 0\n";
-
+    string s;
+    cin >> s;
+    reverse(s.begin(), s.end());
+    
     return 0;
 }
