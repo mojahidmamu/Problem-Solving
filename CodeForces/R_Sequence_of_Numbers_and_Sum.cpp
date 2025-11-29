@@ -4,18 +4,27 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // --- your code here ---
+
+    int n, m;
     while (true)
     {
-        int n, m;
         cin >> n >> m;
+        if (n <= 0 || m <= 0)
+        {
+            break;
+        }
+
         int sum = 0;
-        for (int i = n; i <= m; i++)
+        int start = min(n, m);
+        int end = max(n, m);
+
+        for (int i = start; i <= end; i++)
         {
             sum += i;
             cout << i << " ";
         }
-        cout << "sum +" << sum << endl;
+
+        cout << "sum =" << sum << endl;
     }
 
     return 0;
