@@ -13,9 +13,15 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
+        for (int j = 0; j < arr[i]; j++)
+        {
+            cout << s;
+        }
+        cout << endl;
+        
     }
 
-    
+
 
     return 0;
 }
