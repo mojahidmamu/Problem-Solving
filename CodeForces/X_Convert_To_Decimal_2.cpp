@@ -16,7 +16,7 @@ int main()
         int temp = n;
 
         while (temp)
-        {
+        { 
             if (temp & 1)
             {
                 ones++;
