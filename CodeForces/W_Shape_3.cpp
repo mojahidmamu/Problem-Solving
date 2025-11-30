@@ -17,7 +17,7 @@ int main()
         {
             cout << "*";
         }
-        cout << endl;
+        cout << endl; 
     }
     //
     for (int j = 1; j <= 2 * n - 1; j++)
