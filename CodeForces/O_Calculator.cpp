@@ -27,6 +27,7 @@ int main()
         result = A / B;
     }
 
+    
     cout << result << endl;
 
     return 0;
