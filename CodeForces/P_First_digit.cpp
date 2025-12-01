@@ -7,13 +7,25 @@ int main()
     // --- your code here ---
     int n;
     cin >> n;
-    if (n % 2 == 0)
+    while (n > 0)
     {
-        cout << "EVEN" << endl;
-    }
-    else
-    {
-        cout << "ODD" << endl;
+        int first_digit = n;
+        while (first_digit >= 10)
+        {
+            first_digit /= 10;
+        }
+
+        if (first_digit % 2 == 0)
+        {
+            cout << "EVEN" << endl;
+            break;
+        }
+        else
+        {
+            cout << "ODD" << endl;
+            break;
+        }
+       n =  n / 1000;
     }
 
     return 0;
