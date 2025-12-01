@@ -5,7 +5,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    int X, Y;
+    long long X, Y;
     cin >> X >> Y;
     cout << X << " + " << Y << " = " << (X + Y) << endl;
     cout << X << " * " << Y << " = " << (X * Y) << endl;
