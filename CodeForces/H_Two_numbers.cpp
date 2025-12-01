@@ -8,10 +8,12 @@ int main()
     int A, B;
     cin >> A >> B;
 
-    int divide = A / B;
+    int floor_div = A / B;
+    int ceil_div = (A + B - 1) / B;
+    int round_div = (A + B / 2) / B;
 
-    cout << "floor " << A << " / " << B << " = " << floor(divide) << endl;
-    cout << "ceil " << A << " / " << B << " = " << floor(divide) << endl;
-    cout << "round " << A << " / " << B << " = " << floor(divide) << endl;
+    cout << "floor " << A << " / " << B << " = " << floor(floor_div) << endl;
+    cout << "ceil " << A << " / " << B << " = " << floor(ceil_div) << endl;
+    cout << "round " << A << " / " << B << " = " << floor(round_div) << endl;
     return 0;
 }
