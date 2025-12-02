@@ -9,8 +9,8 @@ int main()
     long long a, b, c, d;
     cin >> a >> b >> c >> d;
 
-    long long first = pow(a, b);
-    long long last = pow(c, d);
+    long long first = b * log(a);
+    long long last = d * log(c);
 
     if (first > last)
     {
