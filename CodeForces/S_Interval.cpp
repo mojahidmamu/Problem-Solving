@@ -17,11 +17,11 @@ int main()
     }
     else if (50 < x && x <= 75)
     {
-        cout << "Interval [50,75]" << endl;
+        cout << "Interval (50,75]" << endl;
     }
     else if (75 < x && x <= 100)
     {
-        cout << "Interval [75,100]" << endl;
+        cout << "Interval (75,100]" << endl;
     }
     else
     {
