@@ -15,7 +15,7 @@ int main()
 
     cout << year << " years" << endl;
     cout << months << " months" << endl;
-    cout << days << " days" << endl;
+    cout << days << " days" << endl;    
 
     return 0;
 }
