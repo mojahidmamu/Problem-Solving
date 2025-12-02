@@ -11,7 +11,7 @@ int main()
     long long right = min(r1, r2);
     if (left <= right)
     {
-        cout << l2 << " " << r1 << endl;
+        cout << left << " " << right << endl;
     }
     else
     {
