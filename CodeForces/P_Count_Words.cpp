@@ -10,16 +10,29 @@ int main()
 
     stringstream ss(s);
     string word;
-    int count = 0;
-    while (ss >> word)
+    long long count = 0;
+    bool inWord = false;
+    for (char c : s)
     {
-        if (word == "...")
+        if (isalpha(c))
         {
-            continue;
+            inWord = true;
         }
+        else
+        {
+            if (inWord)
+            {
+                count++;
+                inWord = false;
+            }
+        }
+    }
 
+    if (inWord)
+    {
         count++;
     }
+
     cout << count << endl;
 
     return 0;
