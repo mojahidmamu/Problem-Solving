@@ -9,8 +9,20 @@ int main()
     cin >> n;
     string s;
     cin >> s;
-    sort(s.begin(), s.end());
-    cout << s << endl;
+    int count[26] = {0};
+    for (char c : s)
+    {
+        count[c - 'a']++;
+    }
+
+    for (int i = 0; i < 26; i++)
+    {
+        while (count[i]--)
+        {
+            cout << char(i + 'a');
+        }
+    }
+    cout << endl;
 
     return 0;
 }
