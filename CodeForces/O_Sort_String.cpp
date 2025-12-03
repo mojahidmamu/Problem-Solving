@@ -7,12 +7,13 @@ int main()
     // --- your code here ---
     int n;
     cin >> n;
-    string s;
-    cin >> s;
+    
     int count[26] = {0};
-    for (char c : s)
+    char ch ;
+    for (int i = 0; i < n; i++)
     {
-        count[c - 'a']++;
+        cin >> ch;
+        count[ch - 'a']++;
     }
 
     for (int i = 0; i < 26; i++)
