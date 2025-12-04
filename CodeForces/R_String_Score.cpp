@@ -9,46 +9,64 @@ int main()
     cin >> n;
     string s;
     cin >> s;
-    int score = 0;
-    for (int i = 0; i < s.size(); i++)
+
+    vector<int> nxt(n + 1);
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] == 'V')
+        nxt[i] = i + 1;
+    }
+
+    long long score = 0;
+    int i = 0;
+    while (i < n)
+    {
+        char c = s[i];
+        int j = nxt[i];
+
+        if (c == 'V')
         {
             score += 5;
         }
-        else if (s[i] == 'W')
+        else if (c == 'W')
         {
             score += 2;
         }
-        else if (s[i] == 'X')
+        else if (c == 'X')
         {
-            if (i + 1 < s.size())
+            if (j < n)
             {
-                s.erase(i + 1, 1);
+                nxt[i] = nxt[j];
             }
         }
-        else if (s[i] == 'Y')
+        else if (c == 'Y')
         {
-            if (i + 1 < s.size())
+            if (j < n)
             {
-                char temp = s[i + 1];
-                s.erase(i + 1, 1);
-                s.push_back(temp);
+                int k = nxt[j];
+                char temp = s[j];
+
+                // remove j from middle
+                nxt[i] = k;
+
+                // move j to end
+                nxt[j] = n;
+                nxt[last] = j;
+                last = j;
             }
         }
-        else if (s[i] == 'Z')
+        else if (c == 'Z')
         {
-            if (i + 1 < s.size())
+            if (j < n)
             {
-                if (s[i + 1] == 'V')
+                if (s[j] == 'V')
                 {
                     score /= 5;
-                    s.erase(i + 1, 1);
+                    nxt[i] = nxt[j]; // remove j
                 }
-                else if (s[i + 1] == 'W')
+                else if (s[j] == 'W')
                 {
                     score /= 2;
-                    s.erase(i + 1, 1);
+                    nxt[i] = nxt[j]; // remove j
                 }
             }
         }
