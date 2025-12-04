@@ -10,25 +10,44 @@ int main()
     string s;
     cin >> s;
     int score = 0;
-    for (char c : s)
+    for (int i = 0; i < n; i++)
     {
-        if (c == 'V')
+        if (s[i] == 'V')
         {
             score += 5;
         }
-        else if (c == 'W')
+        else if (s[i] == 'W')
         {
             score += 2;
         }
-        else if (c == 'X')
+        else if (s[i] == 'X')
         {
+            if (i + 1 < s.size())
+            {
+                s.erase(i + 1, 1);
+            }
         }
-        else if (c == 'Y')
+        else if (s[i] == 'Y')
         {
+            if (i + 1 < s.size())
+            {
+                char temp = s[i + 1];
+                s.erase(i + 1, 1);
+                s.push_back(temp);
+            }
         }
-        else if (c == 'Z')
+        else if (s[i] == 'Z')
         {
-            score += 1;
+            if (s[i + 1] == 'V')
+            {
+                score /= 5;
+                s.erase(i + 1, 1);
+            }
+            else if (s[i + 1] == 'W')
+            {
+                score /= 2;
+                s.erase(i + 1, 1);
+            }
         }
     }
 
