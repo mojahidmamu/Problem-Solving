@@ -7,21 +7,24 @@ int main()
     // --- your code here ---
     string s;
     cin >> s;
-    int n = s.size();
-    vector<int> dp(n + 1, 0);
-    for (int i = n - 1; i >= 0; --i)
+
+    // Subsequence in S that is equal to "hello" or not.
+    string target = "hello";
+    int t_index = 0;
+    for (char c : s)
     {
-        dp[i] = dp[i + 1];
-        if (s[i] == 'a')
+        if (c == target[t_index])
         {
-            dp[i] = max(dp[i], 1 + dp[i + 1]);
-        }
-        else if (s[i] == 'b')
-        {
-            dp[i] = max(dp[i], dp[i + 1]);
+            t_index++;
+            if (t_index == target.size())
+            {
+                cout << "YES\n";
+                return 0;
+            }
         }
     }
-    cout << dp[0] << "\n";
+    cout << "NO\n";
+    // --- your code here ---
 
     return 0;
 }
