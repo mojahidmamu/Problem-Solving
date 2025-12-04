@@ -12,9 +12,11 @@ int main()
     if (n == 1)
     {
         cout << s << "\n";
+        return 0;
     }
 
     string answer = s;
+
     for (int i = 1; i < n; i++)
     {
         string X = s.substr(0, i);
@@ -24,6 +26,7 @@ int main()
         sort(Y.begin(), Y.end());
 
         string candidate = X + Y;
+
         answer = min(answer, candidate);
     }
     cout << answer << "\n";
