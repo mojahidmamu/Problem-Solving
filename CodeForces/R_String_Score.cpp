@@ -18,6 +18,7 @@ int main()
 
     long long score = 0;
     int i = 0;
+    int last = n - 1;
     while (i < n)
     {
         char c = s[i];
@@ -43,7 +44,7 @@ int main()
             if (j < n)
             {
                 int k = nxt[j];
-                char temp = s[j];
+                // char temp = s[j];
 
                 // remove j from middle
                 nxt[i] = k;
@@ -70,6 +71,7 @@ int main()
                 }
             }
         }
+        i = nxt[i]; // move safely forward
     }
 
     cout << score << "\n";
