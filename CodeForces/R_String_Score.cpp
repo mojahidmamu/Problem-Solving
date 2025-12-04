@@ -10,7 +10,7 @@ int main()
     string s;
     cin >> s;
     int score = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < s.size(); i++)
     {
         if (s[i] == 'V')
         {
@@ -38,15 +38,18 @@ int main()
         }
         else if (s[i] == 'Z')
         {
-            if (s[i + 1] == 'V')
+            if (i + 1 < s.size())
             {
-                score /= 5;
-                s.erase(i + 1, 1);
-            }
-            else if (s[i + 1] == 'W')
-            {
-                score /= 2;
-                s.erase(i + 1, 1);
+                if (s[i + 1] == 'V')
+                {
+                    score /= 5;
+                    s.erase(i + 1, 1);
+                }
+                else if (s[i + 1] == 'W')
+                {
+                    score /= 2;
+                    s.erase(i + 1, 1);
+                }
             }
         }
     }
