@@ -9,20 +9,24 @@ int main()
     cin >> n;
     string s;
     cin >> s;
+    vector<int> nxt(n), prv(n);
 
-    vector<int> nxt(n + 1);
     for (int i = 0; i < n; i++)
     {
-        nxt[i] = i + 1;
+        nxt[i] = (i + 1 < n ? i + 1 : n); // N means NULL
+        prv[i] = (i - 1 >= 0 ? i - 1 : -1);
     }
 
+    int head = 0;
+    int tail = n - 1;
+
     long long score = 0;
-    int i = 0;
-    int last = n - 1;
-    while (i < n)
+    int cur = head;
+
+    while (cur != n)
     {
-        char c = s[i];
-        int j = nxt[i];
+        int next = nxt[cur];
+        char c = s[cur];
 
         if (c == 'V')
         {
@@ -34,44 +38,63 @@ int main()
         }
         else if (c == 'X')
         {
-            if (j < n)
+            if (next != n)
             {
-                nxt[i] = nxt[j];
+                int nn = nxt[next];
+                nxt[cur] = nn;
+                if (nn != n)
+                    prv[nn] = cur;
+                if (next == tail)
+                    tail = cur;
             }
         }
         else if (c == 'Y')
         {
-            if (j < n)
+            if (next != n && next != tail)
             {
-                int k = nxt[j];
-                // char temp = s[j];
+                int after = nxt[next];
 
-                // remove j from middle
-                nxt[i] = k;
+                // Remove next from its place
+                nxt[cur] = after;
+                if (after != n) 
+                    prv[after] = cur;
 
-                // move j to end
-                nxt[j] = n;
-                nxt[last] = j;
-                last = j;
+                // Attach next at end
+                nxt[tail] = next;
+                prv[next] = tail;
+                nxt[next] = n;
+                tail = next;
             }
         }
         else if (c == 'Z')
         {
-            if (j < n)
+            if (next != n)
             {
-                if (s[j] == 'V')
+                if (s[next] == 'V')
                 {
                     score /= 5;
-                    nxt[i] = nxt[j]; // remove j
+
+                    int nn = nxt[next];
+                    nxt[cur] = nn;
+                    if (nn != n)
+                        prv[nn] = cur;
+                    if (next == tail)
+                        tail = cur;
                 }
-                else if (s[j] == 'W')
+                else if (s[next] == 'W')
                 {
                     score /= 2;
-                    nxt[i] = nxt[j]; // remove j
+
+                    int nn = nxt[next];
+                    nxt[cur] = nn;
+                    if (nn != n)
+                        prv[nn] = cur;
+                    if (next == tail)
+                        tail = cur;
                 }
             }
         }
-        i = nxt[i]; // move safely forward
+        cur = nxt[cur];
     }
 
     cout << score << "\n";
