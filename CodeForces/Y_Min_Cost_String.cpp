@@ -13,12 +13,46 @@ int main()
     {
         cin >> cost[i];
     }
-    long long total_cost = 0;
-    for (char c : s)
+
+    for (int i = 1; i < n; i++)
     {
-        total_cost += cost[c - 'a'];
+        if (s[i] == '?')
+        {
+            long long bestValue = LLONG_MAX;
+            char bestChar = 'a';
+
+            for (char c = 'a'; c <= 'z'; c++)
+            {
+                long long currCost = 0;
+
+                if (i > 0 && s[i - 1] != '?')
+                {
+                    currCost += llabs(cost[s[i - 1] - 'a'] - cost[c - 'a']);
+                }
+                if (i + 1 < n && s[i + 1] != '?')
+                {
+                    currCost += llabs(cost[c - 'a'] - cost[s[i + 1] - 'a']);
+                }
+
+                if (currCost < bestValue ||
+                    (currCost == bestValue && c < bestChar))
+                {
+                    bestValue = currCost;
+                    bestChar = c;
+                }
+            }
+            s[i] = bestChar;
+        }
     }
+
+    long long total_cost = 0;
+    for (int i = 1; i < n; i++)
+    {
+        total_cost += llabs(cost[s[i] - 'a'] - cost[s[i - 1] - 'a']);
+    }
+
     cout << total_cost << "\n";
+    cout << s << "\n";
 
     return 0;
 }
