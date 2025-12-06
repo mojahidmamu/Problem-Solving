@@ -8,41 +8,50 @@ int main()
     string s;
     cin >> s;
     int n = s.size();
-    vector<int> cost(26);
+    vector<long long> cost(26);
     for (int i = 0; i < 26; ++i)
     {
         cin >> cost[i];
     }
 
-    for (int i = 1; i < n; i++)
+    int i = 0;
+    while (i < n)
     {
-        if (s[i] == '?')
+        if (s[i] != '?')
         {
-            long long bestValue = LLONG_MAX;
-            char bestChar = 'a';
-
-            for (char c = 'a'; c <= 'z'; c++)
-            {
-                long long currCost = 0;
-
-                if (i > 0 && s[i - 1] != '?')
-                {
-                    currCost += llabs(cost[s[i - 1] - 'a'] - cost[c - 'a']);
-                }
-                if (i + 1 < n && s[i + 1] != '?')
-                {
-                    currCost += llabs(cost[c - 'a'] - cost[s[i + 1] - 'a']);
-                }
-
-                if (currCost < bestValue ||
-                    (currCost == bestValue && c < bestChar))
-                {
-                    bestValue = currCost;
-                    bestChar = c;
-                }
-            }
-            s[i] = bestChar;
+            i++;
+            continue;
         }
+
+        int l = i;
+        while (i < n && s[i] == '?')
+            i++;
+        int r = i - 1;
+
+        char left = (l - 1 >= 0) ? s[l - 1] : 0;
+        char right = (i < n) ? s[i] : 0;
+
+        char bestChar = 'a';
+        long long bestValue = LLONG_MAX;
+
+        for (char c = 'a'; c <= 'z'; c++)
+        {
+            long long val = 0;
+
+            if (left)
+                val += llabs(cost[left - 'a'] - cost[c - 'a']);
+            if (right)
+                val += llabs(cost[c - 'a'] - cost[right - 'a']);
+
+            if (val < bestValue || (val == bestValue && c < bestChar))
+            {
+                bestValue = val;
+                bestChar = c;
+            }
+        }
+
+        for (int k = l; k <= r; k++)
+            s[k] = bestChar;
     }
 
     long long total_cost = 0;
