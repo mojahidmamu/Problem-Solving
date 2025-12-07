@@ -11,7 +11,7 @@ long long power(int base, int exponent)
     return result;
 }
 
-int calculateSum(int a, int b)
+long long calculateSum(int a, int b)
 {
     long long sum = power(a, 0) - 1;
     for (int i = 2; i <= b; i += 2)
