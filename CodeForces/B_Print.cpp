@@ -3,10 +3,13 @@ using namespace std;
 
 void sum(int n)
 {
-    int arr[n];
     for (int i = 1; i <= n; i++)
     {
-        cout << i << " ";
+        cout << i;
+        if (i < n)
+        {
+            cout << " ";
+        }
     }
     cout << "\n";
 }
