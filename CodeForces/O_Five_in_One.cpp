@@ -23,7 +23,7 @@ int countPrimeNumber(int arr[], int n)
     return count;
 }
 
-int countPalirome(int arr[], int n)
+int countPalindrome(int arr[], int n)
 {
     int count = 0;
     for (int i = 0; i < n; i++)
@@ -41,23 +41,33 @@ int countPalirome(int arr[], int n)
     return count;
 }
 
+int countDivisors(int x)
+{
+    int cnt = 0;
+    for (int i = 1; i * i <= x; i++)
+    {
+        if (x % i == 0)
+        {
+            cnt++;
+            if (i != x / i)
+                cnt++;
+        }
+    }
+    return cnt;
+}
+
 int countDivisors(int arr[], int n)
 {
+    int maxDivisors = 0;
     int totalDivisors = 0;
     for (int i = 0; i < n; i++)
     {
-        int num = arr[i];
-        int divisors = 0;
-        for (int j = 1; j <= sqrt(num); j++)
+        int divs = countDivisors(arr[i]);
+        if ((divs > maxDivisors) || (divs == maxDivisors && arr[i] > totalDivisors))
         {
-            if (num % j == 0)
-            {
-                divisors++;
-                if (j != num / j)
-                    divisors++;
-            }
+            maxDivisors = divs;
+            totalDivisors = arr[i];
         }
-        totalDivisors += divisors;
     }
     return totalDivisors;
 }
@@ -77,14 +87,14 @@ int main()
     int maximum = *max_element(arr, arr + n);
     int minimum = *min_element(arr, arr + n);
     int primeCount = countPrimeNumber(arr, n);
-    int palindromeCount = countPalirome(arr, n);
+    int palindromeCount = countPalindrome(arr, n);
     int totalDivisors = countDivisors(arr, n);
 
     // print:
-    cout << "Maximum: " << maximum << "\n";
-    cout << "Minimum: " << minimum << "\n";
-    cout << "Prime Count: " << primeCount << "\n";
-    cout << "Palindrome Count: " << palindromeCount << "\n";
-    cout << "Total Divisors: " << totalDivisors << "\n";
+    cout << "The maximum number : " << maximum << "\n";
+    cout << "The minimum number : " << minimum << "\n";
+    cout << "The number of prime numbers : " << primeCount << "\n";
+    cout << "The number of palindrome numbers : " << palindromeCount << "\n";
+    cout << "The number that has the maximum number of divisors : " << totalDivisors << "\n";
     return 0;
 }
