@@ -11,9 +11,14 @@ long long power(int base, int exponent)
     return result;
 }
 
-int caluculateSum(int a, int b)
+int calculateSum(int a, int b)
 {
-    return a + b;
+    long long sum = power(a, 0) - 1;
+    for (int i = 2; i <= b; i += 2)
+    {
+        sum += power(a, i);
+    }
+    return sum;
 }
 
 int main()
@@ -23,7 +28,7 @@ int main()
     // --- your code here ---
     int a, b;
     cin >> a >> b;
-    cout << caluculateSum(a, b) << "\n";
+    cout << calculateSum(a, b) << "\n";
 
     return 0;
 }
