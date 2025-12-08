@@ -7,6 +7,11 @@ int main()
     // --- your code here ---
     long long a, b;
     cin >> a >> b;
+    if (b < a)
+    {
+        swap(a, b);
+    }
+    
     long long sum = 0;
     long long evenSum = 0;
     long long oddSum = 0;
