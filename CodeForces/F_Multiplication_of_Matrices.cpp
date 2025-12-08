@@ -28,5 +28,14 @@ int main()
         }
     }
 
+    int C[rA][cB];
+    for (int i = 0; i < rA; i++) {
+        for (int j = 0; j < cB; j++)
+        {
+            cout << C[i][j] << " ";
+        }
+        cout << "\n";
+    }
+
     return 0;
 }
