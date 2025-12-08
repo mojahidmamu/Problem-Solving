@@ -8,7 +8,7 @@ int main()
     long long a, b;
     cin >> a >> b;
     int GCD = __gcd(a, b);
-    int LCM = (a * b) / GCD;
+    int LCM = (a / GCD) * b;
     cout << GCD << " " << LCM << "\n";
 
     return 0;
