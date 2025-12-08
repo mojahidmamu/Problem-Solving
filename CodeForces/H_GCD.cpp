@@ -7,8 +7,8 @@ int main()
     // --- your code here ---
     long long a, b;
     cin >> a >> b;
-    int GCD = __gcd(a, b);
-    int LCM = (a / GCD) * b;
+    long long  GCD = __gcd(a, b);
+    long long LCM = (a / GCD) * b;
     cout << GCD << " " << LCM << "\n";
 
     return 0;
