@@ -28,8 +28,28 @@ int main()
         }
     }
 
+    // multiply A and B
     int C[rA][cB];
-    for (int i = 0; i < rA; i++) {
+    if (cA != rB)
+    {
+        cout << "Invalid input\n";
+        return 0;
+    }
+    for (int i = 0; i < rA; i++)
+    {
+        for (int j = 0; j < cB; j++)
+        {
+            C[i][j] = 0;
+            for (int k = 0; k < cA; k++)
+            {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+
+    // print: C: 
+    for (int i = 0; i < rA; i++)
+    {
         for (int j = 0; j < cB; j++)
         {
             cout << C[i][j] << " ";
