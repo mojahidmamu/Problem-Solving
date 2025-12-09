@@ -8,11 +8,16 @@ int main()
     long long a, b, x;
     cin >> a >> b >> x;
 
-    long long first = (a + x - 1) / x * x;
-    long long last = b / x * x;
-    if (first > b)
+    long long L = min(a, b);
+    long long R = max(a, b);
+
+    long long first = ((L + x - 1) / x) * x;
+    long long last = (R / x) * x;
+    
+    if (first > last)
     {
         cout << 0 << "\n";
+        return 0;
     }
 
     long long n = (last - first) / x + 1;
