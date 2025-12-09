@@ -5,9 +5,17 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    long long int n, x;
+    string n;
+    long long x;
     cin >> n >> x;
-    if (n % x == 0)
+
+    long long mod = 0;
+    for(char c : n)
+    {
+        mod = (mod * 10 + (c - '0')) % x;
+    }
+
+    if (mod == 0)
     {
         cout << "YES\n";
     }
