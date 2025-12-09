@@ -8,14 +8,16 @@ int main()
     long long a, b, x;
     cin >> a >> b >> x;
 
-    long long sum = 0;
-    for (long long i = a; i <= b; i++)
+    long long first = (a + x - 1) / x * x;
+    long long last = b / x * x;
+    if (first > b)
     {
-        if (i % x == 0)
-        {
-            sum += i;
-        }
+        cout << 0 << "\n";
     }
+
+    long long n = (last - first) / x + 1;
+    long long sum = n * (first + last) / 2;
     cout << sum << "\n";
+
     return 0;
 }
