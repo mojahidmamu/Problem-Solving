@@ -10,7 +10,7 @@ int main()
     if (a + b > c && a + c > b && b + c > a)
     {
         cout << "Valid\n";
-        int s = (a + b + c) / 2;
+        double s = (a + b + c) / 2.0;
         double area = sqrt(s * (s - a) * (s - b) * (s - c));
         cout << fixed << setprecision(6) << area << "\n";
     }
