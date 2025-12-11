@@ -16,11 +16,11 @@ int main()
 
     if (n <= 2147483647 && k == 1)
     {
-        cout << "int\n"; // k^a = 1 → n * 1 fits in int?
+        cout << "int\n";  
     }
     else
     {
-        cout << "long long\n"; // anything else → long long
+        cout << "long long\n";  
     }
 
     return 0;
