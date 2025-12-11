@@ -5,22 +5,22 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     // --- your code here ---
-    int n, m, k;
-    cin >> n >> m >> k;
-    //  Print "int", "long long" or "double" (without quotes) as described in the statement.
-    if (n >= -32768 && n <= 32767 && m >= -32768 && m <= 32767 && k >= -32768 && k <= 32767)
+    long long n, k, a;
+    cin >> n >> k >> a;
+
+    if (n == 1 && k == 1)
     {
         cout << "int" << "\n";
+        return 0;
     }
-    else if (n >= -2147483648 && n <= 2147483647 &&
-             m >= -2147483648 && m <= 2147483647 &&
-             k >= -2147483648 && k <= 2147483647)
+
+    if (n <= 2147483647 && k == 1)
     {
-        cout << "long long" << "\n";
+        cout << "int\n"; // k^a = 1 → n * 1 fits in int?
     }
     else
     {
-        cout << "double" << "\n";
+        cout << "long long\n"; // anything else → long long
     }
 
     return 0;
