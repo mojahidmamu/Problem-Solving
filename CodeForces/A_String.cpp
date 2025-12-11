@@ -3,15 +3,16 @@ using namespace std;
 
 int solve(const string &s)
 {
-    int count = 0;
-    for (int i = 0; i < s.length(); i++)
-    {
-        if (s[i] == '1' && (i == 0 || s[i - 1] == '0'))
-        {
-            count++;
-        }
-    }
-    return count;
+    // int count = 0;
+    // for (int i = 0; i < s.length(); i++)
+    // {
+    //     if (s[i] == '1' && (i == 0 || s[i - 1] == '0'))
+    //     {
+    //         count++;
+    //     }
+    // }
+    // return count;
+     return count(s.begin(), s.end(), '1');   // 
 }
 
 int main()
