@@ -8,9 +8,14 @@ int main()
     int n;
     cin >> n;
 
-    int firstDigit = n / 10;
-    int lastDigit = n % 10;
-    if (firstDigit % lastDigit == 0 || lastDigit % firstDigit == 0)
+    int a = n / 10;
+    int b = n % 10;
+
+    if (b != 0 && a % b == 0)
+    {
+        cout << "YES" << "\n";
+    }
+    else if (a != 0 && b % a == 0)
     {
         cout << "YES" << "\n";
     }
