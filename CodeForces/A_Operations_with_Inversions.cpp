@@ -11,29 +11,22 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> a(n);
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i];
-        }
 
-        vector<int> dp(n, 0);
-        dp[0] = 1;
+        int first;
+        cin >> first;
+        int ans = 0;
 
-        int best = 1;
         for (int i = 1; i < n; i++)
         {
-            dp[i] = 1;
-            for (int j = 0; j < i; j++)
+            int x;
+            cin >> x;
+            if (x < first)
             {
-                if (a[j] <= a[i] && dp[j] > 0)
-                {
-                    dp[i] = max(dp[i], dp[j] + 1);
-                }
+                ans++;
             }
-            best = max(best, dp[i]);
         }
-        cout << n - best << "\n";
+
+        cout << ans << "\n";
     }
     return 0;
 }
