@@ -11,15 +11,16 @@ int main()
     {
         string s;
         cin >> s;
-        int n = s.length();
-        if (n > 10)
+
+        int ones = 0;
+        for (char c : s)
         {
-            cout << s[0] << n - 2 << s[n - 1] << "\n";
+            if (c == '1')
+            {
+                ones++;
+            }
         }
-        else
-        {
-            cout << s << "\n";
-        }
+        cout << ones << "\n";
     }
     return 0;
 }
