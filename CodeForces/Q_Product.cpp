@@ -11,7 +11,7 @@ int main()
     int product = 1;
     for (int i = l; i <= r; i++)
     {
-        product = (1LL * product * i) % m;
+        product = ( product * i) % m;
     }
     cout << product << "\n";
 
