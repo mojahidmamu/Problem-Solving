@@ -12,13 +12,13 @@ int main()
     {
         fact *= i;
     }
-    string fact_str = to_string(fact);
-    int sum_of_digits = 0;
-    for (char c : fact_str)
+    int digit_count = 0;
+    while (fact > 0)
     {
-        sum_of_digits += c - '0';
+        fact /= 10;
+        digit_count++;
     }
-    cout << "Number of digits of " << n << "! is " << sum_of_digits << "\n";
-    // --- your code here ---
+    cout << "Number of digits of " << n << "! is " << digit_count << "\n";
+
     return 0;
 }
