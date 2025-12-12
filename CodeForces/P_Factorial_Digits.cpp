@@ -18,7 +18,7 @@ int main()
     {
         sum_of_digits += c - '0';
     }
-    cout << sum_of_digits << "\n";
+    cout << "Number of digits of " << n << "! is " << sum_of_digits << "\n";
     // --- your code here ---
     return 0;
 }
