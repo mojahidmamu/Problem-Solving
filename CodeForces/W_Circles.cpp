@@ -10,40 +10,21 @@ int main()
     int x3, y3, x4, y4;
     cin >> x3 >> y3 >> x4 >> y4;
 
-    bool is_circle1 = (x1 == x2) && (y1 == y2);
-    bool is_circle2 = (x3 == x4) && (y3 == y4);
+    double cx1 = (x1 + x2) / 2.0;
+    double cy1 = (y1 + y2) / 2.0;
+    double cx2 = (x3 + x4) / 2.0;
+    double cy2 = (y3 + y4) / 2.0;
 
-    if (is_circle1 && is_circle2)
+    double r1 = sqrt((cx1 - x1) * (cx1 - x1) + (cy1 - y1) * (cy1 - y1));
+    double r2 = sqrt((cx2 - x3) * (cx2 - x3) + (cy2 - y3) * (cy2 - y3));
+    if (abs(cx1 - cx2) < 1e-9 && abs(cy1 - cy2) < 1e-9 && abs(r1 - r2) < 1e-9)
     {
-        if (x1 == x3 && y1 == y3)
-        {
-            cout << "YES\n";
-        }
-        else
-        {
-            cout << "NO\n";
-        }
-    }
-    else if (is_circle1 || is_circle2)
-    {
-        cout << "NO\n";
+        cout << "YES\n";
     }
     else
     {
-        int64_t dx1 = x2 - x1;
-        int64_t dy1 = y2 - y1;
-        int64_t dx2 = x4 - x3;
-        int64_t dy2 = y4 - y3;
-        int64_t cross = dx1 * dy2 - dy1 * dx2;
-        if (cross == 0)
-        {
-            cout << "YES\n";
-        }
-        else
-        {
-            cout << "NO\n";
-        }
+        cout << "NO\n";
     }
 
-    return 0;
+        return 0;
 }
