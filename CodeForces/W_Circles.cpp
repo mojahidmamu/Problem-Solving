@@ -17,7 +17,9 @@ int main()
 
     double r1 = sqrt((cx1 - x1) * (cx1 - x1) + (cy1 - y1) * (cy1 - y1));
     double r2 = sqrt((cx2 - x3) * (cx2 - x3) + (cy2 - y3) * (cy2 - y3));
-    if (abs(cx1 - cx2) < 1e-9 && abs(cy1 - cy2) < 1e-9 && abs(r1 - r2) < 1e-9)
+
+    double d = sqrt((cx1 - cx2) * (cx1 - cx2) + (cy1 - cy2) * (cy1 - cy2));
+    if (r1 + r2 >= d && abs(r1 - r2) <= d)
     {
         cout << "YES\n";
     }
