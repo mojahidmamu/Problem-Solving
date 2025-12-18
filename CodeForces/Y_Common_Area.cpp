@@ -33,7 +33,7 @@ int main()
         {
             area = (common_right - common_left) * (common_top - common_bottom);
         }
-        cout << area << "\n";
+        cout << "Case #" << t << ": " << area << "\n";
     }
     return 0;
 }
