@@ -7,7 +7,7 @@ int main()
     // --- your code here ---
     int t;
     cin >> t;
-    while (t--)
+    for(int case_num = 1; case_num <= t; case_num++)
     {
         int n;
         cin >> n;
@@ -33,7 +33,7 @@ int main()
         {
             area = (common_right - common_left) * (common_top - common_bottom);
         }
-        cout << "Case #" << t << ": " << area << "\n";
+        cout << "Case #" << case_num << ": " << area << "\n";
     }
     return 0;
 }
