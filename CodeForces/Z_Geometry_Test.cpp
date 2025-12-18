@@ -7,11 +7,11 @@ int main()
     // --- your code here ---
     int R, S;
     cin >> R >> S;
-    if (S >= R && S <= 2 * R)
+    if (S * sqrt(2) <= 2 * R)
     {
         cout << "Circle\n";
     }
-    else if (S > 2 * R)
+    else if (S >= 2 * R)
     {
         cout << "Square\n";
     }
