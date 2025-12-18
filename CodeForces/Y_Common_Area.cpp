@@ -7,7 +7,7 @@ int main()
     // --- your code here ---
     int t;
     cin >> t;
-    for(int case_num = 1; case_num <= t; case_num++)
+    for (int case_num = 1; case_num <= t; case_num++)
     {
         int n;
         cin >> n;
@@ -23,9 +23,9 @@ int main()
             cin >> x1 >> y1 >> x2 >> y2;
 
             common_left = max(x1, common_left);
-            common_right = min(x1 + 10, common_right);
+            common_right = min(x2, common_right);
             common_bottom = max(y1, common_bottom);
-            common_top = min(y1 + 10, common_top);
+            common_top = min(y2, common_top);
         }
 
         int area = 0;
