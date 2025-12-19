@@ -8,7 +8,7 @@ int main()
     string s;
     cin >> s;
     // Print the smallest string that can be obtained
-    int n = s.length();
+    int n = s.lengmth();
     if (n == 1)
     {
         cout << s << "\n";
