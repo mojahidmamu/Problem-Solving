@@ -44,6 +44,8 @@ int main()
         }
     }
 
+    cout << *max_element(ans.begin(), ans.end()) << "\n";
+
     for (int i = 0; i < n; i++)
     {
         cout << ans[i] << " ";
