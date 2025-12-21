@@ -4,19 +4,13 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int sum(int n, int m)
+int sum(int n, int m, vector<long long> &arr)
 {
-    long long arr[n];
-    for (int i = 0; i < n; i++)
+    if (m == 0)
     {
-        cin >> arr[i];
+        return 0;
     }
-    long long suffix_sum = 0;
-    for (int i = n - 1; i >= n - m; i--)
-    {
-        suffix_sum += arr[i];
-    }
-    return suffix_sum;
+    return arr[n - m] + sum(n, m - 1, arr);
 }
 
 int main()
@@ -26,8 +20,13 @@ int main()
 
     int n, m;
     cin >> n >> m;
+    vector<long long> arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
 
-    cout << sum(n, m) << endl;
+    cout << sum(n, m, arr) << endl;
 
     return 0;
 }
