@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int sum(int n, int m, vector<long long> &arr)
+long long sum(int n, int m, vector<long long> &arr)
 {
     if (m == 0)
     {
