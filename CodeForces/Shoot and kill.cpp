@@ -1,10 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+#define ll long long
+#define endl '\n'
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    // --- your code here ---
+
     int n;
     cin >> n;
     vector<pair<long long, long long>> range(n);
@@ -15,7 +19,7 @@ int main()
         st.insert(range[i].first);
         st.insert(range[i].second);
     }
-    
+
     int q;
     cin >> q;
     vector<long long> queries(q);
@@ -23,7 +27,7 @@ int main()
     {
         cin >> queries[i];
         st.insert(queries[i]);
-    } 
+    }
 
     map<long long, int> compress;
     int cur = 1;
@@ -31,6 +35,6 @@ int main()
     {
         compress[x] = cur++;
     }
-
+    
     return 0;
 }
