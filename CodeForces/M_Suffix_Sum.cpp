@@ -4,6 +4,13 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
+int sum(int n, int m)
+{
+    if (m == 0)
+        return 0;
+    return n + sum(n, m - 1);
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -11,26 +18,8 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    vector<ll> a(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-    }
-    vector<ll> suffixSum(n);
-    suffixSum[n - 1] = a[n - 1];
-    for (int i = n - 2; i >= 0; i--)
-    {
-        suffixSum[i] = suffixSum[i + 1] + a[i];
-    }
-    for (int i = 0; i < m; i++)
-    {
-        int x;
-        cin >> x;
-        cout << suffixSum[x - 1] << endl;
-    }
 
-    
-
+    cout << sum(n, m) << endl;
 
     return 0;
 }
