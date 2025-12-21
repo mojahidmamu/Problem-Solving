@@ -6,9 +6,17 @@ using namespace std;
 
 int sum(int n, int m)
 {
-    if (m == 0)
-        return 0;
-    return n + sum(n, m - 1);
+    long long arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    long long suffix_sum = 0;
+    for (int i = n - 1; i >= n - m; i--)
+    {
+        suffix_sum += arr[i];
+    }
+    return suffix_sum;
 }
 
 int main()
