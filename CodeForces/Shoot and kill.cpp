@@ -75,5 +75,29 @@ int main()
         compress[x] = cur++;
     }
 
+    int sz = cur + 5;
+    vector<int> diff(sz, 0);
+    for (auto &r : range)
+    {
+        diff[compress[r.first]]++;
+        diff[compress[r.second + 1]]--;
+    }
+
+    vector<int> freq(sz, 0);
+    for (int i = 1; i < sz; i++)
+    {
+        freq[i] = freq[i - 1] + diff[i];
+    }
+
+    SegmentTree segtree(freq);
+
+    for (int i = 0; i < q; i++)
+    {
+        int l = compress[queries[i].first];
+        int r = compress[queries[i].second];
+        int ans = segtree.query(1, 1, sz - 1, l, r);
+        cout << ans << endl;
+    }
+
     return 0;
 }
