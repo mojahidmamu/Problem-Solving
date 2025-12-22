@@ -6,6 +6,12 @@ using namespace std;
 
 long long calculateAverage(int arr[], int n)
 {
+    long long sum = 0;
+    if (n == 0)
+    {
+        return 0;
+    }
+    return arr[n - 1] + calculateAverage(arr, n - 1);
 }
 
 int main()
@@ -20,7 +26,9 @@ int main()
     {
         cin >> arr[i];
     }
-    cout << calculateAverage(arr, n) << endl;
+    long long result = calculateAverage(arr, n);
+    double average = result / n;
+    cout << fixed << setprecision(6) << average << endl;
 
     return 0;
 }
