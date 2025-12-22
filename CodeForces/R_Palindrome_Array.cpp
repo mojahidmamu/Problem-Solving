@@ -4,6 +4,10 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
+bool isPalindrome()
+{
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -16,7 +20,14 @@ int main()
     {
         cin >> arr[i];
     }
-    
+    if (isPalindrome() == true)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
