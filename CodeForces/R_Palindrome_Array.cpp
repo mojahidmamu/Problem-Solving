@@ -4,8 +4,17 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-bool isPalindrome()
+bool isPalindrome(int arr[], int l, int r)
 {
+    if (l >= r)
+    {
+        return true;
+    }
+    if (arr[l] != arr[r])
+    {
+        return false;
+    }
+    return isPalindrome(arr, l + 1, r - 1);
 }
 
 int main()
@@ -20,7 +29,7 @@ int main()
     {
         cin >> arr[i];
     }
-    if (isPalindrome() == true)
+    if (isPalindrome(arr, 0, n - 1) == true)
     {
         cout << "YES" << endl;
     }
