@@ -7,9 +7,10 @@ int main()
     // --- your code here ---
     int R, C;
     cin >> R >> C;
-    int A[R][C];
-    int B[R][C];
+    int A[R][C]; // first matrix
+    int B[R][C]; // second 
     int sum[R][C];
+    // input first matrix
     for (int i = 0; i < R; i++)
     {
         for (int j = 0; j < C; j++)
@@ -17,6 +18,7 @@ int main()
             cin >> A[i][j];
         }
     }
+    // 
     for (int i = 0; i < R; i++)
     {
         for (int j = 0; j < C; j++)
