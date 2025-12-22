@@ -24,21 +24,21 @@ int main()
             cin >> B[i][j];
         }
     }
-    // for (int i = 0; i < R; i++)
-    // {
-    //     for (int j = 0; j < C; j++)
-    //     {
-    //         sum[i][j] = A[i][j] + B[i][j];
-    //     }
-    // }
-    // for (int i = 0; i < R; i++)
-    // {
-    //     for (int j = 0; j < C; j++)
-    //     {
-    //         cout << sum[i][j] << " ";
-    //     }
-    //     cout << "\n";
-    // }
+    for (int i = 0; i < R; i++)
+    {
+        for (int j = 0; j < C; j++)
+        {
+            sum[i][j] = A[i][j] + B[i][j];
+        }
+    }
+    for (int i = 0; i < R; i++)
+    {
+        for (int j = 0; j < C; j++)
+        {
+            cout << sum[i][j] << " ";
+        }
+        cout << "\n";
+    }
 
     return 0;
 }
