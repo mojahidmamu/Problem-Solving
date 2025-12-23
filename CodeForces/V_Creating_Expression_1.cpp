@@ -11,7 +11,7 @@ long long arr[25];
 bool expression(int index, long long cur_sum)
 {
 
-    if (index == x)
+    if (index == n)
     {
         return cur_sum == x;
     }
