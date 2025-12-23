@@ -4,15 +4,28 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-bool expression(int n, long long x, long long arr[])
+int n;
+long long x;
+long long arr[25];
+
+bool expression(int index, long long cur_sum)
 {
-    for (int i = 0; i < n; i++)
+
+    if (index == x)
     {
-        if (arr[i] == x)
-        {
-            return true;
-        }
+        return cur_sum == x;
     }
+
+    if (expression(index + 1, cur_sum + arr[index]))
+    {
+        return true;
+    }
+
+    if (expression(index + 1, cur_sum - arr[index]))
+    {
+        return true;
+    }
+
     return false;
 }
 
@@ -21,15 +34,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n;
-    long long x;
     cin >> n >> x;
-    long long arr[n];
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    if (expression(n, x, arr) == true)
+    if (expression(0, 0))
     {
         cout << "YES" << endl;
     }
