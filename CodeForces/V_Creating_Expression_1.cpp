@@ -6,7 +6,7 @@ using namespace std;
 
 int n;
 long long x;
-long long arr[25];
+vector<long long> arr(25);
 
 bool expression(int index, long long cur_sum)
 {
@@ -16,17 +16,7 @@ bool expression(int index, long long cur_sum)
         return cur_sum == x;
     }
 
-    if (expression(index + 1, cur_sum + arr[index]))
-    {
-        return true;
-    }
-
-    if (expression(index + 1, cur_sum - arr[index]))
-    {
-        return true;
-    }
-
-    return false;
+    return expression(index + 1, cur_sum + arr[index]) || expression(index + 1, cur_sum - arr[index]);
 }
 
 int main()
@@ -39,14 +29,8 @@ int main()
     {
         cin >> arr[i];
     }
-    if (expression(0, 0))
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+
+    cout << expression(0, 0) ? "YES\n" : "NO\n";
 
     return 0;
 }
