@@ -25,7 +25,7 @@ int main()
         long long total = 0;
         for (int i = 0; i + 1 < n; i++)
         {
-            total += abs(arr[i] - arr[i - 1]);
+            total += abs(arr[i] - arr[i + 1]);
         }
 
         long long best_gain = 0;
