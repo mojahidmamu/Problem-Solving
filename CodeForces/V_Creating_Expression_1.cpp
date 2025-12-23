@@ -4,8 +4,16 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-bool expression(long long n, long long x, long long arr[])
+bool expression(int n, long long x, long long arr[])
 {
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == x)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 int main()
@@ -13,7 +21,8 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    long long n, x;
+    int n;
+    long long x;
     cin >> n >> x;
     long long arr[n];
     for (int i = 0; i < n; i++)
