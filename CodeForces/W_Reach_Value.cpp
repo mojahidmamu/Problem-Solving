@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int canReach(int current, int N)
+int canReach(long long  current, long long  N)
 {
     if (current == N)
     {
@@ -25,7 +25,7 @@ int main()
     cin >> T;
     while (T--)
     {
-        int N;
+        long long  N;
         cin >> N;
         if (canReach(1, N))
         {
