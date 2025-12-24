@@ -4,8 +4,19 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int count(int s, int e) {
-    
+int count(int current, int end)
+{
+    if (current == end)
+    {
+        return 1;
+    }
+
+    if (current > end)
+    {
+        return 0;
+    }
+
+    return count(current + 1, end) + count(current + 2, end) + count(current + 3, end);
 }
 
 int main()
