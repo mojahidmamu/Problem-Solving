@@ -41,6 +41,7 @@ int main()
     if (n % 2 == 1 && s[n / 2] == '?')
     {
         s[n / 2] = 'a';
+        
     }
 
     cout << s << endl;
