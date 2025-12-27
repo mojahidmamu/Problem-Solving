@@ -15,6 +15,16 @@ int main()
     {
         int n;
         cin >> n;
+        bool isPrime;
+
+        if (isPrime == true)
+        {
+            cout << "prime" << endl;
+        }
+        else
+        {
+            cout << "not prime" << endl;
+        }
     }
 
     return 0;
