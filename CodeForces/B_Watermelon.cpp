@@ -11,7 +11,15 @@ int main()
 
     int w;
     cin >> w;
-    
+    int a = w / 2;
+    if (a % 2 == 0)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
 
     return 0;
 }
