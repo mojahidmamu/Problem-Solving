@@ -9,16 +9,20 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int w;
-    cin >> w;
-     
-    if (w >= 4 && w % 2 == 0)
+    int n, m;
+    cin >> n >> m;
+    int A[n];
+    for (int i = 0; i < n; i++)
     {
-        cout << "YES" << endl;
+        cin >> A[i];
     }
-    else {
-        cout << "NO" << endl;
+    // 
+    int B[m];
+    for (int i = 0; i < m; i++)
+    {
+        cin >> B[i];
     }
 
+    
     return 0;
 }
