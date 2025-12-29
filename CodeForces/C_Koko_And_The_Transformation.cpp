@@ -11,18 +11,28 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    int A[n];
+    int A[n], B[m];
+    int sum1 = 0, sum2 = 0;
     for (int i = 0; i < n; i++)
     {
         cin >> A[i];
+        sum1 += A[i];
     }
-    // 
-    int B[m];
+    //
     for (int i = 0; i < m; i++)
     {
         cin >> B[i];
+        sum2 += B[i];
     }
 
-    
+    if (sum1 == sum2)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
