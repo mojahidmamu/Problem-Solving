@@ -27,12 +27,12 @@ int main()
 
     if (sum1 == sum2)
     {
-        cout << "YES" << endl;
+        cout << "Yes" << endl;
     }
-    else
-    {
-        cout << "NO" << endl;
+    else {
+        cout << "No" << endl;
     }
+    
 
     return 0;
 }
