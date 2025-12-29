@@ -11,13 +11,16 @@ int main()
 
     int w;
     cin >> w;
-    int a = w / 2;
-    if (a % 2 == 0)
+    if (w < 4)
+    {
+        cout << "NO" << endl;
+    }
+
+    if (w >= 4 && w % 2 == 0)
     {
         cout << "YES" << endl;
     }
-    else
-    {
+    else {
         cout << "NO" << endl;
     }
 
