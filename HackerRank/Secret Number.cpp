@@ -11,11 +11,8 @@ int main()
 
     long long n;
     cin >> n;
-    if (n < 0)
-    {
-        n = -n;
-    }
-    cout << abs(n) % 10 << endl;
+    
+    cout << llabs(n) % 10 << endl;
 
     return 0;
 }
