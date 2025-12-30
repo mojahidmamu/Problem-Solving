@@ -53,6 +53,17 @@ int main()
 
         ll mx = *max_element(arr.begin() + l, arr.begin() + r + 1);
         int count = 0, idx = -1;
+        for (int i = l; i <= r; i++)
+        {
+            if (arr[i] == mx)
+            {
+                count++;
+                if (idx == -1)
+                {
+                    idx = i;
+                }
+            }
+        }
 
         if (count > 1)
         {
