@@ -6,26 +6,28 @@ using namespace std;
 
 struct FenwickTree
 {
-    vector<int> bit;
+    vector<int> mojo_arr;
     int n;
 
     FenwickTree(int size)
     {
         n = size;
-        bit.assign(n + 1, 0);
+        mojo_arr.assign(n + 1, 0);
     }
 
     void update(int index, int val)
     {
         for (++index; index <= n; index += index & -index)
-            bit[index] += val;
+            mojo_arr[index] += val;
     }
 
     int query(int index)
     {
         int sum = 0;
         for (++index; index > 0; index -= index & -index)
-            sum += bit[index];
+        {
+            sum += mojo_arr[index];
+        }
         return sum;
     }
 };
@@ -43,16 +45,18 @@ int main()
         cin >> n;
         vector<int> arr(n);
         for (int i = 0; i < n; i++)
+        {
             cin >> arr[i];
+        }
 
         vector<int> sorted_arr = arr;
         sort(sorted_arr.begin(), sorted_arr.end());
-        map<int, int> compress;
+        map<int, int> mp;
         int idx = 0;
         for (int x : sorted_arr)
         {
-            if (!compress.count(x))
-                compress[x] = idx++;
+            if (!mp.count(x))
+                mp[x] = idx++;
         }
 
         FenwickTree ft(idx);
@@ -60,7 +64,7 @@ int main()
 
         for (int i = n - 1; i >= 0; i--)
         {
-            int comp_val = compress[arr[i]];
+            int comp_val = mp[arr[i]];
             count += ft.query(comp_val);
             ft.update(comp_val, 1);
         }
