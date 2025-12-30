@@ -1,0 +1,1 @@
+{"name":"Local: Railway Platform","url":"d:\\PHITRON\\Probem_Solving\\HackerRank\\Railway Platform.cpp","tests":[{"id":1767104730547,"input":"3\n6\n2 4 5 2 4 3\n2\n5 5\n3\n3 2 1","output":"8\n1\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\PHITRON\\Probem_Solving\\HackerRank\\Railway Platform.cpp","group":"local","local":true}
