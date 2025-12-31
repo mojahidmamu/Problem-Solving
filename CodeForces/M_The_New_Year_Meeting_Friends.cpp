@@ -11,7 +11,12 @@ int main()
 
     int x1, x2, x3;
     cin >> x1 >> x2 >> x3;
-        
+
+    vector<int> pos = {x1, x2, x3};
+    sort(pos.begin(), pos.end());
+
+    int min_total_distance = pos[2] - pos[0];
+    cout << min_total_distance << endl;
 
     return 0;
 }
