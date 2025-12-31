@@ -11,11 +11,17 @@ int main()
 
     int n;
     cin >> n;
-    vector<int> arr(n);
+
+    int available = 0;
+    int unrated = 0;
+     
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+         int event;
+         cin >> event;  
     }
+
+    cout << unrated << endl;
 
     return 0;
 }
