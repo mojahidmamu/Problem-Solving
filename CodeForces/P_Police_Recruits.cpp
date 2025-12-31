@@ -24,7 +24,7 @@ int main()
         {
             if (available > 0)
             {
-                available++;
+                available--;
             }
             else
             {
