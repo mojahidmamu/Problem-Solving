@@ -9,12 +9,9 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while(t--)
-    {
-        // solve one test case
-    }
+    int x1, x2, x3;
+    cin >> x1 >> x2 >> x3;
+        
 
     return 0;
 }
