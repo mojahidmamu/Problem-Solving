@@ -9,12 +9,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while(t--)
+    string s;
+    cin >> s;
+
+    vector<int> nums;
+    for (char ch : s)
     {
-        // solve one test case
+        if (ch != '+')
+        {
+            nums.push_back(ch - '0');
+        }
     }
+
+    sort(nums.begin(), nums.end());
 
     return 0;
 }
