@@ -35,6 +35,12 @@ int main()
                 break;
             }
         }
+
+        if (isGood)
+        {
+            countGood++;
+        }
+        
     }
     cout << countGood << endl;
 
