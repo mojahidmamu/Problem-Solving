@@ -11,12 +11,32 @@ int main()
 
     int n, k;
     cin >> n >> k;
-    while (n--)
+
+    int countGood = 0;
+
+    for (int i = 0; i < n; i++)
     {
-        int a;
-        cin >> a;
+        string s;
+        cin >> s;
+
+        vector<bool> visited(10, false);
+        for (char ch : s)
+        {
+            int digit = ch - '0';
+            visited[digit] = true;
+        }
+
+        bool isGood = true;
+        for (int j = 0; j < k; j++)
+        {
+            if (!visited[j])
+            {
+                isGood = false;
+                break;
+            }
+        }
     }
-    
+    cout << countGood << endl;
 
     return 0;
 }
