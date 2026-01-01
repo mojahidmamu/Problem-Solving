@@ -27,7 +27,7 @@ int main()
         }
 
         bool isGood = true;
-        for (int j = 0; j < k; j++)
+        for (int j = 0; j <= k; j++)
         {
             if (!visited[j])
             {
