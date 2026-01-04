@@ -13,27 +13,17 @@ int main()
     cin >> n;
     string s;
     cin >> s;
-    string res;
-    for (int i = 0; i < n;)
+    string res = "";
+    for (int i = n - 1; i >= 0; i--)
     {
-        if (s[i] == '0')
+        int len = res.length();
+        if (len % 2 == 0)
         {
-            res += '0';
-            i++;
+            res.insert(res.begin() + len / 2, s[i]);
         }
-        else if (s[i] == '1')
+        else
         {
-            if (s[i + 1] == '0')
-            {
-                res += '1';
-                i += 2;
-            }
-            else
-            {
-                int num = (s[i + 1] - '0') * 10 + (s[i + 2] - '0');
-                res += char('a' + num - 1);
-                i += 3;
-            }
+            res.insert(res.begin() + len / 2, s[i]);
         }
     }
     cout << res << endl;
