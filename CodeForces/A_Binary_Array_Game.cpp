@@ -21,18 +21,19 @@ int main()
             cin >> arr[i];
         }
 
-        int ones = 0, zeros = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] == 1)
-            {
-                ones++;
-            }
-            else
-            {
-                zeros++;
-            }
-        }
+        int ones = count(arr.begin(), arr.end(), 1); 
+        int zeros = n - ones;
+        // for (int i = 0; i < n; i++)
+        // {
+        //     if (arr[i] == 1)
+        //     {
+        //         ones++;
+        //     }
+        //     else
+        //     {
+        //         zeros++;
+        //     }
+        // }
 
         if (ones >= zeros)
         {
