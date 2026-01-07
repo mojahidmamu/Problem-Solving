@@ -21,18 +21,20 @@ int main()
             cin >> arr[i];
         }
 
-        int ones = 0;
+        int ones = 0, zeros = 0;
         for (int i = 0; i < n; i++)
         {
-            int x;
-            cin >> x;
-            if (x == 1)
+            if (arr[i] == 1)
             {
                 ones++;
             }
+            else
+            {
+                zeros++;
+            }
         }
 
-        if (ones % 2 == 1)
+        if (ones >= zeros)
         {
             cout << "Alice" << endl;
         }
