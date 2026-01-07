@@ -20,6 +20,26 @@ int main()
         {
             cin >> arr[i];
         }
+
+        int ones = 0;
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            if (x == 1)
+            {
+                ones++;
+            }
+        }
+
+        if (ones % 2 == 1)
+        {
+            cout << "Alice" << endl;
+        }
+        else
+        {
+            cout << "Bob" << endl;
+        }
     }
 
     return 0;
