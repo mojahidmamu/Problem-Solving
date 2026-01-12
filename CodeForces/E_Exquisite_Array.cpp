@@ -20,13 +20,40 @@ int main()
         {
             cin >> arr[i];
         }
-        sort(arr.begin(), arr.end());
-        for (int i = 0; i < n; i++)
+        vector<int> diff(n - 1);
+        for (int i = 0; i < n - 1; i++)
         {
-            cout << arr[i] << ' ';
+            diff[i] = abs(arr[i + 1] - arr[i]);
         }
-        cout << endl;
+
+        vector<long long> res;
+        // iterate k = 1 to n-1
+        for (int k = 1; k <= n - 1; k++)
+        {
+            long long count = 0;
+            int length = 0;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                if (diff[i] >= k)
+                {
+                    length++;
+                }
+                else
+                {
+                    count += 1LL * length * (length + 1) / 2;
+                    length = 0;
+                }
+            }
+            count += 1LL * length * (length + 1) / 2;
+            res.push_back(count);
         }
+
+        for (size_t i = 0; i < res.size(); i++)
+        {
+            cout << res[i] << (i + 1 == res.size() ? '\n' : ' ');
+        }
+    }
 
     return 0;
 }
