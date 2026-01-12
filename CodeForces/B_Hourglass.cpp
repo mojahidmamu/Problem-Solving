@@ -16,10 +16,20 @@ int main()
         ll s, k, m;
         cin >> s >> k >> m;
 
-        ll full_cycles = (m / k) * k;
-        ll remainder = m - full_cycles;
-        ll result = s - remainder;
-        cout << max(0ll, result) << '\n';
+        if (s >= k)
+        {
+            ll last_flip = (m / k) * k;
+            ll time_after_last_flip = m - last_flip;
+            cout << s - time_after_last_flip << '\n';
+        }
+        else
+        {
+            ll flips = m / k;
+            ll time_passed = flips * k;
+            ll remaining = s - max(0ll, time_passed - (flips - 1) * k);
+            remaining = s - (m - time_passed);
+            cout << max(0ll, remaining) << '\n';
+        }
     }
 
     return 0;
