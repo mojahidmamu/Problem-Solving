@@ -13,7 +13,9 @@ int main()
     cin >> t;
     while(t--)
     {
-        // solve one test case
+        int n, k;
+        cin >> n >> k;
+        
     }
 
     return 0;
