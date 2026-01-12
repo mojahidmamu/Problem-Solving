@@ -11,11 +11,15 @@ int main()
 
     int t;
     cin >> t;
-    while(t--)
+    while (t--)
     {
-         ll s, k, m;
-         cin >> s >> k >> m;
-         
+        ll s, k, m;
+        cin >> s >> k >> m;
+
+        ll full_cycles = (m / k) * k;
+        ll remainder = m - full_cycles;
+        ll result = s - remainder;
+        cout << max(0ll, result) << '\n';
     }
 
     return 0;
