@@ -4,6 +4,28 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
+void solve()
+{
+    ll s, k, m;
+    cin >> s >> k >> m;
+
+    ll last_flip_time = (m / k) * k;
+    long long sand_at_last_flip;
+    if (m < k)
+    {
+        sand_at_last_flip = s;
+    }
+    else
+    {
+        sand_at_last_flip = min(s, k);
+    }
+
+    ll time_since_last_flip = m - last_flip_time;
+    ll fell = min(sand_at_last_flip, time_since_last_flip);
+
+    cout << sand_at_last_flip - fell << "\n";
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -13,23 +35,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll s, k, m;
-        cin >> s >> k >> m;
-
-        if (s >= k)
-        {
-            ll last_flip = (m / k) * k;
-            ll time_after_last_flip = m - last_flip;
-            cout << s - time_after_last_flip << '\n';
-        }
-        else
-        {
-            ll flips = m / k;
-            ll time_passed = flips * k;
-            ll remaining = s - max(0ll, time_passed - (flips - 1) * k);
-            remaining = s - (m - time_passed);
-            cout << max(0ll, remaining) << '\n';
-        }
+        solve();
     }
 
     return 0;
