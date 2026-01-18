@@ -21,7 +21,31 @@ int main()
         {
             cin >> a[i];
         }
-        
+        sort(a.begin(), a.end());
+        a.erase(unique(a.begin(), a.end()), a.end());
+
+        int m = a.size();
+        ll ans = 0;
+        for (int i = 0; i < m; i++)
+        {
+            ll base = a[i];
+            ll mex = 0;
+
+            for (int j = i; j < m; j++)
+            {
+                if (a[j] - base == mex)
+                {
+                    mex++;
+                }
+                else if (a[j] - base > mex)
+                {
+                    break;
+                }
+            }
+            ans = max(ans, mex);
+        }
+
+        cout << ans << endl;
     }
 
     return 0;
