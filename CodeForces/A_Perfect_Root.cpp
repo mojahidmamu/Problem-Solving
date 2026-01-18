@@ -19,7 +19,7 @@ int main()
         {
             cout << i << " ";
         }
-        cout << "\n";
+        cout << '\n';
     }
 
     return 0;
