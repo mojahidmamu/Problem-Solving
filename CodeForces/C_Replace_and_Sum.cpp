@@ -28,7 +28,7 @@ int main()
         vector<ll> c(n + 2, 0);
         for (int i = n; i >= 1; i--)
         {
-            c[i] = max(b[i], c[i + 1]);
+            c[i] = max({a[i], b[i], c[i + 1]});
         }
 
         vector<ll> pref(n + 1, 0);
