@@ -15,10 +15,26 @@ int main()
     {
         int n, s, x;
         cin >> n >> s >> x;
-        vector<int> arr(n);
+        int sum = 0;
+
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
+            int a;
+            cin >> a;
+            sum += a;
+        }
+
+        if (sum > s)
+        {
+            cout << "NO\n";
+        }
+        else if ((s - sum) % x == 0)
+        {
+            cout << "YES\n";
+        }
+        else
+        {
+            cout << "NO\n";
         }
     }
 
