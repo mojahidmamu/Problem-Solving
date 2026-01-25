@@ -11,9 +11,19 @@ int main()
 
     int t;
     cin >> t;
-    while(t--)
+    while (t--)
     {
-        // solve one test case
+        ll n, Ax, Ay, Bx, By;
+        cin >> n >> Ax >> Ay >> Bx >> By;
+        vector<ll> a(n + 1), b(n + 1);
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> a[i];
+        }
+        for (int i = 1; i <= n; i++)
+        {
+            cin >> b[i];
+        }
     }
 
     return 0;
