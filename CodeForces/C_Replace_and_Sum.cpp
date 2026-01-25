@@ -15,22 +15,38 @@ int main()
     {
         int n, q;
         cin >> n >> q;
-        vector<int> a(n);
-        for (int i = 0; i < n; i++)
+        vector<ll> a(n + 1), b(n + 1);
+        for (int i = 1; i <= n; i++)
         {
             cin >> a[i];
         }
-        vector<int> b(n);
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
             cin >> b[i];
         }
+        //
+        vector<ll> c(n + 2, 0);
+        for (int i = n; i >= 1; i--)
+        {
+            c[i] = max(b[i], c[i + 1]);
+        }
+
+        vector<ll> pref(n + 1, 0);
+        for (int i = 1; i <= n; i++)
+        {
+            pref[i] = pref[i - 1] + c[i];
+        }
+
         while (q--)
         {
             int l, r;
             cin >> l >> r;
+
+            ll ans = pref[r] - pref[l - 1];
+            cout << ans << " ";
         }
-        }
+        cout << endl;
+    }
 
     return 0;
 }
