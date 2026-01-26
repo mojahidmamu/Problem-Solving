@@ -39,6 +39,8 @@ int main()
             ll x = a[i];
             ll usable = n - i;
             int k = upper_bound(pref.begin(), pref.end(), usable) - pref.begin() - 1;
+
+            ans = max(ans, x * (ll)k);
         }
         cout << ans << endl;
     }
