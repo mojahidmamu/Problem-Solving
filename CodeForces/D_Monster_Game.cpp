@@ -27,20 +27,17 @@ int main()
         }
 
         sort(a.begin(), a.end());
-        vector<ll> pref(n+1, 0);
+        vector<ll> pref(n + 1, 0);
         for (int i = 1; i <= n; i++)
         {
-            pref[i] = pref[i -1] + b[i - 1];
+            pref[i] = pref[i - 1] + b[i - 1];
         }
 
         ll ans = 0;
         for (int i = 0; i < n; i++)
         {
-            
         }
-        
-
-
+        cout << ans << endl;
     }
 
     return 0;
