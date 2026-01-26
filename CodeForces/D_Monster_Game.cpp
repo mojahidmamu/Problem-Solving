@@ -36,6 +36,9 @@ int main()
         ll ans = 0;
         for (int i = 0; i < n; i++)
         {
+            ll x = a[i];
+            ll usable = n - i;
+            int k = upper_bound(pref.begin(), pref.end(), usable) - pref.begin() - 1;
         }
         cout << ans << endl;
     }
