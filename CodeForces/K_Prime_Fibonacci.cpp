@@ -52,14 +52,7 @@ int main()
         int n;
         cin >> n;
 
-        if (isPrime(fib[n]) == true)
-        {
-            cout << "prime" << endl;
-        }
-        else
-        {
-            cout << "not prime" << endl;
-        }
+        cout << (primeFib[n] ? "prime\n" : "not prime\n");
     }
 
     return 0;
