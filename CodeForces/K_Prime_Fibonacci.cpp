@@ -10,6 +10,11 @@ bool isPrime(ll n)
     {
         return false;
     }
+    if (n % 2 == 0)
+    {
+        return n == 2;
+    }
+    
     for (int i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
@@ -28,6 +33,7 @@ int main()
     vector<ll> fib(51);
     fib[1] = 0;
     fib[2] = 1;
+
     for (int i = 3; i <= 50; i++)
     {
         fib[i] = fib[i - 1] + fib[i - 2];
