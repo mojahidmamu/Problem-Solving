@@ -61,13 +61,39 @@ int main()
 
     int n;
     cin >> n;
-    vector<ll> _Array_augmented___multiplies(n);
+    vector<ll> arr(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> _Array_augmented___multiplies[i];
+        cin >> arr[i];
     }
     ll sereja = 0, dima = 0;
-     
+    int l = 0, r = n - 1;
+    bool turn = true;
+    while (l <= r)
+    {
+        int pick;
+        if (arr[l] > arr[r])
+        {
+            pick = arr[l];
+            l++;
+        }
+        else
+        {
+            pick = arr[r];
+            r--;
+        }
+    
+        if (turn)
+        {
+            sereja += pick;
+        }
+        else
+        {
+            dima += pick;
+        }
+        turn = !turn;
+    }
+
     cout << sereja << " " << dima << endl;
 
     return 0;
