@@ -66,6 +66,16 @@ int main()
     {
         cin >> v[i];
     }
-
+    ll sereja = 0, dima = 0;
+    sort(all(v), greater<ll>());
+    for (int i = 0; i < n; i++)
+    {
+        if (i % 2 == 0)
+            sereja += v[i];
+        else
+            dima += v[i];
+    }
+    cout << sereja << " " << dima << endl;
+    
     return 0;
 }
