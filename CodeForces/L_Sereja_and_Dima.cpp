@@ -61,21 +61,14 @@ int main()
 
     int n;
     cin >> n;
-    vector<ll> v(n);
+    vector<ll> _Array_augmented___multiplies(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> v[i];
+        cin >> _Array_augmented___multiplies[i];
     }
     ll sereja = 0, dima = 0;
-    sort(all(v), greater<ll>());
-    for (int i = 0; i < n; i++)
-    {
-        if (i % 2 == 0)
-            sereja += v[i];
-        else
-            dima += v[i];
-    }
+     
     cout << sereja << " " << dima << endl;
-    
+
     return 0;
 }
