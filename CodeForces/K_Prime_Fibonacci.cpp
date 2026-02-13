@@ -14,8 +14,8 @@ bool isPrime(ll n)
     {
         return n == 2;
     }
-    
-    for (int i = 2; i * i <= n; i++)
+
+    for (ll i = 3; i * i <= n; i += 2)
     {
         if (n % i == 0)
         {
@@ -37,6 +37,12 @@ int main()
     for (int i = 3; i <= 50; i++)
     {
         fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    vector<bool> primeFib(51);
+    for (int i = 1; i <= 50; i++)
+    {
+        primeFib[i] = isPrime(fib[i]);
     }
 
     int t;
