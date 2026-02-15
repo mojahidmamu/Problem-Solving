@@ -65,25 +65,20 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> arr(n);
+
+        bool ok = false;
         for (int i = 0; i < n; i++)
         {
-            cin >> arr[i];
-        }
-        sort(all(arr));
-        int count = 0;
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = i + 1; j < n; j++)
+            int x;
+            cin >> x;
+            if (x == 67)
             {
-                if (gcd(arr[i], arr[j]) == 1)
-                {
-                    count++;
-                }
+                ok = true;
             }
         }
-        cout << count << endl;
-        }
+
+        cout << (ok ? "YES" : "NO") << "\n";
+    }
 
     return 0;
 }
