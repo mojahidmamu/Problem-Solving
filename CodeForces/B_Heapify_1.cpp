@@ -65,16 +65,42 @@ int main()
     {
         int n;
         cin >> n;
- 
-        for (int i = 0; i < n; i++)
+
+        vector<int> arr(n);
+        for (int i = 1; i <= n; i++)
         {
-            int x;
-            cin >> x;
-            if (x == 67)
+            cin >> arr[i];
+        }
+
+        vector<int> vis(n + 1, 0);
+        bool ok = true;
+        for (int i = 1; i <= n; i++)
+        {
+            if (vis[i])
             {
-                ok = true;
+                continue;
+            }
+
+            vector<int> idx, val;
+            int x = i;
+            while (x <= n && !vis[x])
+            {
+                vis[x] = 1;
+                idx.push_back(x);
+                val.push_back(arr[x]);
+                x *= 2;
+            }
+
+            sort(idx.begin(), idx.end());
+            sort(val.begin(), val.end());
+
+            if (idx != val)
+            {
+                ok = false;
+                break;
             }
         }
+        cout << (ok ? "YES" : "NO") << "\n";
     }
 
     return 0;
