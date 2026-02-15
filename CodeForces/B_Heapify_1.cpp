@@ -7,53 +7,6 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
-// GCD
-ll gcd(ll a, ll b)
-{
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-
-// LCM
-ll lcm(ll a, ll b)
-{
-    return (a / gcd(a, b)) * b;
-}
-
-// Power (a^b)
-ll power(ll a, ll b)
-{
-    ll res = 1;
-    while (b)
-    {
-        if (b & 1)
-            res *= a;
-        a *= a;
-        b >>= 1;
-    }
-    return res;
-}
-
-// Check Prime
-bool isPrime(ll n)
-{
-    if (n <= 1)
-        return false;
-    for (ll i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
-}
-
-// Print vector (debug)
-void printVector(vector<ll> &v)
-{
-    for (ll x : v)
-        cout << x << " ";
-    cout << endl;
-}
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -66,7 +19,7 @@ int main()
         int n;
         cin >> n;
 
-        vector<int> arr(n);
+        vector<int> arr(n  + 1);
         for (int i = 1; i <= n; i++)
         {
             cin >> arr[i];
