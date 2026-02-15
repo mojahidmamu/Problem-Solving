@@ -1,12 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
-
-// Author: Abdullah all Mojahid
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -18,35 +12,32 @@ int main()
     {
         int n;
         cin >> n;
-
-        vector<long long> f(n + 1), a(n + 1);
-        for (int i = 1; i <= n; i++)
+        vector<long long> f(n);
+        for (int i = 0; i < n; i++)
             cin >> f[i];
+        vector<long long> a(n);
 
         if (n == 2)
         {
-            cout << -f[2] << " " << f[1] << "\n";
-            continue;
+            a[0] = f[1];
+            a[1] = f[0];
+        }
+        else
+        {
+            // Compute a[0] = f[1] - f[0]
+            a[0] = f[1] - f[0];
+
+            // Compute rest a[i] using differences
+            for (int i = 1; i < n; i++)
+            {
+                a[i] = f[i] - f[i - 1] - a[i - 1];
+            }
         }
 
-        // middle values
-        for (int i = 2; i <= n - 1; i++)
-            a[i] = (f[i + 1] - 2 * f[i] + f[i - 1]) / 2;
-
-        long long midSum = 0;
-        for (int i = 2; i <= n - 1; i++)
-            midSum += a[i];
-
-        long long g2 = f[2] - f[1];
-        long long gn = f[n] - f[n - 1];
-
-        a[1] = g2 + midSum;
-        a[n] = midSum - gn;
-
-        for (int i = 1; i <= n; i++)
-            cout << a[i] << " ";
-        cout << "\n";
+        for (int i = 0; i < n; i++)
+        {
+            cout << a[i] << (i == n - 1 ? '\n' : ' ');
+        }
     }
-
     return 0;
 }
