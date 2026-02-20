@@ -1,0 +1,1 @@
+{"name":"Local: 05","url":"d:\\PHITRON\\Probem_Solving\\HackerRank\\05.cpp","tests":[{"id":1771577166193,"input":"5 20\n9 12\n10 10\n5 8\n15 18\n4 9","output":""},{"id":1771577172556,"input":"3 20\n10 12\n11 13\n9 15","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\PHITRON\\Probem_Solving\\HackerRank\\05.cpp","group":"local","local":true}
