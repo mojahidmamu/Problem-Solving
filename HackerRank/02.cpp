@@ -7,6 +7,17 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
+ll calculate(ll n)
+{
+    if (n % 4 == 0)
+        return n;
+    if (n % 4 == 1)
+        return 1;
+    if (n % 4 == 2)
+        return n + 1;
+    return 0; // n % 4 == 3
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -16,7 +27,22 @@ int main()
     cin >> t;
     while (t--)
     {
-        // write code here...
+        ll n;
+        cin >> n;
+
+        ll x = calculate(n);
+        if (x == 0)
+        {
+            cout << 0 << endl;
+        }
+        else if (x == n)
+        {
+            cout << 2 << '\n';
+        }
+        else
+        {
+            cout << 1 << '\n';
+        }
     }
 
     return 0;
