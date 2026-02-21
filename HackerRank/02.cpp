@@ -15,7 +15,8 @@ ll calculate(ll n)
         return 1;
     if (n % 4 == 2)
         return n + 1;
-    return 0; // n % 4 == 3
+    if (n % 4 == 3)
+         return 0; // n % 4 == 3
 }
 
 int main()
@@ -30,19 +31,22 @@ int main()
         ll n;
         cin >> n;
 
-        ll x = calculate(n);
-        if (x == 0)
-        {
-            cout << 0 << endl;
-        }
-        else if (x == n)
-        {
-            cout << 2 << '\n';
-        }
-        else
-        {
-            cout << 1 << '\n';
-        }
+        cout << (n % 4 == 3 ? 0 : 1) << endl;
+        
+
+        // ll x = calculate(n);
+        // if (x == 0)
+        // {
+        //     cout << 0 << endl;
+        // }
+        // else if (x == n)
+        // {
+        //     cout << 2 << '\n';
+        // }
+        // else
+        // {
+        //     cout << 1 << '\n';
+        // }
     }
 
     return 0;
