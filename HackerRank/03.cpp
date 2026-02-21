@@ -1,48 +1,66 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int n;
     cin >> n;
-    vector<int> arr(n);
-    int max_val = 0;
 
-    for(int i = 0; i < n; i++) {
-        cin >> arr[i];
-        max_val = max(max_val, arr[i]);
+    vector<int> a(n);
+    map<int, int> freq; // or unordered_map if you prefer
+    multiset<int> missing;
+
+    int max_a = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> a[i];
+        freq[a[i]]++;
+        max_a = max(max_a, a[i]);
+    }
+
+    // Collect all missing numbers from 0 to n (inclusive is enough)
+    for (int i = 0; i <= n; ++i)
+    {
+        if (freq[i] == 0)
+        {
+            missing.insert(i);
+        }
     }
 
     int q;
     cin >> q;
 
-    // Size freq array: max_val + q + 5
-    vector<int> freq(max_val + q + 5, 0);
-    for(int i = 0; i < n; i++) freq[arr[i]]++;
-
-    // Initial Mex
-    int mex = 0;
-    while(freq[mex] > 0) mex++;
-
-    while(q--) {
+    while (q--)
+    {
         int x;
         cin >> x;
-        if(freq[x] == 0) {
-            cout << -1 << "\n";
-        } else {
-            // Remove one occurrence
-            freq[x]--;
 
-            int curr_mex = mex;
-            if(x == mex) {
-                while(freq[curr_mex] > 0) curr_mex++;
-            }
-            cout << curr_mex << "\n";
+        if (freq[x] == 0)
+        {
+            cout << "-1\n";
+            continue;
+        }
 
-            // Restore
-            freq[x]++;
+        // Simulate removal
+        bool will_become_missing = (freq[x] == 1);
+        freq[x]--;
+
+        if (will_become_missing)
+        {
+            missing.insert(x);
+        }
+
+        // Answer = smallest missing number right now
+        cout << *missing.begin() << '\n';
+
+        // Undo
+        freq[x]++;
+        if (will_become_missing)
+        {
+            missing.erase(missing.find(x));
         }
     }
 
