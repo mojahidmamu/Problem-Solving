@@ -66,10 +66,23 @@ int main()
         int n;
         cin >> n;
         vector<int> a(n);
+        int score = 0;
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
         }
+        
+        if (n <= 1)
+        {
+            cout << 0 << endl;
+            continue;
+        }
+        for (int i = 0; i < n; i++)
+        {
+            if (a[i] > 0)
+                score++;
+        }
+        cout << score << endl;
     }
 
     return 0;
