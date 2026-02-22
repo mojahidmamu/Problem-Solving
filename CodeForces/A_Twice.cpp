@@ -71,7 +71,7 @@ int main()
         {
             cin >> a[i];
         }
-        
+
         if (n <= 1)
         {
             cout << 0 << endl;
@@ -79,8 +79,14 @@ int main()
         }
         for (int i = 0; i < n; i++)
         {
-            if (a[i] > 0)
-                score++;
+            for (int j = i + 1; j < n; j++)
+            {
+                if (a[i] == a[j])
+                {
+                    score++;
+                    break;
+                }
+            }
         }
         cout << score << endl;
     }
