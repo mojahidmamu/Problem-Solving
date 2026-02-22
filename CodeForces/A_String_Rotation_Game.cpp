@@ -67,7 +67,15 @@ int main()
         cin >> n;
         string s;
         cin >> s;
-        
+        int score = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (s[i] == '0')
+                score += 1;
+            else
+                score += 2;
+        }
+        cout << score << endl;
     }
 
     return 0;
