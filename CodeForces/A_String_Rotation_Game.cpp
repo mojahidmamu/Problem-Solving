@@ -13,7 +13,7 @@ ll gcd(ll a, ll b)
     if (b == 0)
         return a;
     return gcd(b, a % b);
-}
+}   
 
 // LCM
 ll lcm(ll a, ll b)
@@ -64,17 +64,30 @@ int main()
     while (t--)
     {
         int n;
-        cin >> n;
         string s;
-        cin >> s;
+        cin >> n >> s;
+
         int score = 0;
-        for (int i = 0; i < n; i++)
+
+        for (int i = 1; i < n; i++)
         {
-            if (s[i] == '0')
-                score += 1;
-            else
-                score += 2;
+            if (s[i] != s[i - 1])
+            {
+                score++;
+            }
         }
+
+        if (score == 0)
+        {
+            cout << 1 << endl;
+            continue;
+        }
+
+        if (s[0] != s[n - 1])
+        {
+            score++;
+        }
+
         cout << score << endl;
     }
 
