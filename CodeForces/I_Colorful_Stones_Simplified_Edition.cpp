@@ -14,7 +14,16 @@ int main()
 
     string s, t;
     cin >> s >> t;
-    
+
+    int position = 0;
+    for (int i = 0; i < t.length(); i++)
+    {
+        if (t[i] == s[position])
+        {
+            position++;
+        }
+    }
+    cout << position + 1 << endl;
 
     return 0;
 }
