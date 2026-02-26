@@ -14,17 +14,20 @@ int main()
 
     int n;
     cin >> n;
+
+    int count = 0;
     while (n--)
     {
         int p, q;
         cin >> p >> q;
-        if (p == q)
-            cout << 0 << endl;
-        else if (p > q)
-            cout << p - q << endl;
-        else
-            cout << 1 << endl;
+         
+        int deff = abs(p - q);
+        if (deff > 2)
+        {
+            count++;
+        }
     }
+    cout << count << endl;
 
     return 0;
 }
