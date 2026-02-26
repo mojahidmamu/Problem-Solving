@@ -22,7 +22,7 @@ int main()
         cin >> p >> q;
          
         int deff = abs(p - q);
-        if (deff > 2)
+        if (deff >= 2)
         {
             count++;
         }
