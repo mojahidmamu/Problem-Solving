@@ -12,11 +12,18 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while (t--)
+    int n;
+    cin >> n;
+    while (n--)
     {
-        // write code here...
+        int p, q;
+        cin >> p >> q;
+        if (p == q)
+            cout << 0 << endl;
+        else if (p > q)
+            cout << p - q << endl;
+        else
+            cout << 1 << endl;
     }
 
     return 0;
