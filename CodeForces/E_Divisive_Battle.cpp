@@ -40,17 +40,16 @@ int main()
         if (non_decreasing)
         {
             cout << "Bob\n";
+            continue;
+        }
+
+        if (a[first_dec_index] <= 3)
+        {
+            cout << "Alice\n";
         }
         else
         {
-            if (first_dec_index % 2 == 0)
-            {
-                cout << "Alice\n";
-            }
-            else
-            {
-                cout << "Bob\n";
-            }
+            cout << "Bob\n";
         }
     }
 
