@@ -14,17 +14,17 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    while (n--)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < m; i++)
+        for (int j = 0; j < m; j++)
         {
-            if (n % 2 == 0)
+            if (i % 2 == 0)
             {
                 cout << "#";
             }
             else
             {
-                if (i == 0 || i == m - 1)
+                if (j == 0 || j == m - 1)
                 {
                     cout << "#";
                 }
@@ -36,7 +36,6 @@ int main()
         }
         cout << endl;
     }
-    
 
     return 0;
 }
