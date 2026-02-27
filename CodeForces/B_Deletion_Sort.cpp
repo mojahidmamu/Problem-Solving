@@ -24,25 +24,25 @@ int main()
             cin >> a[i];
         }
 
-        vector<int> dp(n, 1);
-        int ans = 0;
-        for (int i = 0; i < n; i++)
+        bool sorted = true;
+
+        for (int i = 0; i < n - 1; i++)
         {
-            for (int j = 0; j < i; j++)
+            if (a[i] > a[i + 1])
             {
-                if (a[j] <= a[i])
-                {
-                    dp[i] = max(dp[i], dp[j] + 1);
-                }
+                sorted = false;
+                break;
             }
         }
 
-        for (int x : dp)
+        if (sorted)
         {
-            ans = max(ans, x);
+            cout << n << "\n";
         }
-
-        cout << ans << "\n";
+        else
+        {
+            cout << 1 << "\n";
+        }
     }
 
     return 0;
