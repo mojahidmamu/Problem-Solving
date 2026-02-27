@@ -12,7 +12,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, x;
+    ll n, x;
     cin >> n >> x;
     int distressed = 0;
     while (n--)
