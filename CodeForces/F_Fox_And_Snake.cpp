@@ -34,14 +34,13 @@ int main()
                 cout << "#";
             }
             else
-                /
+            {
+                cout << "#";
+                for (int j = 0; j < m - 1; j++)
                 {
-                    cout << "#";
-                    for (int j = 0; j < m - 1; j++)
-                    {
-                        cout << ".";
-                    }
+                    cout << ".";
                 }
+            }
         }
 
         cout << endl;
