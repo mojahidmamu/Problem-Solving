@@ -21,7 +21,7 @@ int main()
         string x;
         cin >> x;
 
-        int l = 1, r= n;
+        int l = 1, r = n;
         bool isSatisfies = true;
 
         for (int i = 0; i < n; i++)
@@ -31,11 +31,22 @@ int main()
 
             if (x[i] == '?' || x[i] == lc)
             {
-                l++;
+                if (lc == lc)
+                {
+                    l++;
+                }
+                else
+                {
+                    l++;
+                }
             }
             else if (x[i] == rc)
             {
                 r--;
+            }
+            else if (x[i] == lc)
+            {
+                l++;
             }
             else
             {
@@ -46,11 +57,11 @@ int main()
 
         if (isSatisfies)
         {
-            cout << "Yes" << endl;
+            cout << "YES" << endl;
         }
         else
         {
-            cout << "No" << endl;
+            cout << "NO" << endl;
         }
     }
 
