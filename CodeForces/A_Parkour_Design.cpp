@@ -20,29 +20,19 @@ int main()
         cin >> x >> y;
         bool isPossible = false;
 
-        for (int i = 0; i <= 100; i++)
-        {
-            for (int j = 0; j <= 100; j++)
-            {
-                if (i * i + j == x && i + j * j == y)
-                {
-                    isPossible = true;
-                    break;
-                }
-            }
-            if (isPossible)
-                break;
-        }
-
-        
-        if (isPossible)
-        {
-            cout << "Yes" << endl;
-        }
+        if (x >= 2 * y && (x - 2 * y) % 3 == 0)
+            cout << "YES\n";
         else
-        {
-            cout << "No" << endl;
-        }
+            cout << "NO\n";
+
+        // if (isPossible)
+        // {
+        //     cout << "Yes" << endl;
+        // }
+        // else
+        // {
+        //     cout << "No" << endl;
+        // }
     }
 
     return 0;
