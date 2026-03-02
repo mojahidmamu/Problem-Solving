@@ -31,7 +31,7 @@ int main()
 
             if (x[i] == '?' || x[i] == lc)
             {
-                if (lc == lc)
+                if (lc == rc)
                 {
                     l++;
                 }
@@ -43,11 +43,7 @@ int main()
             else if (x[i] == rc)
             {
                 r--;
-            }
-            else if (x[i] == lc)
-            {
-                l++;
-            }
+            } 
             else
             {
                 isSatisfies = false;
