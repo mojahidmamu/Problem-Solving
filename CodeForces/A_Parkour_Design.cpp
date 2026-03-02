@@ -16,7 +16,33 @@ int main()
     cin >> t;
     while (t--)
     {
-        // write code here...
+        ll x, y;
+        cin >> x >> y;
+        bool isPossible = false;
+
+        for (int i = 0; i <= 100; i++)
+        {
+            for (int j = 0; j <= 100; j++)
+            {
+                if (i * i + j == x && i + j * j == y)
+                {
+                    isPossible = true;
+                    break;
+                }
+            }
+            if (isPossible)
+                break;
+        }
+
+        
+        if (isPossible)
+        {
+            cout << "Yes" << endl;
+        }
+        else
+        {
+            cout << "No" << endl;
+        }
     }
 
     return 0;
