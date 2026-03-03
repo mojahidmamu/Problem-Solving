@@ -18,7 +18,7 @@ int main()
     {
         int n, x, y;
         cin >> n >> x >> y;
-        int arr[n];
+        vector<int> arr(n);
 
         ll totalCostWithDiscount = x;
         ll totalCostWithoutDiscount = 0;
@@ -26,11 +26,12 @@ int main()
         {
             cin >> arr[i];
             totalCostWithoutDiscount += arr[i];
+            totalCostWithDiscount += max(0, arr[i] - y);
 
-            if (arr[i] > y)
-            {
-                totalCostWithDiscount += (arr[i] - y);
-            }
+            // if (arr[i] > y)
+            // {
+            //     totalCostWithDiscount += (arr[i] - y);
+            // }
         }
 
         if (totalCostWithDiscount < totalCostWithoutDiscount)
