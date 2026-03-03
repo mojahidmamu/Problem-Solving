@@ -12,20 +12,26 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, x;
-    cin >> n >> x;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    int maxElement = arr[0];
-    for (int i = 1; i < n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        if (arr[i] > maxElement)
+        int n;
+        cin >> n;
+        ll arr[n];
+        for (int i = 0; i < n; i++)
+            cin >> arr[i];
+
+        ll maxElement = arr[0];
+        for (int i = 1; i < n; i++)
         {
-            maxElement = arr[i];
+            if (arr[i] > maxElement)
+            {
+                maxElement = arr[i];
+            }
         }
+        cout << maxElement << endl;
     }
-    cout << maxElement << endl;
+
     return 0;
 }
