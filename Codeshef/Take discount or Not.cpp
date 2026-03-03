@@ -17,11 +17,30 @@ int main()
     while (t--)
     {
         int n, x, y;
-        cin >> n >> x >> y; 
+        cin >> n >> x >> y;
         int arr[n];
+
+        ll totalCostWithDiscount = x;
+        ll totalCostWithoutDiscount = 0;
         for (int i = 0; i < n; i++)
+        {
             cin >> arr[i];
-        
+            totalCostWithoutDiscount += arr[i];
+
+            if (arr[i] > y)
+            {
+                totalCostWithDiscount += (arr[i] - y);
+            }
+        }
+
+        if (totalCostWithDiscount < totalCostWithoutDiscount)
+        {
+            cout << "COUPON" << endl;
+        }
+        else
+        {
+            cout << "NO COUPON" << endl;
+        }
     }
 
     return 0;
