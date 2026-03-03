@@ -18,18 +18,14 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr[i];
 
-    bool found = false;
-    for (int i = 0; i < n; i++)
+    int maxElement = arr[0];
+    for (int i = 1; i < n; i++)
     {
-        if (arr[i] == x)
+        if (arr[i] > maxElement)
         {
-            found = true;
-            break;
+            maxElement = arr[i];
         }
     }
-    if (found)
-        cout << "YES" << endl;
-    else
-        cout << "NO" << endl;
+    cout << maxElement << endl;
     return 0;
 }
