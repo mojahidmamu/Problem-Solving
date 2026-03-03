@@ -12,28 +12,35 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
+    int n;
+    cin >> n;
 
-    while (t--)
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++)
     {
-        int a, b;
-        cin >> a >> b;
-        if (a == b)
+        cin >> a[i] >> b[i];
+    }
+
+    bool rated = false;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] != b[i])
         {
             cout << "rated" << endl;
-            break;
-        }
-        else if (a != b)
-        {
-            cout << "unrated" << endl;
-            break;
-        }
-        else
-        {
-            cout << "maybe" << enld;
+            return 0;
         }
     }
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (a[i] < a[i + 1])
+        {
+            cout << "unrated" << endl;
+            return 0;
+        }
+    }
+
+    cout << "maybe" << endl;
 
     return 0;
 }
