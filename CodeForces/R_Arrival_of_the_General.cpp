@@ -15,12 +15,41 @@ int main()
     int n;
     cin >> n;
     int arr[n];
+    int needSecond = 0;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    
-    
+
+    int maxHeight = -1;
+    int maxIndex = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > maxHeight)
+        {
+            maxHeight = arr[i];
+            maxIndex = i;
+        }
+    }
+
+    int minHeight = 101;
+    int minIndex = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] <= minHeight)
+        {
+            minHeight = arr[i];
+            minIndex = i;
+        }
+    }
+
+    int swaps = maxIndex + (n - 1 - minIndex);
+    if (minIndex < maxIndex)
+    {
+        swaps--;
+    }
+
+    cout << needSecond << endl;
 
     return 0;
 }
