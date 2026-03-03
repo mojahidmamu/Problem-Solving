@@ -49,7 +49,7 @@ int main()
         swaps--;
     }
 
-    cout << needSecond << endl;
+    cout << swaps << endl;
 
     return 0;
 }
