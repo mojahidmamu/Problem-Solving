@@ -16,7 +16,12 @@ int main()
     cin >> t;
     while (t--)
     {
-        // write code here...
+        int n, x, y;
+        cin >> n >> x >> y; 
+        int arr[n];
+        for (int i = 0; i < n; i++)
+            cin >> arr[i];
+        
     }
 
     return 0;
