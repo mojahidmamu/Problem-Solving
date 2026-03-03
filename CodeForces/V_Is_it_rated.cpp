@@ -14,11 +14,25 @@ int main()
 
     int t;
     cin >> t;
+
     while (t--)
     {
         int a, b;
         cin >> a >> b;
-        
+        if (a == b)
+        {
+            cout << "rated" << endl;
+            break;
+        }
+        else if (a != b)
+        {
+            cout << "unrated" << endl;
+            break;
+        }
+        else
+        {
+            cout << "maybe" << enld;
+        }
     }
 
     return 0;
