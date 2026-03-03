@@ -14,12 +14,20 @@ int main()
 
     int t;
     cin >> t;
-    while (t--)
+    string prev, curr;
+    cin >> prev;
+    int group = 1;
+    for (int i = 1; i < t; i++)
     {
-        char ch;
-        cin >> ch;
-        
+        cin >> curr;
+        if (prev != curr)
+        {
+            group++;
+        }
+        prev = curr;
     }
+
+    cout << group << endl;
 
     return 0;
 }
