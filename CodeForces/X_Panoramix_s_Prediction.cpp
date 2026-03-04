@@ -7,10 +7,10 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
-
-bool isPrime(int num) {
-    if (num < 2) return false;
-    for (int i = 2; i * i <= num; i++) {
+bool isPrime(int num)
+{
+    for (int i = 2; i * i <= num; i++)
+    {
         if (num % i == 0)
             return false;
     }
@@ -24,15 +24,20 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    for (int i = n + 1; i <= m; i++) {
-        if (isPrime(i)) {
-            if (i == m)
-                cout << "YES";
-            else
-                cout << "NO";
+    int nextPrime = n + 1;
+    while (true)
+    {
+        if (isPrime(nextPrime))
+        {
             break;
         }
+        nextPrime++;
     }
+
+    if (nextPrime == m)
+        cout << "YES";
+    else
+        cout << "NO";
 
     return 0;
 }
