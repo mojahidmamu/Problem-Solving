@@ -16,7 +16,9 @@ int main()
     cin >> t;
     while (t--)
     {
-        // write code here...
+        ll n;
+        cin >> n;
+        
     }
 
     return 0;
