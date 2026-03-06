@@ -12,21 +12,19 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    
-        ll n;
-        cin >> n;
+    ll n;
+    cin >> n;
 
-        if (n >= 0)
-        {
-            cout << n << endl;
-        }
-        else
-        {
-            int removeLastDigit = n / 10;
-            int removeSecondLastDigit = (n / 100) * 10 + (n % 10);
-            cout << max(removeLastDigit, removeSecondLastDigit) << endl;
-        }
-
+    if (n >= 0)
+    {
+        cout << n << endl;
+    }
+    else
+    {
+        int removeLastDigit = n / 10;
+        int removeSecondLastDigit = (n / 100) * 10 + (n % 10);
+        cout << max(removeLastDigit, removeSecondLastDigit) << endl;
+    }
 
     return 0;
 }
