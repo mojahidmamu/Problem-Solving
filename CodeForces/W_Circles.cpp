@@ -11,23 +11,24 @@ int main()
     cin >> x1 >> y1 >> x2 >> y2;
     cin >> x3 >> y3 >> x4 >> y4;
 
-    // Diameter squared
-    long long d1 = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-    long long d2 = (x3 - x4) * (x3 - x4) + (y3 - y4) * (y3 - y4);
+    // centers
+    double c1x = (x1 + x2) / 2.0;
+    double c1y = (y1 + y2) / 2.0;
 
-    // Center distance squared * 4
-    long long dx = (x1 + x2) - (x3 + x4);
-    long long dy = (y1 + y2) - (y3 + y4);
-    long long dist4 = dx * dx + dy * dy;
+    double c2x = (x3 + x4) / 2.0;
+    double c2y = (y3 + y4) / 2.0;
 
-    // (r1 + r2)^2 * 4
-    long long sum = d1 + d2 + 2 * sqrt((long double)d1 * d2);
-    long long diff = d1 + d2 - 2 * sqrt((long double)d1 * d2);
+    // radius
+    double r1 = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)) / 2.0;
+    double r2 = sqrt((x3 - x4) * (x3 - x4) + (y3 - y4) * (y3 - y4)) / 2.0;
 
-    if (diff <= dist4 && dist4 <= sum)
-        cout << "YES\n";
+    // center distance
+    double d = sqrt((c1x - c2x) * (c1x - c2x) + (c1y - c2y) * (c1y - c2y));
+
+    if (d <= r1 + r2)
+        cout << "YES";
     else
-        cout << "NO\n";
+        cout << "NO";
 
     return 0;
 }
