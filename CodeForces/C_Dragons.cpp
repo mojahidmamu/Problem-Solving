@@ -14,19 +14,27 @@ int main()
 
     int s, n;
     cin >> s >> n;
-    while (n--)
+    vector<pair<ll, ll>> dragons(n);
+
+    for (int i = 0; i < n; i++)
     {
-        int x, y;
-        cin >> x >> y;
-        if (s > x)
-            s += y;
-        else
-        {
-            cout << "NO" << endl;
-            return 0;
-        }
+        cin >> dragons[i].first >> dragons[i].second;
     }
 
-    cout << "YES" << endl;
+    sort(dragons.begin(), dragons.end());
+
+    for (int i = 0; i < n; i++)
+    {
+        if (s <= dragons[i].first)
+        {
+            cout << "NO\n";
+            return 0;
+        }
+
+        s += dragons[i].second;
+    }
+
+    cout << "YES\n";
+
     return 0;
 }
