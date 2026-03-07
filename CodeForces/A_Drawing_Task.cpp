@@ -21,10 +21,14 @@ int main()
         char c;
         cin >> r1 >> c1 >> r2 >> c2 >> c;
 
+        int rs = min(r1, r2);
+        int re = max(r1, r2);
+        int cs = min(c1, c2);
+        int ce = max(c1, c2);
 
-        for (int i = r1 - 1; i <= r2 - 1; i++)
+        for (int i = rs - 1; i < re; i++)
         {
-            for (int j = c1 - 1; j <= c2 - 1; j++)
+            for (int j = cs - 1; j < ce; j++)
             {
                 grid[i][j] = c;
             }
