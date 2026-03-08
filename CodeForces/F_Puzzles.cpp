@@ -24,7 +24,7 @@ int main()
     sort(arr.begin(), arr.end());
 
     int mn = INT_MAX;
-    for (int i = 0; i < m - n; i++)
+    for (int i = 0; i <= m - n; i++)
     {
         int diff = arr[i + n - 1] - arr[i];
         mn = min(mn, diff);
