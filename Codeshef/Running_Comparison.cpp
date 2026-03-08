@@ -27,7 +27,15 @@ int main()
         {
             cin >> b[i];
         }
-        // your code goes here
+        ll operations = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (a[i] > b[i])
+            {
+                operations += a[i] - b[i];
+            }
+        }
+        cout << operations << endl;
     }
 
     return 0;
