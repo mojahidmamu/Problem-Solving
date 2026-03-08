@@ -14,25 +14,22 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    int arr[m];
+
+    vector<int> arr(m);
     for (int i = 0; i < m; i++)
     {
         cin >> arr[i];
     }
-    int mn = INT_MAX, mx = INT_MIN;
-    for (int i = 0; i < n; i++)
+
+    sort(arr.begin(), arr.end());
+
+    int mn = INT_MAX;
+    for (int i = 0; i < m - n; i++)
     {
-        if (arr[i] > mx)
-        {
-            mx = arr[i];
-        }
-        if (arr[i] < mn)
-        {
-            mn = arr[i];
-        }
+        int diff = arr[i + n - 1] - arr[i];
+        mn = min(mn, diff);
     }
-    cout << mx - mn << endl;
-    
+    cout << mn << endl;
 
     return 0;
 }
