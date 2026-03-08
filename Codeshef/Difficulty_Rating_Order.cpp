@@ -15,11 +15,11 @@ int main()
             cin >> d[i];
         }
         // your code goes here
-        sort(d, d + n);
+       
         bool flag = true;
         for (int i = 0; i < n - 1; i++)
         {
-            if (d[i + 1] - d[i] > 1)
+            if (d[i] > d[i + 1])
             {
                 flag = false;
                 break;
@@ -27,11 +27,11 @@ int main()
         }
         if (flag)
         {
-            cout << "YES" << endl;
+            cout << "Yes" << endl;
         }
         else
         {
-            cout << "NO" << endl;
+            cout << "No" << endl;
         }
     }
 }
