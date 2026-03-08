@@ -19,6 +19,19 @@ int main()
     {
         cin >> arr[i];
     }
+    int mn = INT_MAX, mx = INT_MIN;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > mx)
+        {
+            mx = arr[i];
+        }
+        if (arr[i] < mn)
+        {
+            mn = arr[i];
+        }
+    }
+    cout << mx - mn << endl;
     
 
     return 0;
