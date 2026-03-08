@@ -19,44 +19,39 @@ int main()
     cin >> s;
 
     // Print a line that contains the original message.
-    string keyboard[3] = { "qwertyuiop", "asdfghjkl;", "zxcvbnm,./" };
+    string keyboard[3] = {"qwertyuiop", "asdfghjkl;", "zxcvbnm,./"};
+    string original = "";
     if (c == 'L')
     {
-        for (int i = 0; i < s.size(); i++)
+        for (char ch : s)
         {
-            char ch = s[i];
             for (int j = 0; j < 3; j++)
             {
-                for (int k = 0; k <  3; k++)
+                int pos = keyboard[j].find(ch);
+                if (pos != string::npos)
                 {
-                    if (keyboard[j][k] == ch)
-                    {
-                        cout << keyboard[j][k + 1];
-                        break;
-                    }
+                    original += keyboard[j][pos + 1];
+                    break;
                 }
             }
         }
-        cout << endl;
+        cout << original << endl;
     }
     else if (c == 'R')
     {
-        for (int i = 0; i < s.size(); i++)
+        for (char ch : s)
         {
-            char ch = s[i];
             for (int j = 0; j < 3; j++)
             {
-                for (int k = 0; k < keyboard[j].size(); k++)
+                int pos = keyboard[j].find(ch);
+                if (pos != string::npos)
                 {
-                    if (keyboard[j][k] == ch)
-                    {
-                        cout << keyboard[j][k - 1];
-                        break;
-                    }
+                    original += keyboard[j][pos - 1];
+                    break;
                 }
             }
         }
-        cout << endl;
+        cout << original << endl;
     }
 
     return 0;
