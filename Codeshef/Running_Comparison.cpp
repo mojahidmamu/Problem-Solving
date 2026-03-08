@@ -30,9 +30,20 @@ int main()
         ll operations = 0;
         for (int i = 0; i < n; i++)
         {
-            if (a[i] > b[i])
-            {
-                operations += a[i] - b[i];
+            // if (a[i] < b[i] && b[i] - a[i] <= a[i] * 2)
+            // {
+            //     continue;
+            // }
+            // else if (a[i] > b[i] && a[i] - b[i] <= b[i] * 2)
+            // {
+            //     continue;
+            // }
+            // else if (a[i] == b[i] || a[i] - b[i] <= 200 || b[i] - a[i] <= 200) 
+            // {
+            //     operations++;
+            // }
+            if (b[i] <= 2 * a[i] && a[i] <= 2 * b[i]) {
+                operations++;
             }
         }
         cout << operations << endl;
