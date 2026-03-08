@@ -20,10 +20,29 @@ int main()
         cin >> n;
         vector<int> a(n);
         for (int i = 0; i < n; i++)
+        {
             cin >> a[i];
-        
-        
+        }
 
+        // countNonMinimum
+        int minVal = a[0];
+        for (int i = 1; i < n; i++)
+        {
+            if (a[i] < minVal)
+            {
+                minVal = a[i];
+            }
+        }
+
+        ll operations = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (a[i] != minVal)
+            {
+                operations++;
+            }
+        }
+        cout << operations << endl;
     }
 
     return 0;
