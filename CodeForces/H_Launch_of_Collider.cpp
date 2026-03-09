@@ -25,7 +25,24 @@ int main()
         cin >> a[i];
     }
 
-    
+    int ans = INT_MAX;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (s[i] == 'R' && s[i + 1] == 'L')
+        {
+
+            int  time = (a[i + 1] - a[i]) / 2;
+            ans = min(ans, time);
+        }
+    }
+    if (ans == INT_MAX)
+    {
+        cout << -1 << endl;
+    }
+    else
+    {
+        cout << ans << endl;
+    }
 
     return 0;
 }
