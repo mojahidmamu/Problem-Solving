@@ -7,7 +7,6 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -17,7 +16,7 @@ int main()
     cin >> n;
 
     vector<vector<int>> a(n + 1);
-    
+
     for (int i = 2; i <= n; i++)
     {
         int p;
@@ -25,35 +24,21 @@ int main()
         a[p].push_back(i);
     }
 
-    vector<int> b(n + 1);
-    queue<int> q;
-    q.push(1);
-    while (!q.empty())
-    {
-        int u = q.front();
-        q.pop();
+    vector<int> leaves;
 
-        for (int v : a[u])
-        {
-            b[v] = b[u] + 1;
-            q.push(v);
-        }
-    }
-
-    int bestLeaf = -1;
-    int minDepth = INT_MAX;
     for (int i = 1; i <= n; i++)
     {
-        if (a[i].empty() && b[i] < minDepth)
+        if (a[i].empty())
         {
-            minDepth = b[i];
-            bestLeaf = i;
+            leaves.push_back(i);
         }
     }
 
-    cout << bestLeaf << endl;
+    sort(leaves.begin(), leaves.end());
 
-    
+    int k = leaves.size();
+
+    cout << leaves[(k - 1) / 2] << endl;
 
     return 0;
 }
