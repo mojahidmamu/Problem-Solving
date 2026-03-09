@@ -23,8 +23,16 @@ int main()
         {
             cin >> a[i];
         }
-        
-    }
+        if (n > 1)
+        {
+            swap(a[0], a[n - 1]);
+        }
+        for (int x : a)
+            cout << x << " ";
 
-    return 0;
+        cout << "\n";
+
+}
+
+return 0;
 }
