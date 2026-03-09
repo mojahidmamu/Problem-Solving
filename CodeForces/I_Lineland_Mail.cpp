@@ -14,11 +14,34 @@ int main()
 
     int n;
     cin >> n;
-    vector<int> a(n);
+    vector<ll> a(n);
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
     }
+    
+
+    ll mn, mx;
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 1)
+        {
+            
+        }
+        else if (i == n)
+        {
+            /* code */
+        }
+        else    
+        {
+
+        }
+
+        cout << mn << " " << mx << endl;
+        
+        
+    }
+    
 
     return 0;
 }
