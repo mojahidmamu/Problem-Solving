@@ -19,29 +19,26 @@ int main()
     {
         cin >> a[i];
     }
-    
 
-    ll mn, mx;
     for (int i = 0; i < n; i++)
     {
-        if (i == 1)
+        ll mn, mx;
+        if (i == 0)
         {
-            
+            mn = a[1] - a[0];
         }
-        else if (i == n)
+        else if (i == n - 1)
         {
-            /* code */
+            mn = a[n - 1] - a[n - 2];
         }
-        else    
+        else
         {
-
+            mn = min(a[i] - a[i - 1], a[i + 1] - a[i]);
         }
+        mx = max(a[i] - a[0], a[n - 1] - a[i]);
 
         cout << mn << " " << mx << endl;
-        
-        
     }
-    
 
     return 0;
 }
