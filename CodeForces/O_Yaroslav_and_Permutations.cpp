@@ -19,7 +19,21 @@ int main()
     {
         cin >> grid[i];
     }
-    
+
+    bool finite;
+    if (n == 1)
+    {
+        finite = true;
+    }
+
+    if (finite == true)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << enld;
+    }
 
     return 0;
 }
