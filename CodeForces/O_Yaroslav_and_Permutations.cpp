@@ -14,19 +14,20 @@ int main()
 
     int n;
     cin >> n;
-    vector<string> grid(n);
+    vector<int> arr(n);
+    map<int, int> freq;
     for (int i = 0; i < n; i++)
     {
-        cin >> grid[i];
+        cin >> arr[i];
     }
 
-    bool finite;
-    if (n == 1)
+    int max_freq = 0;
+    for (auto it : freq)
     {
-        finite = true;
+        max_freq = max(max_freq, it.second);
     }
 
-    if (finite == true)
+    if (max_freq <= (n + 1) / 2)
     {
         cout << "YES" << endl;
     }
