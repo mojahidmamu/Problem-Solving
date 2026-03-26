@@ -19,6 +19,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
+        freq[arr[i]]++;
     }
 
     int max_freq = 0;
