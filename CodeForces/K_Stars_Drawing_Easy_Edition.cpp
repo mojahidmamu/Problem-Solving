@@ -17,10 +17,7 @@ int main()
     vector<string> grid(n);
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> arr[i][j];
-        }
+        cin >> grid[i][j];
     }
 
     vector<tuple<int, int, int>> stars;
@@ -32,9 +29,11 @@ int main()
         {
             if (grid[i][j] == '*')
             {
-                int sz = 0;
+                int size = 0;
                 while (true)
                 {
+                    int k = size + 1;
+
                     if (i - k < 0 || i + k >= n || j - k < 0 || j + k >= m)
                         break;
 
