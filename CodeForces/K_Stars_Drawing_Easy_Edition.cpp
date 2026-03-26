@@ -17,7 +17,7 @@ int main()
     vector<string> grid(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> grid[i][j];
+        cin >> grid[i];
     }
 
     vector<tuple<int, int, int>> stars;
@@ -37,9 +37,12 @@ int main()
                     if (i - k < 0 || i + k >= n || j - k < 0 || j + k >= m)
                         break;
 
-                    if (i - sz >= 0 && j - sz >= 0 && j + sz < m && grid[i - sz][j - sz] == '*' && grid[i - sz][j + sz] == '*')
+                    if (grid[i - k][j] == '*' &&
+                        grid[i + k][j] == '*' &&
+                        grid[i][j - k] == '*' &&
+                        grid[i][j + k] == '*')
                     {
-                        sz++;
+                        size++;
                     }
                     else
                     {
@@ -71,8 +74,12 @@ int main()
     }
 
     cout << stars.size() << endl;
-    for (auto [x, y, s] : stars)
+    for (auto t : stars)
     {
+        int x = get<0>(t);
+        int y = get<1>(t);
+        int s = get<2>(t);
+        
         cout << x + 1 << " " << y + 1 << " " << s << endl;
     }
 
