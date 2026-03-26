@@ -33,7 +33,7 @@ int main()
     }
     else
     {
-        cout << "NO" << enld;
+        cout << "NO" << endl;
     }
 
     return 0;
