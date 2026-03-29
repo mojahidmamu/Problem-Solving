@@ -20,7 +20,7 @@ int main()
     bool isSame = true;
     for (int i = 1; i < n; i++)
     {
-        if (s[i] == s[0])
+        if (s[i] != s[0])
         {
             isSame = false;
             break;
@@ -32,9 +32,17 @@ int main()
         cout << 0 << endl;
         return 0;
     }
-    else
+     
+    string t = s;
+    reverse(t.begin(), t.end() );
+
+    if (s == t)
     {
         cout << n - 1 << endl;
+    }
+    else
+    {
+        cout << n << endl;
     }
     return 0;
 }
