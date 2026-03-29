@@ -19,15 +19,9 @@ int main()
     int count = 0;
     for (int i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++)
+        if (s[i] == s[i + 1])
         {
-            string sub = s.substr(i, j - i + 1);
-            string rev_sub = sub;
-            reverse(all(rev_sub));
-            if (sub == rev_sub)
-            {
-                count++;
-            }
+            count++;
         }
     }
     cout << count << endl;
