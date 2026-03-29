@@ -16,14 +16,25 @@ int main()
     cin >> s;
 
     int n = s.size();
-    int count = 0;
-    for (int i = 0; i < n; i++)
+
+    bool isSame = true;
+    for (int i = 1; i < n; i++)
     {
-        if (s[i] == s[i + 1])
+        if (s[i] == s[0])
         {
-            count++;
+            isSame = false;
+            break;
         }
     }
-    cout << count << endl;
+
+    if (isSame)
+    {
+        cout << 0 << endl;
+        return 0;
+    }
+    else
+    {
+        cout << n - 1 << endl;
+    }
     return 0;
 }
