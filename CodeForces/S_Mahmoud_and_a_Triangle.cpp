@@ -12,15 +12,15 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, m;
-    cin >> n >> m;
-
-    ll kmin = (n + 1) / 2;
-    ll k = ((kmin + m - 1) / m) * m;
-
-    if (k <= n) cout << k;
-    else cout << -1;
-
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    
+    
 
     return 0;
 }
