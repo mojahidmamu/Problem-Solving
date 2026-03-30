@@ -15,7 +15,7 @@ int main()
     int n;
     cin >> n;
     vector<ll> arr(n);
-
+    bool isAccept = false;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
@@ -26,11 +26,21 @@ int main()
     {
         if (arr[i] + arr[i + 1] > arr[i + 2])
         {
+            // isAccept = true;
             cout << "YES" << endl;
             return 0;
         }
     }
     cout << "NO" << endl;
+
+    // if (isAccept == true)
+    // {
+    //     cout << "YES" << endl;
+    // }
+    // else
+    // {
+    //     cout << "NO" << endl;
+    // }
 
     return 0;
 }
