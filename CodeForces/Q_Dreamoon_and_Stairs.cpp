@@ -14,7 +14,13 @@ int main()
 
     int n, m;
     cin >> n >> m;
-    
+
+    ll kmin = (n + 1) / 2;
+   long long k = ((kmin + m - 1) / m) * m;
+
+    if (k <= n) cout << k;
+    else cout << -1;
+
 
     return 0;
 }
