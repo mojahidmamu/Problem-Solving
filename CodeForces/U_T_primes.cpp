@@ -7,29 +7,50 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
+const int N = 1e6 + 5;
+bool isPrime[N];
+
+void seive()
+{
+    fill(isPrime, isPrime + N, true);
+    isPrime[0] = isPrime[1] = false;
+
+    for (int i = 2; i *i < N; i++)
+    {
+        if (isPrime[i])
+        {
+            for (int j = i * i; j < N; j += i)
+            {
+                isPrime[j] = false;
+            }
+        }
+    }
+}
+
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
+    seive();
+
     int n;
     cin >> n;
-    bool tPrime = false;
-    vector<ll> arr(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
 
     while (n--)
     {
-        if (tPrime == true)
+        ll x;
+        cin >> x;
+
+        ll root = sqrt(x);
+
+        if (root * root == x && isPrime[root])
         {
             cout << "YES" << endl;
         }
         else
         {
-            cout << "NO" << enld;
+            cout << "NO" << endl;
         }
     }
 
