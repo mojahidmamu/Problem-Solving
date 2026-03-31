@@ -14,12 +14,24 @@ int main()
 
     int n;
     cin >> n;
-    vector<int> arr(n);
+    bool tPrime = false;
+    vector<ll> arr(n);
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    
-    
+
+    while (n--)
+    {
+        if (tPrime == true)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << enld;
+        }
+    }
+
     return 0;
 }
