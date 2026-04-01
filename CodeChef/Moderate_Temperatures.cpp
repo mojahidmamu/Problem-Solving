@@ -23,8 +23,21 @@ int main()
         {
             cin >> arr[i];
         }
-        
-        
+
+        int mn = *min_element(arr.begin(), arr.end());
+        int mx = *max_element(arr.begin(), arr.end());
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] != mn && arr[i] != mx)
+            {
+                count++;
+            }
+        }
+
+        cout << count << endl;
     }
 
     return 0;
