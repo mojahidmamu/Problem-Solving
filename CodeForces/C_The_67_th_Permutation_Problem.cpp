@@ -1,30 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
-
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    
     int t;
     cin >> t;
-    while (t--)
-    {
+    
+    while (t--) {
         int n;
         cin >> n;
-
-        for (int i = 1; i <= n; i++)
-        {
+        
+        for (int i = 1; i <= n; i++) {
+            // For block i: place i, n+i, 2n+i
             cout << i << " " << n + i << " " << 2 * n + i;
-            if (i < n)
-                cout << " ";
+            if (i < n) cout << " ";
         }
-        cout << '\n';
+        cout << "\n";
     }
-
+    
     return 0;
 }
