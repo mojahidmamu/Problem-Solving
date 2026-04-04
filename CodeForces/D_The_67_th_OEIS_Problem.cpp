@@ -18,6 +18,18 @@ int main()
     {
         int n;
         cin >> n;
+
+        vector<long long> a(n);
+
+        a[0] = 1;
+        for (int i = 2; i <= n; i++)
+        {
+            a[i - 1] = 1LL * (i + 1) * (i + 2);
+        }
+
+        for (auto x : a)
+            cout << x << " ";
+        cout << '\n';
     }
 
     return 0;
