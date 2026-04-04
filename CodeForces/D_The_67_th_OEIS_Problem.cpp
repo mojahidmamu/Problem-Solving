@@ -18,13 +18,6 @@ int main()
     {
         int n;
         cin >> n;
-        
-        for (int  i = 1; i <= n; i++)
-        {
-            cout << i << " " << n + i << " " << 2 * n + i << " ";
-        }
-        cout << '\n';
-        
     }
 
     return 0;
