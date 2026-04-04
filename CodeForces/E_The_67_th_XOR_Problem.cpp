@@ -16,13 +16,23 @@ int main()
     cin >> t;
     while (t--)
     {
+
         int n;
         cin >> n;
-        vector<long long> a(n);
-        for (int i = 0; i < n; i++)
+        vector<long long> a(n);  
+        for (int i = 0; i < n; ++i)
         {
             cin >> a[i];
         }
+        long long max_val = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                max_val = max(max_val, a[i] ^ a[j]);
+            }
+        }
+        cout << max_val << '\n';
     }
 
     return 0;
