@@ -16,17 +16,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        int x;
-        cin >> x;
+         vector<int> a(7);
+        int sum = 0;
 
-        if (x < 67)
+        for (int i = 0; i < 7; i++)
         {
-            cout << x + 1 << '\n';
+            cin >> a[i];
+            sum += a[i];
         }
-        else
-        {
-            cout << x << '\n';
-        }
+
+        int mxElement = *max_element(a.begin(), a.end());
+        int ans = 2 * mxElement - sum;
+        cout << ans << '\n';
+
+
     }
 
     return 0;
