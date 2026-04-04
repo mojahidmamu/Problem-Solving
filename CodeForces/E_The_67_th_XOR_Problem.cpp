@@ -5,6 +5,8 @@ using namespace std;
 #define endl '\n'
 #define all(x) (x).begin(), (x).end()
 
+// Author: Abdullah all Mojahid
+
 int main()
 {
     ios::sync_with_stdio(false);
@@ -16,14 +18,11 @@ int main()
     {
         int n;
         cin >> n;
-
-        for (int i = 1; i <= n; i++)
+        vector<long long> a(n);
+        for (int i = 0; i < n; i++)
         {
-            cout << i << " " << n + i << " " << 2 * n + i;
-            if (i < n)
-                cout << " ";
+            cin >> a[i];
         }
-        cout << '\n';
     }
 
     return 0;
