@@ -1,53 +1,54 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) cin >> a[i];
+    int p;
+    cin >> p;
+    p--; // zero-based
+    int x = a[p];
+    
+    int ans = 0;
+    // left side
+    int flag = 0;
+    for (int i = p-1; i >= 0; i--) {
+        if (a[i] != x) {
+            if (!flag) {
+                ans++;
+                flag = 1;
+            }
+        } else {
+            flag = 0;
+        }
+    }
+    
+    // right side
+    flag = 0;
+    for (int i = p+1; i < n; i++) {
+        if (a[i] != x) {
+            if (!flag) {
+                ans++;
+                flag = 1;
+            }
+        } else {
+            flag = 0;
+        }
+    }
+    
+    cout << ans << "\n";
+}
 
-// Author: Abdullah all Mojahid
-
-int main()
-{
-    ios::sync_with_stdio(false);
+int main() {
+    ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    
     int t;
     cin >> t;
-    while (t--)
-    {
-        int n, k;
-        cin >> n >> k;
-        vector<int> a(n);
-        // int sum = 0;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> a[i];
-            // sum += a[i];
-        }
-
-        int p;
-        cin >> p;
-        p--; // 0-based index
-        int x = a[p];
-
-        int segments = 0;
-
-        for (int i = 0; i < n; i++)
-        {
-            if (a[i] != x)
-            {
-                segments++;
-                while (i < n && a[i] != x)
-                {
-                    i++;
-                }
-                i--; // Adjust for the outer loop increment
-            }
-        }
-
-        cout << segments << endl;
+    while (t--) {
+        solve();
     }
-
     return 0;
 }
