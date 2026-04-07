@@ -29,41 +29,24 @@ int main()
         int p;
         cin >> p;
         p--; // 0-based index
-
         int x = a[p];
-        int left = 0, right = 0;
 
-        // left side
-        for (int i = 0; i < p;)
+        int segments = 0;
+
+        for (int i = 0; i < n; i++)
         {
             if (a[i] != x)
             {
-                left++;
-                while (i < p && a[i] != x)
-                    i++;
-            }
-            else
-            {
-                i++;
-            }
-        }
-
-        // right side
-        for (int i = p + 1; i < n;)
-        {
-            if (a[i] != x)
-            {
-                right++;
+                segments++;
                 while (i < n && a[i] != x)
+                {
                     i++;
-            }
-            else
-            {
-                i++;
+                }
+                i--; // Adjust for the outer loop increment
             }
         }
 
-        cout << max(left, right) << endl;
+        cout << segments << endl;
     }
 
     return 0;
