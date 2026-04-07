@@ -25,6 +25,45 @@ int main()
             cin >> a[i];
             // sum += a[i];
         }
+
+        int p;
+        cin >> p;
+        p--; // 0-based index
+
+        int x = a[p];
+        int left = 0, right = 0;
+
+        // left side
+        for (int i = 0; i < p;)
+        {
+            if (a[i] != x)
+            {
+                left++;
+                while (i < p && a[i] != x)
+                    i++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+        // right side
+        for (int i = p + 1; i < n;)
+        {
+            if (a[i] != x)
+            {
+                right++;
+                while (i < n && a[i] != x)
+                    i++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+        cout << max(left, right) << endl;
     }
 
     return 0;
