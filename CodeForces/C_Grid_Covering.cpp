@@ -1,35 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
+using ll = long long;
 
-// Author: Abdullah all Mojahid
+ll gcd(ll x, ll y) {
+    while (y != 0) {
+        ll t = y;
+        y = x % y;
+        x = t;
+    }
+    return x;
+}
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    
     int t;
     cin >> t;
-    while (t--)
-    {
-        long long n, m, a, b;
+    for (int test = 0; test < t; ++test) {
+        ll n, m, a, b;
         cin >> n >> m >> a >> b;
-
-        bool ok = false;
-
-        if (__gcd(a, n) == 1 && __gcd(b, m) == 1)
-        {
-            cout << "YES\n";
+        
+        ll ga = __gcd(a, n);
+        ll gb = __gcd(b, m);
+        
+        if (ga != 1 || gb != 1) {
+            cout << "NO\n";
+            continue;
         }
-        else
-        {
+        
+        ll d = gcd(n, m);
+        if (d == 1 || d == 2) {
+            cout << "YES\n";
+        } else {
             cout << "NO\n";
         }
     }
-
     return 0;
 }
