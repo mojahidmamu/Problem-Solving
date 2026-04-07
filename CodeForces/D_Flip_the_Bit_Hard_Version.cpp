@@ -33,7 +33,7 @@ int main()
                 i += k;
             }
         }
-        cout << ans << endl;
+        cout << ans << endl;-   
     }
 
     return 0;
