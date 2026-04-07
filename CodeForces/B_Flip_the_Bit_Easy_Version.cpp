@@ -2,8 +2,9 @@
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
     int t;
     cin >> t;
     while (t--) {
@@ -17,26 +18,26 @@ int main() {
         int x = a[p];
         
         int left = 0, right = 0;
-        int cnt = 0;
+        int flip = 0;
         for (int i = p-1; i >= 0; i--) {
             if (a[i] != x) {
-                if (cnt == 0) left++;
-                cnt ^= 1;
+                if (flip == 0) left++;
+                flip ^= 1;
             } else {
-                cnt = 0;
+                flip = 0;
             }
         }
-        cnt = 0;
+        flip = 0;
         for (int i = p+1; i < n; i++) {
             if (a[i] != x) {
-                if (cnt == 0) right++;
-                cnt ^= 1;
+                if (flip == 0) right++;
+                flip ^= 1;
             } else {
-                cnt = 0;
+                flip = 0;
             }
         }
         
         cout << left + right << "\n";
     }
     return 0;
-}
+}     
