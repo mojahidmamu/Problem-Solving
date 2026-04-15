@@ -11,6 +11,19 @@ int main()
         int n;
         cin >> n;
 
+        int zero = n / 2;
+        int one = n - zero;
+
+        for (int i = 0; i < zero; i++)
+        {
+            cout << "0";
+        }
+        for (int i = 0; i < one; i++)
+        {
+            cout << "1";
+        }
+        cout << endl;
+
         
     }
 
