@@ -14,14 +14,13 @@ int main()
         int zero = n / 2;
         int one = n - zero;
 
-        for (int i = 0; i < zero; i++)
+        for (int i = 0; i < n-1; i++)
         {
             cout << "0";
         }
-        for (int i = 0; i < one; i++)
-        {
+        
             cout << "1";
-        }
+        
         cout << endl;
 
         
