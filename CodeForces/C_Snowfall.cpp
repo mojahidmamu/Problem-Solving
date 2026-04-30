@@ -2,38 +2,33 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     int t;
     cin >> t;
     while (t--) {
         int n;
         cin >> n;
-
-        vector<long long> c, a, b, d;
-
+        vector<int> a(n);
         for (int i = 0; i < n; i++) {
-            long long x;
-            cin >> x;
-
-            bool div2 = (x % 2 == 0);
-            bool div3 = (x % 3 == 0);
-
-            if (div2 && div3) c.push_back(x);
-            else if (div2) a.push_back(x);
-            else if (div3) b.push_back(x);
-            else d.push_back(x);
+            cin >> a[i];
         }
 
-        // output order
-        for (auto x : c) cout << x << " ";
-        for (auto x : a) cout << x << " ";
-        for (auto x : d) cout << x << " ";
-        for (auto x : b) cout << x << " ";
+        vector<int> typeA, typeB, typeC, typeD;
+        for (int x : a) {
+            bool div2 = (x % 2 == 0);
+            bool div3 = (x % 3 == 0);
+            if (div2 && div3) typeA.push_back(x);
+            else if (div2 && !div3) typeB.push_back(x);
+            else if (!div2 && div3) typeC.push_back(x);
+            else typeD.push_back(x);
+        }
 
+        // Output in order: TypeA, TypeD, TypeB, TypeC
+        // This matches all given samples
+        for (int x : typeA) cout << x << " ";
+        for (int x : typeD) cout << x << " ";
+        for (int x : typeB) cout << x << " ";
+        for (int x : typeC) cout << x << " ";
         cout << "\n";
     }
-
     return 0;
 }
