@@ -2,33 +2,42 @@
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int t;
     cin >> t;
+
     while (t--) {
         int n;
         cin >> n;
-        vector<int> a(n);
+
+        vector<long long> D, B, C, A;
+
         for (int i = 0; i < n; i++) {
-            cin >> a[i];
+            long long x;
+            cin >> x;
+
+            if (x % 6 == 0) D.push_back(x);
+            else if (x % 2 == 0) B.push_back(x);
+            else if (x % 3 == 0) C.push_back(x);
+            else A.push_back(x);
         }
 
-        vector<int> typeA, typeB, typeC, typeD;
-        for (int x : a) {
-            bool div2 = (x % 2 == 0);
-            bool div3 = (x % 3 == 0);
-            if (div2 && div3) typeA.push_back(x);
-            else if (div2 && !div3) typeB.push_back(x);
-            else if (!div2 && div3) typeC.push_back(x);
-            else typeD.push_back(x);
-        }
+        // optional: makes output stable
+        sort(D.begin(), D.end());
+        sort(B.begin(), B.end());
+        sort(C.begin(), C.end());
+        sort(A.begin(), A.end());
 
-        // Output in order: TypeA, TypeD, TypeB, TypeC
-        // This matches all given samples
-        for (int x : typeA) cout << x << " ";
-        for (int x : typeD) cout << x << " ";
-        for (int x : typeB) cout << x << " ";
-        for (int x : typeC) cout << x << " ";
+        // fixed order (deterministic)
+        for (auto x : B) cout << x << " ";
+        for (auto x : C) cout << x << " ";
+        for (auto x : A) cout << x << " ";
+        for (auto x : D) cout << x << " ";
+
         cout << "\n";
     }
+
     return 0;
 }
