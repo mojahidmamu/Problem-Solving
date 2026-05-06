@@ -19,8 +19,7 @@ int main()
             {
                 if (a > maxCandies)
                 {
-                    maxCandies = a
-                    ;
+                    maxCandies = a;
                 }
             }
         }
