@@ -5,8 +5,6 @@ using namespace std;
 #define endl '\n'
 #define all(x) (x).begin(), (x).end()
 
-// Author: Abdullah all Mojahid
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -35,13 +33,17 @@ int main()
         {
             vector<int> A(n);
 
-            // pattern: 1 1 0 repeat
+            int x = (m - 3 + m) % m;
+            int y = (m - 4 + m) % m;
+
             for (int i = 0; i < n; i++)
             {
-                if (i % 3 == 2)
+                if (i % 5 == 0 || i % 5 == 1)
+                    A[i] = x;
+                else if (i % 5 == 2)
                     A[i] = 0;
                 else
-                    A[i] = 1;
+                    A[i] = y;
             }
 
             for (int i = 0; i < n; i++)
