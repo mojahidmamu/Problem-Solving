@@ -16,12 +16,16 @@ int main()
     cin >> t;
     while (t--)
     {
-        int x; cin >> x;
+        int x;
+        cin >> x;
         int ans = 0;
-        for (int i = 1; i <= x; i++)
+        if (x <= 20)
         {
-            int a; cin >> a;
-            if (a > 10) ans += a - 10;
+            ans = x * 10;
+        }
+        else
+        {
+            ans = 200 + ((x - 20) / 2) * 5;
         }
         cout << ans << endl;
     }
