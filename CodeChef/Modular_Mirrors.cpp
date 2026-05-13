@@ -18,22 +18,38 @@ int main()
     {
         int n, m;
         cin >> n >> m;
-        vector<int> a(n);
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-        sort(all(a));
-        int ans = 0;
-        for (int i = 0; i < n; i++)
+
+        if (n == 1)
         {
-            if (a[i] < 0 && m > 0)
-            {
-                ans += -a[i];
-                m--;
-            }
-            else
-                break;
+            cout << -1 << endl;
         }
-        cout << ans << endl;
+        else if (n == 2)
+        {
+            cout << "1 1" << endl;
+        }
+        else if (n % 2 == 0)
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            vector<int> A(n);
+
+            // pattern: 1 1 0 repeat
+            for (int i = 0; i < n; i++)
+            {
+                if (i % 3 == 2)
+                    A[i] = 0;
+                else
+                    A[i] = 1;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                cout << A[i] << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
