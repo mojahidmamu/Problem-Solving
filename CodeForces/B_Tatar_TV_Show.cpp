@@ -14,6 +14,7 @@ int main()
 
     int t;
     cin >> t;
+
     while (t--)
     {
         int n, k;
@@ -23,32 +24,25 @@ int main()
         cin >> s;
 
         bool can = true;
+
         for (int i = 0; i < k; i++)
         {
             int ones = 0;
-            for (int j = 0; j < n; j += k)
+
+            for (int j = i; j < n; j += k)
             {
                 if (s[j] == '1')
-                {
                     ones++;
-                }
             }
 
-            if (ones % 2 == 0)
+            if (ones % 2 == 1)
             {
                 can = false;
                 break;
             }
         }
 
-        if (can == true)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << (can ? "YES" : "NO") << endl;
     }
 
     return 0;
