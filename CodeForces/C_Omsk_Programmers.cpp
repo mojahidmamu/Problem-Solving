@@ -6,65 +6,6 @@ using namespace std;
 
 // Author: Abdullah all Mojahid
 
-struct PairHash
-{
-    size_t operator()(const pair<ll, ll> &p) const
-    {
-        return hash<ll>()(p.first) ^
-               (hash<ll>()(p.second) << 1);
-    }
-};
-
-ll x;
-unordered_map<pair<ll, ll>, ll, PairHash> dp;
-
-ll solve(ll a, ll b)
-{
-    if (a > b)
-        swap(a, b);
-
-    if (a == b)
-        return 0;
-
-    pair<ll, ll> state = {a, b};
-    if (dp.count(state))
-        return dp[state];
-
-    ll ans = b - a; // only increments
-
-    // Operate on a
-    if (a > 0)
-    {
-        ll q = a / x;
-
-        if (q != a)
-            ans = min(ans, 1 + solve(q, b));
-
-        if (a % x)
-        {
-            ll need = x - (a % x);
-            ans = min(ans, need + 1 + solve(q + 1, b));
-        }
-    }
-
-    // Operate on b
-    if (b > 0)
-    {
-        ll q = b / x;
-
-        if (q != b)
-            ans = min(ans, 1 + solve(a, q));
-
-        if (b % x)
-        {
-            ll need = x - (b % x);
-            ans = min(ans, need + 1 + solve(a, q + 1));
-        }
-    }
-
-    return dp[state] = ans;
-}
-
 int main()
 {
     ios::sync_with_stdio(false);
@@ -75,13 +16,50 @@ int main()
 
     while (t--)
     {
-        ll a, b;
+        ll a, b, x;
         cin >> a >> b >> x;
 
-        dp.clear();
+        vector<pair<ll, int>> va; // (value, divisions)
+        ll val = a;
+        int steps = 0;
+        while (val > 0)
+        {
+            va.emplace_back(val, steps);
+            val /= x;
+            steps++;
+        }
+        va.emplace_back(0, steps);
 
-        cout << solve(a, b) << endl;
+        vector<pair<ll, int>> vb;
+        val = b;
+        steps = 0;
+        while (val > 0)
+        {
+            vb.emplace_back(val, steps);
+            val /= x;
+            steps++;
+        }
+        vb.emplace_back(0, steps);
+
+        ll ans = LLONG_MAX;
+        for (auto &p1 : va)
+        {
+            ll av = p1.first;
+            int da = p1.second;
+            for (auto &p2 : vb)
+            {
+                ll bv = p2.first;
+                int db = p2.second;
+                ll cost = da + db + abs(av - bv);
+                if (cost < ans)
+                    {
+                        ans = cost;
+                    }
+            }
+        }
+
+        cout << ans << "\n";
     }
 
-        return 0;
+    return 0;
 }
