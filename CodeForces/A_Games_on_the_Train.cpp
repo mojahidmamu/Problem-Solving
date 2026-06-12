@@ -17,12 +17,17 @@ int main()
     while (t--)
     {
         int n;
-        cin >> n ;
-        vector<int> a(n);
+        cin >> n;
+        int mn = 1e9, mx = -1e9;
         for (int i = 0; i < n; i++)
-            cin >> a[i];
-        
-        
+        {
+            int h;
+            cin >> h;
+            mn = min(mn, h);
+            mx = max(mx, h);
+
+        }
+        cout << (mx - mn + 1)  << endl;
     }
 
     return 0;
