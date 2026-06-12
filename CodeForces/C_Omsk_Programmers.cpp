@@ -11,7 +11,7 @@ struct PairHash
     size_t operator()(const pair<ll, ll> &p) const
     {
         return hash<ll>()(p.first) ^
-            (hash<ll>()(p.second) << 1);
+               (hash<ll>()(p.second) << 1);
     }
 };
 
@@ -27,37 +27,38 @@ ll solve(ll a, ll b)
         return 0;
 
     pair<ll, ll> state = {a, b};
-
     if (dp.count(state))
         return dp[state];
 
-    ll ans = b - a; // Only increment operations
+    ll ans = b - a; // only increments
 
-    // Divide a
+    // Operate on a
     if (a > 0)
     {
         ll q = a / x;
 
-        ans = min(ans, 1 + solve(q, b));
+        if (q != a)
+            ans = min(ans, 1 + solve(q, b));
 
         if (a % x)
         {
-            ll cost = (x - (a % x)) + 1;
-            ans = min(ans, cost + solve(q + 1, b));
+            ll need = x - (a % x);
+            ans = min(ans, need + 1 + solve(q + 1, b));
         }
     }
 
-    // Divide b
+    // Operate on b
     if (b > 0)
     {
         ll q = b / x;
 
-        ans = min(ans, 1 + solve(a, q));
+        if (q != b)
+            ans = min(ans, 1 + solve(a, q));
 
         if (b % x)
         {
-            ll cost = (x - (b % x)) + 1;
-            ans = min(ans, cost + solve(a, q + 1));
+            ll need = x - (b % x);
+            ans = min(ans, need + 1 + solve(a, q + 1));
         }
     }
 
@@ -82,5 +83,5 @@ int main()
         cout << solve(a, b) << endl;
     }
 
-    return 0;
+        return 0;
 }
