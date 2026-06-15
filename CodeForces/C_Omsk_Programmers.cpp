@@ -19,7 +19,7 @@ int main()
         ll a, b, x;
         cin >> a >> b >> x;
 
-        vector<pair<ll, int>> va; // (value, divisions)
+        vector<pair<ll, int>> va; 
         ll val = a;
         int steps = 0;
         while (val > 0)
