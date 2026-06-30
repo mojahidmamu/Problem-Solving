@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
-
 // Author: Abdullah all Mojahid
 
 int main()
@@ -18,40 +14,50 @@ int main()
     {
         int n;
         cin >> n;
+        vector<long long> a(n), b(n);
+        for (int i = 0; i < n; i++)
+            cin >> a[i];
+        for (int i = 0; i < n; i++)
+            cin >> b[i];
 
-        vector<int> oddA, evenA, oddB, evenB;
+        long long P = 0, N = 0;
+        bool ok = true;
 
         for (int i = 0; i < n; i++)
         {
-            int x;
-            cin >> x;
-            if (i % 2 == 0)
-                oddA.push_back(x);
+            long long diff = b[i] - a[i];
+            long long q = ((i % 2 == 0) ? 1 : -1) * diff;
+
+            if ((i + 1) % 2 == 1)
+            {
+                long long need = max(0LL, -q);
+                if (N < need)
+                {
+                    ok = false;
+                    break;
+                }
+
+                P = q + N;
+            }
             else
-                evenA.push_back(x);
+            {
+                if (q >= 0)
+                {
+                    if (P < q)
+                    {
+                        ok = false;
+                        break;
+                    }
+                    N = P - q;
+                }
+                else
+                {
+                    N = P - q;
+                }
+            }
         }
 
-        for (int i = 0; i < n; i++)
-        {
-            int x;
-            cin >> x;
-            if (i % 2 == 0)
-                oddB.push_back(x);
-            else
-                evenB.push_back(x);
-        }
-
-        sort(oddA.begin(), oddA.end());
-        sort(oddB.begin(), oddB.end());
-        sort(evenA.begin(), evenA.end());
-        sort(evenB.begin(), evenB.end());
-
-        if (oddA == oddB && evenA == evenB)
-            cout << "YES\n";
-        else
-            cout << "NO\n";
-    
-}
-
-return 0;
+        cout << (ok ? "YES" : "NO") << '\n';
+    }
+    return 0;
 }
