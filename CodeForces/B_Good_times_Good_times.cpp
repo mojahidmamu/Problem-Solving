@@ -1,24 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
+using ll = long long;
 
-// Author: Abdullah all Mojahid
-
-bool isGood(long long n)
+bool good(ll x)
 {
-    int mask = 0;
-    while (n > 0)
+    set<int> s;
+    while (x)
     {
-        int d = n % 10;
-        mask |= (1 << d);
-        n /= 10;
-        if (__builtin_popcount(mask) > 2)
-            return false;
+        s.insert(x % 10);
+        x /= 10;
     }
-    return true;
+    return s.size() <= 2;
 }
 
 int main()
@@ -26,21 +19,28 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin >> t;
-    while (t--)
+    vector<int> cand;
+
+    // Generate all good numbers up to 9999
+    for (int i = 2; i <= 9999; i++)
+    {
+        if (good(i))
+            cand.push_back(i);
+    }
+
+    int T;
+    cin >> T;
+
+    while (T--)
     {
         ll x;
         cin >> x;
 
-        for (long long y = 2;; y++)
+        for (int y : cand)
         {
-            if (!isGood(y))
-                continue;
-            long long prod = x * y;
-            if (isGood(prod))
+            if (good(x * y))
             {
-                cout << y << endl;
+                cout << y << '\n';
                 break;
             }
         }
