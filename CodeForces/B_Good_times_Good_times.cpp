@@ -3,6 +3,8 @@ using namespace std;
 
 using ll = long long;
 
+// Author: Abdullah all Mojahid
+
 bool good(ll x)
 {
     set<int> s;
