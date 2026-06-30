@@ -20,7 +20,16 @@ int main()
         cin >> n;
         string s;
         cin >> s;
-        
+
+        int changes = 0;
+        for (int i = 1; i < n; i++)
+        {
+            if (s[i] != s[i - 1])
+                changes++;
+        }
+
+        // If the string has exactly one transition, answer is 2, else 1.
+        cout << (changes == 1 ? 2 : 1) << '\n';
     }
 
     return 0;
