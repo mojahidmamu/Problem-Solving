@@ -30,7 +30,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        int x;
+        ll x;
         cin >> x;
 
         for (long long y = 2;; y++)
@@ -40,7 +40,7 @@ int main()
             long long prod = x * y;
             if (isGood(prod))
             {
-                printf("%lld\n", y);
+                cout << y << endl;
                 break;
             }
         }
