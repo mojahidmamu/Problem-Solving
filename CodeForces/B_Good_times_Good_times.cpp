@@ -5,15 +5,14 @@ using ll = long long;
 
 // Author: Abdullah all Mojahid
 
-bool good(ll x)
-{
-    set<int> s;
-    while (x)
-    {
-        s.insert(x % 10);
+bool good(long long x) {
+    int mask = 0;
+    while (x) {
+        mask |= 1 << (x % 10);
+        if (__builtin_popcount(mask) > 2) return false;
         x /= 10;
     }
-    return s.size() <= 2;
+    return true;
 }
 
 int main()
