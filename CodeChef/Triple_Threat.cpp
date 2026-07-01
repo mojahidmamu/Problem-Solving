@@ -1,71 +1,60 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
-#define ll long long
-#define endl '\n'
-#define all(x) (x).begin(), (x).end()
+void solve() {
+    int n, x;
+    cin >> n >> x;
 
-// Author: Abdullah all Mojahid
+    // k is the number of columns that will result in '0' in f(A)
+    int k = min(n, (3 * n - x) / 2);
+    
+    // The remaining columns (n - k) will result in '1' in f(A)
+    int majority_ones_cols = n - k;
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    // Create three separate rows to construct the 3N string easily
+    string r1(n, '0'), r2(n, '0'), r3(n, '0');
+
+    int rem = x;
+
+    // Phase 1: Fill the majority-one columns from the back (right to left)
+    // We want to pack them with 3 ones where possible, and 2 ones if needed.
+    for (int i = n - 1; i >= k; i--) {
+        int left_cols = i - k; // columns remaining in this phase to the left
+        
+        // If we have enough ones left that even filling all remaining cols 
+        // with 2 ones isn't enough, we MUST put 3 ones in this column.
+        if (rem > 2 * left_cols + 2) {
+            r1[i] = '1'; r2[i] = '1'; r3[i] = '1';
+            rem -= 3;
+        } else {
+            r1[i] = '1'; r2[i] = '1'; r3[i] = '0';
+            rem -= 2;
+        }
+    }
+
+    // Phase 2: Distribute the remaining ones into the first k columns
+    // Since these are majority-zero, each column can take at most one '1'.
+    for (int i = k - 1; i >= 0 && rem > 0; i--) {
+        r1[i] = '1';
+        rem--;
+    }
+
+    // Concatenate the rows to match the output structure: A_1...A_N, A_N+1...A_2N, A_2N+1...A_3N
+    cout << r1 << r2 << r3 << '\n';
+}
+
+int main() {
+    // Optimize standard I/O operations for performance
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
     int t;
     cin >> t;
-    while (t--)
-    {
-        int n, x;
-        cin >> n >> x;
-
-        vector<array<int, 3>> col(n);
-
-        int k = min(n, (3 * n - x) / 2);
-
-        int rem = x;
-
-        // First k columns: at most one 1
-        for (int i = 0; i < k; i++)
-        {
-            if (rem > 3 * (n - i - 1))
-            {
-                col[i] = {1, 0, 0};
-                rem--;
-            }
-            else
-            {
-                col[i] = {0, 0, 0};
-            }
-        }
-
-        // Remaining columns: need majority ones
-        for (int i = k; i < n; i++)
-        {
-            int left = n - i - 1;
-
-            if (rem - 3 >= 0 && rem - 3 <= 3 * left)
-            {
-                col[i] = {1, 1, 1};
-                rem -= 3;
-            }
-            else
-            {
-                col[i] = {1, 1, 0};
-                rem -= 2;
-            }
-        }
-
-        string ans(3 * n, '0');
-
-        for (int i = 0; i < n; i++)
-        {
-            ans[i] = col[i][0] + '0';
-            ans[i + n] = col[i][1] + '0';
-            ans[i + 2 * n] = col[i][2] + '0';
-        }
-
-        cout << ans << '\n';
+    while (t--) {
+        solve();
     }
 
     return 0;
