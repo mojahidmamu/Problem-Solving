@@ -18,7 +18,23 @@ int main()
     {
         int n, k;
         cin >> n >> k;
-        int 
+
+        int sum = 0;
+        int mn = 0, mx = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            sum += x;
+            mn = min(mn, sum);
+            mx = max(mx, sum);
+        }
+
+        int L = max(0, -mn);
+        int R = min(k, k - mx);
+
+        cout << (L <= R ? "Yes" : "No") << '\n';
     }
 
     return 0;
