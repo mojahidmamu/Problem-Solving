@@ -19,7 +19,8 @@ int main()
         int R, Y;
         cin >> R >> Y;
 
-        cout << R + (Y / 2) << '\n';
+        int ans = R + max(0, (Y - R) / 2);
+        cout << ans << '\n';
     }
 
     return 0;
