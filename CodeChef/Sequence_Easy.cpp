@@ -16,14 +16,10 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
-        cin >> n;
-        vector<long long> A(n + 1);
-        for (int i = 1; i <= n; i++)
-        {
-            cin >> A[i];
-        }
+        int n, k;
+        cin >> n >> k;
 
+        
         
     }
 
