@@ -23,10 +23,14 @@ int main()
     vector<vector<bool>> pal(N, vector<bool>(N, false));
 
     for (int i = 0; i < N; i++)
+    {
         pal[i][i] = true;
+    }
 
     for (int i = 0; i + 1 < N; i++)
+    {
         pal[i][i + 1] = (A[i] == A[i + 1]);
+    }
 
     for (int len = 3; len <= N; len++)
     {
