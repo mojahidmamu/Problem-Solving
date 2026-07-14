@@ -18,25 +18,27 @@ int main()
     {
         int n;
         cin >> n;
-
-        vector<ll> a(n);
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-
-        ll need = 1;
-        bool ok = true;
-
-        for (int i = 0; i < n - 1; i++)
+        vector<long long> a(n + 1);
+        for (int i = 1; i <= n; ++i)
         {
-            if (a[i] < need)
+            cin >> a[i];
+        }
+        vector<long long> prefix(n + 1, 0);
+        for (int i = 1; i <= n; ++i)
+        {
+            prefix[i] = prefix[i - 1] + a[i];
+        }
+        bool possible = true;
+        for (int k = 1; k <= n; ++k)
+        {
+            long long min_req = (long long)k * (k + 1) / 2;
+            if (prefix[k] < min_req)
             {
-                ok = false;
+                possible = false;
                 break;
             }
-            need++;
         }
-
-        cout << (ok ? "YES" : "NO") << '\n';
+        cout << (possible ? "YES" : "NO") << '\n';
     }
 
     return 0;
