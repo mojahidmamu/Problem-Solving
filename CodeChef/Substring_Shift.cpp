@@ -16,12 +16,24 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
-        cin >> n;
-        string s;
-        cin >> s;
+        int N;
+        cin >> N;
+        string S;
+        cin >> S;
 
-        
+        int i = 0;
+        while (i < N && S[i] != 'z')
+        {
+            i++;
+        }
+
+        while (i < N && S[i] == 'z')
+        {
+            S[i] = 'a';
+            i++;
+        }
+
+        cout << S << '\n';
     }
 
     return 0;
